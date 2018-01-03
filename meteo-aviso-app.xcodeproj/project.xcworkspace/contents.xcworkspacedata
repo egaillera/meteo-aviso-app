@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:meteo-aviso-app.xcodeproj">
+      location = "self:/Users/egi/work/meteo-aviso-app/meteo-aviso-app.xcodeproj">
    </FileRef>
 </Workspace>
