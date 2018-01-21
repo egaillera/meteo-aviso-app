@@ -12,16 +12,24 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    let myServer = MeteoServer()
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        let notificationTypes: UIUserNotificationType = [UIUserNotificationType.alert, UIUserNotificationType.badge, UIUserNotificationType.sound]
+        /*let notificationTypes: UIUserNotificationType = [UIUserNotificationType.alert, UIUserNotificationType.badge, UIUserNotificationType.sound]
         let pushNotificationSettings = UIUserNotificationSettings(types: notificationTypes, categories: nil)
         
         application.registerUserNotificationSettings(pushNotificationSettings)
-        application.registerForRemoteNotifications()
+        application.registerForRemoteNotifications()*/
+        
+        
+        // Register with APNs
+        //UIApplication.shared.registerForRemoteNotifications()
+        
+        //JUST FOR TESTING IN SIMULATOR. UNCOMMENT PRIOR LINE AND COMMENT THIS ONE!!!
+        myServer.sendToken(userEmail:"egaillera@gmail.com",tokenStr:"token_de_prueba")
         
         return true
     }
@@ -50,8 +58,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         
-        let str = deviceToken.map { String(format: "%02hhx", $0) }.joined()
-        print("DEVICE TOKEN = \(str)")
+        let tokenStr = deviceToken.map { String(format: "%02hhx", $0) }.joined()
+        myServer.sendToken(userEmail:"egaillera@gmail.com",tokenStr:tokenStr)
+        
     }
     
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
