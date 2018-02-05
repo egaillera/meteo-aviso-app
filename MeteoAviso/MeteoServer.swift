@@ -22,12 +22,12 @@ class MeteoServer {
         
         let request = NSMutableURLRequest(url: NSURL(string: serverURL)! as URL)
         request.httpMethod = "POST"
-        let postString = "emailaddress=\(userEmail)&token=\(tokenStr)"
+        let postString = "emailaddress=\(userEmail)&token=\(tokenStr)&deviceid=\(String(describing: deviceId))"
         request.setValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
         request.httpBody = postString.data(using: String.Encoding.utf8)
         
         let task = URLSession.shared.dataTask(with: request as URLRequest) { data, response, error in
-            guard error == nil && data != nil else {                                                          // check for fundamental networking error
+            guard error == nil && data != nil else {     // check for fundamental networking error
                 print("error=\(String(describing: error))")
                 return
             }
