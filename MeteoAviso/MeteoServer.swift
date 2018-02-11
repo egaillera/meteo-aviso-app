@@ -11,8 +11,8 @@ import UIKit
 
 class MeteoServer {
     
-    let serverURL = "http://0.0.0.0:5000/token" as String
-    let deviceId = UIDevice.current.identifierForVendor?.uuidString
+    let serverURL = "http://meteoaviso.cloudapp.net:9090/token" as String
+    let deviceId = UIDevice.current.identifierForVendor?.uuidString //TODO: check if it's nil
     
     func sendToken(userEmail:String, tokenStr: String){
         
@@ -22,7 +22,7 @@ class MeteoServer {
         
         let request = NSMutableURLRequest(url: NSURL(string: serverURL)! as URL)
         request.httpMethod = "POST"
-        let postString = "emailaddress=\(userEmail)&token=\(tokenStr)&deviceid=\(String(describing: deviceId))"
+        let postString = "emailaddress=\(userEmail)&token=\(tokenStr)&deviceid=\(deviceId!)"
         request.setValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
         request.httpBody = postString.data(using: String.Encoding.utf8)
         
@@ -34,11 +34,8 @@ class MeteoServer {
             do {
                 if let responseJSON = try JSONSerialization.jsonObject(with: data!) as? [String:AnyObject]{
                     print(responseJSON)
-                    print(responseJSON["status"]!)
-                
                     let response1 = responseJSON["status"]! as! Int
-                    print(response1)
-                    
+            
                     //Check response from the sever
                     if response1 == 200
                     {
@@ -54,7 +51,6 @@ class MeteoServer {
                             print("Notif token not sent")
                         }
                     }
-                    
                 }
             }
             catch {
