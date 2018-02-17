@@ -33,6 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Register with APNs
         UIApplication.shared.registerForRemoteNotifications()
         print("Registered in APN")
+        myServer.sendToken(userEmail:"egaillera@gmail.com",tokenStr:"tokenStr")
         
         //JUST FOR TESTING IN SIMULATOR. UNCOMMENT PRIOR LINE AND COMMENT THIS ONE!!!
         //myServer.sendToken(userEmail:"egaillera@gmail.com",tokenStr:"token_de_prueba")

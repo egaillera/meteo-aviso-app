@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E43B69EA203891C90034023D /* Measurement.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43B69E9203891C90034023D /* Measurement.swift */; };
 		E44C5B1A1E8E5E3100A48F24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44C5B191E8E5E3100A48F24 /* AppDelegate.swift */; };
 		E44C5B1C1E8E5E3100A48F24 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44C5B1B1E8E5E3100A48F24 /* ViewController.swift */; };
 		E44C5B1F1E8E5E3100A48F24 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E44C5B1D1E8E5E3100A48F24 /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 
 /* Begin PBXFileReference section */
 		E40ABD481FFD3F050025B960 /* MeteoAviso.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MeteoAviso.entitlements; sourceTree = "<group>"; };
+		E43B69E9203891C90034023D /* Measurement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Measurement.swift; sourceTree = "<group>"; };
 		E44C5B161E8E5E3100A48F24 /* MeteoAviso.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeteoAviso.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E44C5B191E8E5E3100A48F24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E44C5B1B1E8E5E3100A48F24 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 			isa = PBXGroup;
 			children = (
 				E48165642014891B005E83E3 /* MeteoServer.swift */,
+				E43B69E9203891C90034023D /* Measurement.swift */,
 				E40ABD481FFD3F050025B960 /* MeteoAviso.entitlements */,
 				E44C5B191E8E5E3100A48F24 /* AppDelegate.swift */,
 				E44C5B1B1E8E5E3100A48F24 /* ViewController.swift */,
@@ -149,6 +152,7 @@
 			files = (
 				E44C5B1C1E8E5E3100A48F24 /* ViewController.swift in Sources */,
 				E48165652014891B005E83E3 /* MeteoServer.swift in Sources */,
+				E43B69EA203891C90034023D /* Measurement.swift in Sources */,
 				E44C5B1A1E8E5E3100A48F24 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
