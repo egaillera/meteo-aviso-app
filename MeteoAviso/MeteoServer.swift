@@ -11,13 +11,15 @@ import UIKit
 
 class MeteoServer {
     
-    let serverURL = "http://meteoaviso.cloudapp.net:9090/" as String
-    //let serverURL = "http://localhost:5000/" as String
+    let serverURL = "http://meteoaviso.cloudapp.net:9090/" as String  // To work with real server
+    //let serverURL = "http://localhost:5000/" as String // To work with simulator
     let deviceId = UIDevice.current.identifierForVendor?.uuidString //TODO: check if it's nil
     
     var lastMeasurement:Measurement? = nil
     
-    func sendToken(userEmail:String, tokenStr: String){
+    // Send notification token to the server
+    func sendToken(userEmail:String, tokenStr: String) {
+        print("Function: \(#function), line: \(#line)")
         
         print("eMail Address = \(userEmail)")
         print("DEVICE TOKEN = \(tokenStr)")
@@ -64,8 +66,9 @@ class MeteoServer {
         task.resume()
     }
     
+    // Call the server to get the closest measurement.
     func getClosestMeasurement(_ controller:MeasurementViewController, lat:Float, lon:Float) {
-        
+        print("Function: \(#function), line: \(#line)")
         print("Requested closest measurement to lat=\(lat), lon=\(lon)")
         
         let url:URL = URL(string: serverURL + "closest_measurement?lat=\(lat)&lon=\(lon)")!
@@ -88,7 +91,8 @@ class MeteoServer {
     }
     
     func extractJsonMeasurement(_ data:Data) -> Measurement? {
-        print("Closest Measurement Received")
+        print("Function: \(#function), line: \(#line)")
+        
         let json:Any?
         var measurement:Measurement?
         
