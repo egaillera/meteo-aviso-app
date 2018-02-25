@@ -1,16 +1,19 @@
 //
-//  MeasurementViewController.swift
+//  RootViewController.swift
 //  MeteoAviso
 //
-//  Created by egi on 31/3/17.
-//  Copyright © 2017 egaillera. All rights reserved.
+//  Created by egi on 24/2/18.
+//  Copyright © 2018 egaillera. All rights reserved.
 //
 
 import UIKit
 import CoreLocation
 
 
-class MeasurementViewController: UIViewController, CLLocationManagerDelegate {
+class RootViewController: UIViewController,CLLocationManagerDelegate {
+    
+    @IBOutlet var myScrollView : UIScrollView!
+    @IBOutlet var myContentView : UIView!
     
     let myServer = MeteoServer()
     var measurement:Measurement?
@@ -22,9 +25,22 @@ class MeasurementViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet var temp : UILabel!
     @IBOutlet var rainfall : UILabel!
     
+    var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action:
+            #selector(RootViewController.handleRefresh(_:)),
+                                 for: UIControlEvents.valueChanged)
+        refreshControl.tintColor = UIColor.red
+        
+        return refreshControl
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        myScrollView.refreshControl = self.refreshControl
+        myScrollView.contentSize = CGSize(width:myContentView.frame.width, height:myContentView.frame.height)
         
         self.locationManager.requestWhenInUseAuthorization()
         
@@ -40,11 +56,6 @@ class MeasurementViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.requestLocation()
         
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     // MeteoServer will call this when the measurement is
     // ready to be shown
@@ -57,6 +68,8 @@ class MeasurementViewController: UIViewController, CLLocationManagerDelegate {
             self.temp.text = "\(measurement!.current_temp)"
             self.rainfall.text = "\(measurement!.rainfall)"
             self.view.setNeedsDisplay()
+            
+            self.refreshControl.endRefreshing()
         }
         
     }
@@ -66,7 +79,7 @@ class MeasurementViewController: UIViewController, CLLocationManagerDelegate {
         print("Function: \(#function), line: \(#line)")
         guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
         
-        //myServer.getClosestMeasurement(self, lat: Float(locValue.latitude), lon: Float(locValue.longitude))
+        myServer.getClosestMeasurement(self, lat: Float(locValue.latitude), lon: Float(locValue.longitude))
         
     }
     
@@ -74,7 +87,19 @@ class MeasurementViewController: UIViewController, CLLocationManagerDelegate {
         print(error)
     }
     
- 
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+        print("Function: \(#function), line: \(#line)")
+        
+        // Asking for a new location will trigger the call to MeteoServer
+        locationManager.requestLocation()
+        
+    }
+    
+    
     
 }
-

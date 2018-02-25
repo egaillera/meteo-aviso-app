@@ -67,7 +67,7 @@ class MeteoServer {
     }
     
     // Call the server to get the closest measurement.
-    func getClosestMeasurement(_ controller:MeasurementViewController, lat:Float, lon:Float) {
+    func getClosestMeasurement(_ controller:RootViewController, lat:Float, lon:Float) {
         print("Function: \(#function), line: \(#line)")
         print("Requested closest measurement to lat=\(lat), lon=\(lon)")
         
