@@ -49,6 +49,9 @@ class RootViewController: UIViewController,CLLocationManagerDelegate {
             locationManager.desiredAccuracy = kCLLocationAccuracyKilometer // You can change the location accuracy here.
             //locationManager.startUpdatingLocation()
         }
+        
+        addGradientToView(view: myContentView)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -98,6 +101,27 @@ class RootViewController: UIViewController,CLLocationManagerDelegate {
         // Asking for a new location will trigger the call to MeteoServer
         locationManager.requestLocation()
         
+    }
+    
+    func addGradientToView(view: UIView)
+    {
+        //gradient layer
+        let gradientLayer = CAGradientLayer()
+        
+        //define colors. TODO: make them depending on time (night, day)
+        let initalColor = UIColor(red:0.04, green:0.53, blue:0.68, alpha:1.0) // dark blue
+        let lastColor = UIColor(red:0.49, green:0.86, blue:0.98, alpha:1.0) // light blue
+        gradientLayer.colors = [initalColor.cgColor,lastColor.cgColor]
+        
+        //define locations of colors as NSNumbers in range from 0.0 to 1.0
+        //if locations not provided the colors will spread evenly
+        gradientLayer.locations = [0.0, 0.6, 0.8]
+        
+        //define frame
+        gradientLayer.frame = view.bounds
+        
+        //insert the gradient layer to the view layer
+        view.layer.insertSublayer(gradientLayer, at: 0)
     }
     
     
