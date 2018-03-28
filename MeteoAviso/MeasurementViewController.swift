@@ -64,7 +64,7 @@ class MeasurementViewController: UIViewController, CLLocationManagerDelegate {
     // The location is ready,so now we can get the closest measurement
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         print("Function: \(#function), line: \(#line)")
-        guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
+        guard let _: CLLocationCoordinate2D = manager.location?.coordinate else { return }
         
         //myServer.getClosestMeasurement(self, lat: Float(locValue.latitude), lon: Float(locValue.longitude))
         
