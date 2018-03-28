@@ -13,7 +13,7 @@ import CoreLocation
 class RootViewController: UIViewController,CLLocationManagerDelegate {
     
     @IBOutlet var myScrollView : UIScrollView!
-    @IBOutlet var myContentView : UIView!
+    @IBOutlet var myContentView : GradientView!
     
     let myServer = MeteoServer()
     var measurement:Measurement?
@@ -40,7 +40,11 @@ class RootViewController: UIViewController,CLLocationManagerDelegate {
         // Do any additional setup after loading the view, typically from a nib.
         
         myScrollView.refreshControl = self.refreshControl
-        myScrollView.contentSize = CGSize(width:myContentView.frame.width, height:myContentView.frame.height)
+        //myScrollView.contentSize = CGSize(width:myContentView.frame.width, height:myContentView.frame.height)
+        
+        // TODO: make them depending on time (night, day)
+        myContentView.firstColor = UIColor(red:0.04, green:0.53, blue:0.68, alpha:1.0)
+        myContentView.secondColor = UIColor(red:0.49, green:0.86, blue:0.98, alpha:1.0)
         
         self.locationManager.requestWhenInUseAuthorization()
         
@@ -50,7 +54,7 @@ class RootViewController: UIViewController,CLLocationManagerDelegate {
             //locationManager.startUpdatingLocation()
         }
         
-        addGradientToView(view: myContentView)
+        //addGradientToView(view: myContentView)
         
     }
     
