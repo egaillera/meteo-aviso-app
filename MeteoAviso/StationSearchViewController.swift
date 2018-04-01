@@ -12,6 +12,8 @@ class StationSearchViewController: UITableViewController  {
     
     var stationsList : [Station]?
     
+    let provinces = ["None","Alava","Albacete","Alicante","Almería","Asturias","Avila","Badajoz","Barcelona","Burgos","Cáceres","Cádiz","Cantabria","Castellón","Ciudad Real","Córdoba","La Coruña","Cuenca","Girona","Granada","Guadalajara","Guipúzcoa","Huelva","Huesca","Islas Baleares","Jaén","León","Lérida","Lugo","Madrid","Málaga","Murcia","Navarra","Orense","Palencia","Las Palmas","Pontevedra","La Rioja","Salamanca","Segovia","Sevilla","Soria","Tarragona","Santa Cruz de Tenerife","Teruel","Toledo","Valencia","Valladolid","Vizcaya","Zamora","Zaragoza"]
+    
     override func viewDidLoad() {
         print("File: \(#file), Function: \(#function), line: \(#line)")
         super.viewDidLoad()
@@ -67,7 +69,11 @@ class StationSearchViewController: UITableViewController  {
             guard let _:Data = data, let _:URLResponse = response  , error == nil else {
                 return
             }
-            self.stationsList = self.extractJsonStations(data!)
+            
+            // Get list of stations and order it by province
+            let stList = self.extractJsonStations(data!)
+            self.stationsList = stList.sorted {$0.province < $1.province}
+        
             DispatchQueue.main.async {
                 print("Reloading data")
                 self.tableView.reloadData()
@@ -99,6 +105,8 @@ class StationSearchViewController: UITableViewController  {
         }
         else {
             cell.textLabel?.text = stationsList![indexPath.row].name
+            cell.detailTextLabel?.text = provinces[stationsList![indexPath.row].province]
+            //cell.detailTextLabel?.text = "Provincia"
         }
         
         return cell

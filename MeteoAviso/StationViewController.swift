@@ -14,7 +14,7 @@ class StationViewController : UIViewController {
     @IBOutlet var myContentView : GradientView!
     
     var measurement:Measurement?
-    var stationCode = "2117D"
+    var stationCode = "ESCYL4200000042126A"
     
     @IBOutlet var stationName : UILabel!
     @IBOutlet var date : UILabel!
