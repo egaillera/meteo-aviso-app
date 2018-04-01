@@ -7,30 +7,36 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E41EDDD5204164C200525BA3 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41EDDD4204164C200525BA3 /* RootViewController.swift */; };
+		E433774B206F922A00ECD9B1 /* StationSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E433774A206F922A00ECD9B1 /* StationSearchViewController.swift */; };
+		E433774D206F9C4C00ECD9B1 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E433774C206F9C4C00ECD9B1 /* FavoritesViewController.swift */; };
+		E433774F206FA46A00ECD9B1 /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = E433774E206FA46A00ECD9B1 /* Station.swift */; };
 		E43B69EA203891C90034023D /* Measurement.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43B69E9203891C90034023D /* Measurement.swift */; };
 		E44C5B1A1E8E5E3100A48F24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44C5B191E8E5E3100A48F24 /* AppDelegate.swift */; };
-		E44C5B1C1E8E5E3100A48F24 /* MeasurementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44C5B1B1E8E5E3100A48F24 /* MeasurementViewController.swift */; };
 		E44C5B1F1E8E5E3100A48F24 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E44C5B1D1E8E5E3100A48F24 /* Main.storyboard */; };
 		E44C5B211E8E5E3100A48F24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E44C5B201E8E5E3100A48F24 /* Assets.xcassets */; };
 		E44C5B241E8E5E3100A48F24 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E44C5B221E8E5E3100A48F24 /* LaunchScreen.storyboard */; };
 		E48165652014891B005E83E3 /* MeteoServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48165642014891B005E83E3 /* MeteoServer.swift */; };
 		E4A2ADDD206BF6590058F564 /* GradView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A2ADDC206BF6590058F564 /* GradView.swift */; };
+		E4E5A0C4206D367C003D8562 /* StationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E5A0C3206D367C003D8562 /* StationViewController.swift */; };
+		E4E5A0C6206D430C003D8562 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E5A0C5206D430C003D8562 /* LocationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		E40ABD481FFD3F050025B960 /* MeteoAviso.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MeteoAviso.entitlements; sourceTree = "<group>"; };
-		E41EDDD4204164C200525BA3 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		E433774A206F922A00ECD9B1 /* StationSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationSearchViewController.swift; sourceTree = "<group>"; };
+		E433774C206F9C4C00ECD9B1 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		E433774E206FA46A00ECD9B1 /* Station.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
 		E43B69E9203891C90034023D /* Measurement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Measurement.swift; sourceTree = "<group>"; };
 		E44C5B161E8E5E3100A48F24 /* MeteoAviso.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeteoAviso.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E44C5B191E8E5E3100A48F24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E44C5B1B1E8E5E3100A48F24 /* MeasurementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementViewController.swift; sourceTree = "<group>"; };
 		E44C5B1E1E8E5E3100A48F24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E44C5B201E8E5E3100A48F24 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E44C5B231E8E5E3100A48F24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E44C5B251E8E5E3100A48F24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E48165642014891B005E83E3 /* MeteoServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeteoServer.swift; sourceTree = "<group>"; };
 		E4A2ADDC206BF6590058F564 /* GradView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradView.swift; sourceTree = "<group>"; };
+		E4E5A0C3206D367C003D8562 /* StationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationViewController.swift; sourceTree = "<group>"; };
+		E4E5A0C5206D430C003D8562 /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,12 +71,15 @@
 			children = (
 				E48165642014891B005E83E3 /* MeteoServer.swift */,
 				E43B69E9203891C90034023D /* Measurement.swift */,
+				E433774E206FA46A00ECD9B1 /* Station.swift */,
 				E40ABD481FFD3F050025B960 /* MeteoAviso.entitlements */,
 				E44C5B191E8E5E3100A48F24 /* AppDelegate.swift */,
-				E44C5B1B1E8E5E3100A48F24 /* MeasurementViewController.swift */,
-				E41EDDD4204164C200525BA3 /* RootViewController.swift */,
+				E4E5A0C5206D430C003D8562 /* LocationViewController.swift */,
+				E4E5A0C3206D367C003D8562 /* StationViewController.swift */,
 				E4A2ADDC206BF6590058F564 /* GradView.swift */,
 				E44C5B1D1E8E5E3100A48F24 /* Main.storyboard */,
+				E433774A206F922A00ECD9B1 /* StationSearchViewController.swift */,
+				E433774C206F9C4C00ECD9B1 /* FavoritesViewController.swift */,
 				E44C5B201E8E5E3100A48F24 /* Assets.xcassets */,
 				E44C5B221E8E5E3100A48F24 /* LaunchScreen.storyboard */,
 				E44C5B251E8E5E3100A48F24 /* Info.plist */,
@@ -157,11 +166,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4A2ADDD206BF6590058F564 /* GradView.swift in Sources */,
-				E41EDDD5204164C200525BA3 /* RootViewController.swift in Sources */,
-				E44C5B1C1E8E5E3100A48F24 /* MeasurementViewController.swift in Sources */,
+				E433774F206FA46A00ECD9B1 /* Station.swift in Sources */,
 				E48165652014891B005E83E3 /* MeteoServer.swift in Sources */,
+				E433774D206F9C4C00ECD9B1 /* FavoritesViewController.swift in Sources */,
+				E4E5A0C4206D367C003D8562 /* StationViewController.swift in Sources */,
+				E433774B206F922A00ECD9B1 /* StationSearchViewController.swift in Sources */,
 				E43B69EA203891C90034023D /* Measurement.swift in Sources */,
 				E44C5B1A1E8E5E3100A48F24 /* AppDelegate.swift in Sources */,
+				E4E5A0C6206D430C003D8562 /* LocationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

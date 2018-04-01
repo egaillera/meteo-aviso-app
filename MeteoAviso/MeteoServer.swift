@@ -11,8 +11,8 @@ import UIKit
 
 class MeteoServer {
     
-    let serverURL = "http://meteoaviso.cloudapp.net:9090/" as String  // To work with real server
-    //let serverURL = "http://localhost:5000/" as String // To work with simulator
+    static let serverURL = "http://meteoaviso.cloudapp.net:9090/" as String  // To work with real server
+    //static let serverURL = "http://localhost:5000/" as String // To work with local server
     let deviceId = UIDevice.current.identifierForVendor?.uuidString //TODO: check if it's nil
     
     var lastMeasurement:Measurement? = nil
@@ -25,7 +25,7 @@ class MeteoServer {
         print("DEVICE TOKEN = \(tokenStr)")
         print("Device ID = \(deviceId!)") // To identify uniquely this device
         
-        let request = NSMutableURLRequest(url: NSURL(string: serverURL + "token")! as URL)
+        let request = NSMutableURLRequest(url: NSURL(string: MeteoServer.serverURL + "token")! as URL)
         request.httpMethod = "POST"
         let postString = "emailaddress=\(userEmail)&token=\(tokenStr)&deviceid=\(deviceId!)"
         request.setValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
@@ -66,55 +66,6 @@ class MeteoServer {
         task.resume()
     }
     
-    // Call the server to get the closest measurement.
-    func getClosestMeasurement(_ controller:RootViewController, lat:Float, lon:Float) {
-        print("Function: \(#function), line: \(#line)")
-        print("Requested closest measurement to lat=\(lat), lon=\(lon)")
-        
-        let url:URL = URL(string: serverURL + "closest_measurement?lat=\(lat)&lon=\(lon)")!
-        let session = URLSession.shared
-        
-        let request = NSMutableURLRequest(url: url)
-        request.httpMethod = "GET"
-        request.cachePolicy = NSURLRequest.CachePolicy.reloadIgnoringCacheData
-        
-        let task = session.dataTask(with: request as URLRequest, completionHandler: {
-            (data, response, error) in
-            
-            guard let _:Data = data, let _:URLResponse = response  , error == nil else {
-                return
-            }
-            controller.sendMeasurement(self.extractJsonMeasurement(data!))
-        })
-        
-        task.resume()
-    }
-    
-    func extractJsonMeasurement(_ data:Data) -> Measurement? {
-        print("Function: \(#function), line: \(#line)")
-        
-        let json:Any?
-        var measurement:Measurement?
-        
-        do {
-            json = try JSONSerialization.jsonObject(with: data, options: [])
-        }
-        catch {
-            return nil
-        }
-        if let object = json as? [String: Any] {
-            // json is a dictionary
-            measurement = Measurement(object)
-        } else if let object = json as? [Any] {
-            // json is an array
-            print(object)
-        } else {
-            print("JSON is invalid")
-        }
-        
-        return measurement
-    }
-
 }
         
     
