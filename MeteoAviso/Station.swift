@@ -15,11 +15,7 @@ struct Station:CustomStringConvertible {
     var code:String
     var province:Int
     
-    let htmlCodes = ["&#243;":"ó","&#233;":"é","&#250;":"ú","&#225;":"á","&#237;":"í",
-                     "&#231;":"ç","&#241;":"ñ","&#224;":"à","&#232;":"è",
-                     "&#242;":"ò","&#200;":"È","&#210;":"Ò","&#211;":"Ó","&#193;":"Á",
-                     "&#192;":"À","&#183;":"·","&#170;":"ª","&#252;":"ü","&#218;":"Ú",
-                     "&#205;":"Í","&#186;":"º","&#38;#180;":"'"]
+    
     
     init(_ dictionary:[String:Any]) {
         
@@ -30,17 +26,21 @@ struct Station:CustomStringConvertible {
         self.province = dictionary["prov"] as! Int
         
         // Remove html codes
-        self.name = replaceHtmlCodes(self.name)
-        
+        self.name = Station.replaceHtmlCodesInName(self.name)
     }
     
     var description: String {
         return "Station \(self.name) with code \(self.code)"
     }
     
-    func replaceHtmlCodes(_ name:String) -> String {
+    static func replaceHtmlCodesInName(_ name:String) -> String {
         
         var replaced : String
+        let htmlCodes = ["&#243;":"ó","&#233;":"é","&#250;":"ú","&#225;":"á","&#237;":"í",
+                         "&#231;":"ç","&#241;":"ñ","&#224;":"à","&#232;":"è",
+                         "&#242;":"ò","&#200;":"È","&#210;":"Ò","&#211;":"Ó","&#193;":"Á",
+                         "&#192;":"À","&#183;":"·","&#170;":"ª","&#252;":"ü","&#218;":"Ú",
+                         "&#205;":"Í","&#186;":"º","&#38;#180;":"'"]
         
         replaced = name
         

@@ -21,7 +21,7 @@ struct Measurement:CustomStringConvertible {
     var code:String
     
     init(_ dictionary:[String:Any]) {
-        self.name = dictionary["name"] as! String
+        self.name = Station.replaceHtmlCodesInName(dictionary["name"] as! String)
         self.max_gust = dictionary["max_gust"] as! Float
         self.date_created = dictionary["date_created"] as! String
         self.current_pres = dictionary["current_pres"] as! Float
