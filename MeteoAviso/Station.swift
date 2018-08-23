@@ -15,8 +15,6 @@ struct Station:CustomStringConvertible {
     var code:String
     var province:Int
     
-    
-    
     init(_ dictionary:[String:Any]) {
         
         self.name = dictionary["name"] as! String

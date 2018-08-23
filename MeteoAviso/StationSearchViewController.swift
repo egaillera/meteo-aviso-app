@@ -11,12 +11,31 @@ import UIKit
 class StationSearchViewController: UITableViewController  {
     
     var stationsList : [Station]?
+    var filteredStations = [Station]()
     
-    let provinces = ["None","Alava","Albacete","Alicante","Almería","Asturias","Avila","Badajoz","Barcelona","Burgos","Cáceres","Cádiz","Cantabria","Castellón","Ciudad Real","Córdoba","La Coruña","Cuenca","Girona","Granada","Guadalajara","Guipúzcoa","Huelva","Huesca","Islas Baleares","Jaén","León","Lérida","Lugo","Madrid","Málaga","Murcia","Navarra","Orense","Palencia","Las Palmas","Pontevedra","La Rioja","Salamanca","Segovia","Sevilla","Soria","Tarragona","Santa Cruz de Tenerife","Teruel","Toledo","Valencia","Valladolid","Vizcaya","Zamora","Zaragoza"]
+    let provinces = ["None","Alava","Albacete","Alicante","Almería","Asturias","Avila","Badajoz","Barcelona","Burgos","Cáceres","Cádiz","Cantabria","Castellón","Ciudad Real","Córdoba","La Coruña","Cuenca","Girona","Granada","Guadalajara","Guipúzcoa","Huelva","Huesca","Islas Baleares","Jaén","León","Lérida","Lugo","Madrid","Málaga","Murcia","Navarra","Orense","Palencia","Las Palmas","Pontevedra","La Rioja","Salamanca","Segovia","Sevilla","Soria","Tarragona","Santa Cruz de Tenerife","Teruel","Toledo","Valencia","Valladolid","Vizcaya","Zamora","Zaragoza","Ceuta","Melilla"]
+    
+    let searchController = UISearchController(searchResultsController: nil)
+    
+    
+    func setupSearchController() {
+        definesPresentationContext = true
+        searchController.dimsBackgroundDuringPresentation = false
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.barTintColor = UIColor(white: 0.9, alpha: 0.9)
+        searchController.searchBar.placeholder = "Busca por estación o provincia"
+        searchController.hidesNavigationBarDuringPresentation = false
+        
+        tableView.tableHeaderView = searchController.searchBar
+        
+    }
     
     override func viewDidLoad() {
         print("File: \(#file), Function: \(#function), line: \(#line)")
         super.viewDidLoad()
+        
+        self.tableView.tableFooterView = UIView() // To get rid of empy rows
+        //setupSearchController()
         
         self.getStationsList()
     }
@@ -77,6 +96,7 @@ class StationSearchViewController: UITableViewController  {
             DispatchQueue.main.async {
                 print("Reloading data")
                 self.tableView.reloadData()
+                self.setupSearchController()
             }
         })
         
@@ -89,12 +109,21 @@ class StationSearchViewController: UITableViewController  {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        var numberOfRows : Int
+        
         if (stationsList == nil) {
-            return 0
+            numberOfRows = 0
         }
         else {
-            return stationsList!.count
+            if searchController.isActive && searchController.searchBar.text != "" {
+                numberOfRows = filteredStations.count
+            }
+            else {
+                numberOfRows = stationsList!.count
+            }
         }
+        
+        return numberOfRows
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -104,19 +133,54 @@ class StationSearchViewController: UITableViewController  {
             cell.textLabel?.text = "Cargando ..."
         }
         else {
-            cell.textLabel?.text = stationsList![indexPath.row].name
-            cell.detailTextLabel?.text = provinces[stationsList![indexPath.row].province]
-            //cell.detailTextLabel?.text = "Provincia"
+            
+            let station:Station
+            
+            if searchController.isActive && searchController.searchBar.text != "" {
+                station = filteredStations[indexPath.row]
+            } else {
+                station = stationsList![indexPath.row]
+            }
+            
+            cell.textLabel?.text = station.name
+            cell.detailTextLabel?.text = provinces[station.province]
+        
         }
         
         return cell
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        let theStationView = segue.destination as! StationViewController
-        theStationView.stationCode = stationsList![tableView.indexPathForSelectedRow!.row].code
+    func filterRowsForSearchedText(_ searchText: String) {
+        print("File: \(#file), Function: \(#function), line: \(#line)")
+        filteredStations = stationsList!.filter({(station : Station) -> Bool in
+            return station.name.lowercased().contains(searchText.lowercased())||provinces[station.province].lowercased().contains(searchText.lowercased())
+        })
+        tableView.reloadData()
     }
     
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        var stCode: String
+        
+        if searchController.isActive && searchController.searchBar.text != "" {
+            stCode = filteredStations[tableView.indexPathForSelectedRow!.row].code
+        } else {
+            stCode = stationsList![tableView.indexPathForSelectedRow!.row].code
+        }
+        
+        let theStationView = segue.destination as! StationViewController
+        theStationView.stationCode = stCode
+    }
     
 }
+
+extension StationSearchViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        print("File: \(#file), Function: \(#function), line: \(#line)")
+        if let term = searchController.searchBar.text {
+            filterRowsForSearchedText(term)
+        }
+    }
+}
+
