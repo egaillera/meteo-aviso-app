@@ -151,6 +151,11 @@
                                     <segue destination="LAx-UU-ooY" kind="show" id="dA7-z3-LhG"/>
                                 </connections>
                             </barButtonItem>
+                            <barButtonItem title="Config" id="hvO-yE-6U9">
+                                <connections>
+                                    <segue destination="1o5-U5-LeI" kind="show" id="05Y-Yf-x5N"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
@@ -229,7 +234,53 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aAT-TF-yYh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1870" y="637"/>
+            <point key="canvasLocation" x="1870" y="165"/>
+        </scene>
+        <!--Config View Controller-->
+        <scene sceneID="w2L-W8-s5D">
+            <objects>
+                <viewController id="1o5-U5-LeI" customClass="ConfigViewController" customModule="MeteoAviso" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cf9-Zn-oHt"/>
+                        <viewControllerLayoutGuide type="bottom" id="net-Yk-ybW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Toy-jh-i17">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yuN-te-KJ3">
+                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="zdj-JR-kf7">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="zdj-JR-kf7" firstAttribute="top" secondItem="yuN-te-KJ3" secondAttribute="top" id="AaJ-28-CD5"/>
+                                    <constraint firstItem="zdj-JR-kf7" firstAttribute="centerX" secondItem="yuN-te-KJ3" secondAttribute="centerX" id="RgV-lg-s6v"/>
+                                    <constraint firstItem="zdj-JR-kf7" firstAttribute="centerY" secondItem="yuN-te-KJ3" secondAttribute="centerY" id="eGN-lv-gEC"/>
+                                    <constraint firstItem="zdj-JR-kf7" firstAttribute="leading" secondItem="yuN-te-KJ3" secondAttribute="leading" id="egc-6Q-cdL"/>
+                                    <constraint firstAttribute="bottom" secondItem="zdj-JR-kf7" secondAttribute="bottom" id="iir-Ha-YFY"/>
+                                    <constraint firstAttribute="trailing" secondItem="zdj-JR-kf7" secondAttribute="trailing" id="jSo-4b-Zf6"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.65297670470000002" green="1" blue="0.94704014560000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="net-Yk-ybW" firstAttribute="top" secondItem="yuN-te-KJ3" secondAttribute="bottom" id="8Hf-C3-HU7"/>
+                            <constraint firstItem="yuN-te-KJ3" firstAttribute="top" secondItem="cf9-Zn-oHt" secondAttribute="bottom" id="fsR-74-ZFO"/>
+                            <constraint firstItem="yuN-te-KJ3" firstAttribute="leading" secondItem="Toy-jh-i17" secondAttribute="leading" id="h2D-ly-9Wq"/>
+                            <constraint firstAttribute="trailing" secondItem="yuN-te-KJ3" secondAttribute="trailing" id="nhc-M6-tVS"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="scrollView" destination="yuN-te-KJ3" id="NGv-wk-PAu"/>
+                        <outlet property="stackView" destination="zdj-JR-kf7" id="JtI-fZ-H8p"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3NM-78-bEL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1298.5507246376812" y="850.27173913043487"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Qq7-cT-DBm">

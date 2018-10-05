@@ -15,6 +15,9 @@
 		E44C5B1F1E8E5E3100A48F24 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E44C5B1D1E8E5E3100A48F24 /* Main.storyboard */; };
 		E44C5B211E8E5E3100A48F24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E44C5B201E8E5E3100A48F24 /* Assets.xcassets */; };
 		E44C5B241E8E5E3100A48F24 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E44C5B221E8E5E3100A48F24 /* LaunchScreen.storyboard */; };
+		E47AFE78214AE0F90019951D /* StationRules.xib in Resources */ = {isa = PBXBuildFile; fileRef = E47AFE77214AE0F90019951D /* StationRules.xib */; };
+		E47AFE7A214AE1780019951D /* StationRules.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47AFE79214AE1780019951D /* StationRules.swift */; };
+		E47AFE7E214AE6380019951D /* ConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47AFE7D214AE6380019951D /* ConfigViewController.swift */; };
 		E48165652014891B005E83E3 /* MeteoServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48165642014891B005E83E3 /* MeteoServer.swift */; };
 		E4A2ADDD206BF6590058F564 /* GradView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A2ADDC206BF6590058F564 /* GradView.swift */; };
 		E4E5A0C4206D367C003D8562 /* StationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E5A0C3206D367C003D8562 /* StationViewController.swift */; };
@@ -33,6 +36,9 @@
 		E44C5B201E8E5E3100A48F24 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E44C5B231E8E5E3100A48F24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E44C5B251E8E5E3100A48F24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E47AFE77214AE0F90019951D /* StationRules.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StationRules.xib; sourceTree = "<group>"; };
+		E47AFE79214AE1780019951D /* StationRules.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationRules.swift; sourceTree = "<group>"; };
+		E47AFE7D214AE6380019951D /* ConfigViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigViewController.swift; sourceTree = "<group>"; };
 		E48165642014891B005E83E3 /* MeteoServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeteoServer.swift; sourceTree = "<group>"; };
 		E4A2ADDC206BF6590058F564 /* GradView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradView.swift; sourceTree = "<group>"; };
 		E4E5A0C3206D367C003D8562 /* StationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationViewController.swift; sourceTree = "<group>"; };
@@ -69,7 +75,10 @@
 		E44C5B181E8E5E3100A48F24 /* MeteoAviso */ = {
 			isa = PBXGroup;
 			children = (
+				E47AFE7D214AE6380019951D /* ConfigViewController.swift */,
 				E48165642014891B005E83E3 /* MeteoServer.swift */,
+				E47AFE77214AE0F90019951D /* StationRules.xib */,
+				E47AFE79214AE1780019951D /* StationRules.swift */,
 				E43B69E9203891C90034023D /* Measurement.swift */,
 				E433774E206FA46A00ECD9B1 /* Station.swift */,
 				E40ABD481FFD3F050025B960 /* MeteoAviso.entitlements */,
@@ -154,6 +163,7 @@
 			files = (
 				E44C5B241E8E5E3100A48F24 /* LaunchScreen.storyboard in Resources */,
 				E44C5B211E8E5E3100A48F24 /* Assets.xcassets in Resources */,
+				E47AFE78214AE0F90019951D /* StationRules.xib in Resources */,
 				E44C5B1F1E8E5E3100A48F24 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -165,8 +175,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E47AFE7A214AE1780019951D /* StationRules.swift in Sources */,
 				E4A2ADDD206BF6590058F564 /* GradView.swift in Sources */,
 				E433774F206FA46A00ECD9B1 /* Station.swift in Sources */,
+				E47AFE7E214AE6380019951D /* ConfigViewController.swift in Sources */,
 				E48165652014891B005E83E3 /* MeteoServer.swift in Sources */,
 				E433774D206F9C4C00ECD9B1 /* FavoritesViewController.swift in Sources */,
 				E4E5A0C4206D367C003D8562 /* StationViewController.swift in Sources */,
@@ -318,6 +330,7 @@
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				"SWIFT_SWIFT3_OBJC_INFERENCE[arch=*]" = Default;
 				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -335,6 +348,7 @@
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				"SWIFT_SWIFT3_OBJC_INFERENCE[arch=*]" = Default;
 				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
