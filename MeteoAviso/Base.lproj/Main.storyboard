@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -184,18 +185,18 @@
                                 <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Jm2-c7-kXB" id="dIe-fB-ujb">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vyV-Zl-Z0l">
-                                            <rect key="frame" x="20.000000000000004" y="5" width="33.333333333333336" height="20.333333333333332"/>
+                                            <rect key="frame" x="20" y="5" width="33" height="21"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Gme-nd-bFZ">
-                                            <rect key="frame" x="19.999999999999996" y="25.333333333333332" width="43.666666666666664" height="14.333333333333334"/>
+                                            <rect key="frame" x="20" y="26" width="44" height="14"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
@@ -248,20 +249,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yuN-te-KJ3">
-                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yuN-te-KJ3">
+                                <rect key="frame" x="20" y="64" width="402" height="672"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="zdj-JR-kf7">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="zdj-JR-kf7">
+                                        <rect key="frame" x="-20" y="30" width="402" height="612"/>
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="zdj-JR-kf7" firstAttribute="top" secondItem="yuN-te-KJ3" secondAttribute="top" id="AaJ-28-CD5"/>
-                                    <constraint firstItem="zdj-JR-kf7" firstAttribute="centerX" secondItem="yuN-te-KJ3" secondAttribute="centerX" id="RgV-lg-s6v"/>
-                                    <constraint firstItem="zdj-JR-kf7" firstAttribute="centerY" secondItem="yuN-te-KJ3" secondAttribute="centerY" id="eGN-lv-gEC"/>
-                                    <constraint firstItem="zdj-JR-kf7" firstAttribute="leading" secondItem="yuN-te-KJ3" secondAttribute="leading" id="egc-6Q-cdL"/>
-                                    <constraint firstAttribute="bottom" secondItem="zdj-JR-kf7" secondAttribute="bottom" id="iir-Ha-YFY"/>
-                                    <constraint firstAttribute="trailing" secondItem="zdj-JR-kf7" secondAttribute="trailing" id="jSo-4b-Zf6"/>
+                                    <constraint firstItem="zdj-JR-kf7" firstAttribute="width" secondItem="yuN-te-KJ3" secondAttribute="width" id="06u-IX-Day"/>
+                                    <constraint firstAttribute="bottom" secondItem="zdj-JR-kf7" secondAttribute="bottom" constant="30" id="2p1-ff-TfN"/>
+                                    <constraint firstItem="zdj-JR-kf7" firstAttribute="leading" secondItem="yuN-te-KJ3" secondAttribute="leading" constant="-20" id="FUm-pM-wqm"/>
+                                    <constraint firstAttribute="trailing" secondItem="zdj-JR-kf7" secondAttribute="trailing" constant="-20" id="Rq1-ao-KSe"/>
+                                    <constraint firstItem="zdj-JR-kf7" firstAttribute="top" secondItem="yuN-te-KJ3" secondAttribute="top" constant="30" id="vxV-f8-deK"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -269,8 +269,8 @@
                         <constraints>
                             <constraint firstItem="net-Yk-ybW" firstAttribute="top" secondItem="yuN-te-KJ3" secondAttribute="bottom" id="8Hf-C3-HU7"/>
                             <constraint firstItem="yuN-te-KJ3" firstAttribute="top" secondItem="cf9-Zn-oHt" secondAttribute="bottom" id="fsR-74-ZFO"/>
-                            <constraint firstItem="yuN-te-KJ3" firstAttribute="leading" secondItem="Toy-jh-i17" secondAttribute="leading" id="h2D-ly-9Wq"/>
-                            <constraint firstAttribute="trailing" secondItem="yuN-te-KJ3" secondAttribute="trailing" id="nhc-M6-tVS"/>
+                            <constraint firstItem="yuN-te-KJ3" firstAttribute="leading" secondItem="Toy-jh-i17" secondAttribute="leadingMargin" id="h2D-ly-9Wq"/>
+                            <constraint firstAttribute="trailing" secondItem="yuN-te-KJ3" secondAttribute="trailingMargin" id="nhc-M6-tVS"/>
                         </constraints>
                     </view>
                     <connections>

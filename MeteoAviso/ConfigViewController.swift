@@ -27,41 +27,19 @@ class ConfigViewController: UIViewController {
     
     func displayRules() {
         
-        for _ in 1...8 {
-            //stationRulesArray += [StationRules()]
-            stackView.addArrangedSubview(StationRules())
+        for var i in 1...25 {
+            
+            /* In csae we want to keep fixed height 
+            let sr = StationRules()
+            sr.translatesAutoresizingMaskIntoConstraints = false
+            sr.heightAnchor.constraint(equalToConstant: 300).isActive = true */
+            
+            let sr = StationRules()
+            //sr.stationName.text = "Prueba \(i)"
+            stackView.addArrangedSubview(sr)
         }
         
-        // Pin the edges of the stack view to the edges of the scroll view that contains it
-        stackView.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
-        stackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor).isActive = true
-        stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
-        
-        // Set the height of the stack view to the height of the scroll view for vertical scrolling
-        stackView.heightAnchor.constraint(equalTo: scrollView.heightAnchor).isActive = true
-        
-        scrollView.contentSize.height = stackView.frame.height
-        
-        /*stackView.axis = .vertical
-        stackView.distribution = .fillEqually
-        stackView.alignment = .fill
-        stackView.spacing = 5
-        stackView.translatesAutoresizingMaskIntoConstraints = false*/
-        
-        let viewsDictionary = ["stackView":stackView]
-        let stackView_H = NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|-20-[stackView]-20-|",  //horizontal constraint 20 points from left and right side
-            options: NSLayoutFormatOptions(rawValue: 0),
-            metrics: nil,
-            views: viewsDictionary as Any as! [String : Any])
-        let stackView_V = NSLayoutConstraint.constraints(
-            withVisualFormat: "V:|-30-[stackView]-30-|", //vertical constraint 30 points from top and bottom
-            options: NSLayoutFormatOptions(rawValue:0),
-            metrics: nil,
-            views: viewsDictionary as Any as! [String : Any])
-        view.addConstraints(stackView_H)
-        view.addConstraints(stackView_V) 
+        scrollView.contentSize.height = stackView.bounds.height
     }
     
 
