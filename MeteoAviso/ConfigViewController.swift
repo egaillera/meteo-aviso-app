@@ -13,33 +13,33 @@ class ConfigViewController: UIViewController {
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var scrollView: UIScrollView!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         getRulesFromServer()
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
     }
     
-    func displayRules(rules:[String:[Rule]]?) {
+    func displayRules(rules:[String:ConfigData]?) {
         print("File: \(#file), Function: \(#function), line: \(#line)")
         
         if rules != nil {
             
-            for (stationName,rulesArray) in (rules)! {
+            for (_,configData) in (rules)! {
                 let sr = StationRules()
-                sr.stationName.text = stationName
+                sr.stationName.text = Station.replaceHtmlCodesInName(configData.station_name)
                 
                 // Default values
                 sr.rainfallThreshold.text = String("-")
                 sr.tempMaxThreshold.text = String("-")
                 sr.tempMinThreshold.text = String("-")
                 
-                for r in rulesArray {
+                for r in configData.rules {
                     if r.dimension == "rainfall" {
                         sr.rainfallThreshold.text = String(r.value)
                     }
@@ -61,6 +61,7 @@ class ConfigViewController: UIViewController {
     }
     
     func removeRules() {
+        print("File: \(#file), Function: \(#function), line: \(#line)")
         
         let removedSubviews = stackView.arrangedSubviews.reduce([]) { (allSubviews, subview) -> [UIView] in
             stackView.removeArrangedSubview(subview)
@@ -72,38 +73,21 @@ class ConfigViewController: UIViewController {
         
     }
     
-    func extractRulesFromJSON(_ data:Data) -> [String:[Rule]]? {
+    func extractRulesFromJSON(_ data:Data) -> [String:ConfigData]? {
         print("File: \(#file), Function: \(#function), line: \(#line)")
         
-        let json:Any?
-        var rulesDict = [String:[Rule]]()
+        var stationConfigData:[String:ConfigData]?
         
         do {
-            json = try JSONSerialization.jsonObject(with: data, options: [])
+            // Decode retrived data with JSONDecoder and assign to a dict
+            // with the station code as key, and ConfigData as value
+            stationConfigData = try JSONDecoder().decode([String:ConfigData].self, from: data)
+            
+        } catch let jsonError {
+            print(jsonError)
+            stationConfigData =  nil
         }
-        catch {
-            print("Serialization failed")
-            return nil
-        }
-        if let object = json as? [String: Any] {
-            print("JSON is a dictionary")
-            for (stationName,rulesArray) in object {
-                rulesDict[stationName] = []
-                for r in rulesArray as! [Any] {
-                    let new_rule = Rule(r as! Dictionary<String, AnyObject>)
-                    rulesDict[stationName]?.append(new_rule)
-                }
-            }
-            return rulesDict
-        } else if let object = json as? [Any] {
-            print("JSON is an array")
-            print(object)
-            return nil
-        } else {
-            print("JSON is invalid")
-            return nil
-        }
-        
+    return stationConfigData
     }
     
     func getRulesFromServer() {
@@ -125,10 +109,10 @@ class ConfigViewController: UIViewController {
             }
             
             // Get list of rules
-            let dbRules = self.extractRulesFromJSON(data!)
+            let dbConfig = self.extractRulesFromJSON(data!)
 
             DispatchQueue.main.async {
-                self.displayRules(rules: dbRules)
+                self.displayRules(rules: dbConfig)
             }
         })
         

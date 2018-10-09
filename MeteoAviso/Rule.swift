@@ -8,7 +8,8 @@
 
 import Foundation
 
-struct Rule:CustomStringConvertible {
+// Definition of a notification rule
+struct Rule:CustomStringConvertible,Codable {
     var dimension:String
     var quantifier:String
     var value:Float
@@ -23,4 +24,11 @@ struct Rule:CustomStringConvertible {
     var description: String {
         return "{dimension:\(self.dimension),quantifier:\(self.quantifier),value:\(self.value)}"
     }
+}
+
+// To keep the notification rules linked to one station,
+// together with the station name
+struct ConfigData:Codable {
+    var rules:[Rule]
+    var station_name:String
 }
