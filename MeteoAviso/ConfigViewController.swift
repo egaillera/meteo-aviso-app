@@ -13,6 +13,7 @@ class ConfigViewController: UIViewController {
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var scrollView: UIScrollView!
     
+    var buttonNameDict = [Int:String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,14 +26,35 @@ class ConfigViewController: UIViewController {
     
     }
     
+    @objc func editAction(sender: UIButton) {
+        print("File: \(#file), Function: \(#function), line: \(#line)")
+        
+        print("Edit for station: \(String(describing: buttonNameDict[sender.tag]))")
+        
+        removeRules()
+        
+    }
+    
     func displayRules(rules:[String:ConfigData]?) {
         print("File: \(#file), Function: \(#function), line: \(#line)")
         
+        var buttonIndex = 100
+        
         if rules != nil {
             
-            for (_,configData) in (rules)! {
+            for (stationCode,configData) in (rules)! {
+                
+                // Create view with the station rules and add its name
                 let sr = StationRules()
                 sr.stationName.text = Station.replaceHtmlCodesInName(configData.station_name)
+                
+                // Add a tag to each button to identify later which button
+                // has been pressed
+                sr.editButton.tag = buttonIndex
+                buttonNameDict[buttonIndex] = stationCode
+                sr.editButton.addTarget(self, action: #selector(editAction), for: UIControlEvents.touchUpInside)
+                
+                buttonIndex += 1
                 
                 // Default values
                 sr.rainfallThreshold.text = String("-")
@@ -70,6 +92,9 @@ class ConfigViewController: UIViewController {
                 
         // Remove the views from self
         removedSubviews.forEach({ $0.removeFromSuperview() })
+        
+        // Empty dict with the edit buttons info
+        buttonNameDict.removeAll()
         
     }
     

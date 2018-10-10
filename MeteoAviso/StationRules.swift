@@ -12,10 +12,11 @@ class StationRules: UIView {
     
     
     @IBOutlet weak var stationName: UILabel!
-    @IBOutlet weak var rainfallThreshold: UITextField!
-    @IBOutlet weak var tempMaxThreshold: UITextField!
-    @IBOutlet weak var tempMinThreshold: UITextField!
+    @IBOutlet weak var rainfallThreshold: UILabel!
+    @IBOutlet weak var tempMaxThreshold: UILabel!
+    @IBOutlet weak var tempMinThreshold: UILabel!
     
+    @IBOutlet weak var editButton: UIButton!
     
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
