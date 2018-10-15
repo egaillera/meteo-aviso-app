@@ -17,6 +17,8 @@ class MeteoServer {
     //static let serverURL = "http://localhost:5000/" as String // To work with local server
     let deviceId = UIDevice.current.identifierForVendor?.uuidString //TODO: check if it's nil
     
+    static var globalUserEmail = "egaillera@gmail.com"
+    
     var lastMeasurement:Measurement? = nil
     
     // Send notification token to the server

@@ -160,6 +160,10 @@ class StationSearchViewController: UITableViewController  {
     
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("File: \(#file), Function: \(#function), line: \(#line)")
+        if segue.identifier != nil {
+            print(segue.identifier!)
+        }
         
         var stCode: String
         

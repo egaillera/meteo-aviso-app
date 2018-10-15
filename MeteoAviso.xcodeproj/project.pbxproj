@@ -19,6 +19,7 @@
 		E47AFE7A214AE1780019951D /* StationRules.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47AFE79214AE1780019951D /* StationRules.swift */; };
 		E47AFE7E214AE6380019951D /* ConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47AFE7D214AE6380019951D /* ConfigViewController.swift */; };
 		E48165652014891B005E83E3 /* MeteoServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48165642014891B005E83E3 /* MeteoServer.swift */; };
+		E48873362170CE0900A12AF5 /* EditRuleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48873352170CE0900A12AF5 /* EditRuleViewController.swift */; };
 		E4A2ADDD206BF6590058F564 /* GradView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A2ADDC206BF6590058F564 /* GradView.swift */; };
 		E4E5A0C4206D367C003D8562 /* StationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E5A0C3206D367C003D8562 /* StationViewController.swift */; };
 		E4E5A0C6206D430C003D8562 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E5A0C5206D430C003D8562 /* LocationViewController.swift */; };
@@ -41,6 +42,7 @@
 		E47AFE79214AE1780019951D /* StationRules.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationRules.swift; sourceTree = "<group>"; };
 		E47AFE7D214AE6380019951D /* ConfigViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigViewController.swift; sourceTree = "<group>"; };
 		E48165642014891B005E83E3 /* MeteoServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeteoServer.swift; sourceTree = "<group>"; };
+		E48873352170CE0900A12AF5 /* EditRuleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditRuleViewController.swift; sourceTree = "<group>"; };
 		E4A2ADDC206BF6590058F564 /* GradView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradView.swift; sourceTree = "<group>"; };
 		E4E5A0C3206D367C003D8562 /* StationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationViewController.swift; sourceTree = "<group>"; };
 		E4E5A0C5206D430C003D8562 /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
@@ -78,6 +80,8 @@
 			isa = PBXGroup;
 			children = (
 				E47AFE7D214AE6380019951D /* ConfigViewController.swift */,
+				E48873352170CE0900A12AF5 /* EditRuleViewController.swift */,
+				E4E5A0C3206D367C003D8562 /* StationViewController.swift */,
 				E48165642014891B005E83E3 /* MeteoServer.swift */,
 				E47AFE77214AE0F90019951D /* StationRules.xib */,
 				E47AFE79214AE1780019951D /* StationRules.swift */,
@@ -87,7 +91,6 @@
 				E40ABD481FFD3F050025B960 /* MeteoAviso.entitlements */,
 				E44C5B191E8E5E3100A48F24 /* AppDelegate.swift */,
 				E4E5A0C5206D430C003D8562 /* LocationViewController.swift */,
-				E4E5A0C3206D367C003D8562 /* StationViewController.swift */,
 				E4A2ADDC206BF6590058F564 /* GradView.swift */,
 				E44C5B1D1E8E5E3100A48F24 /* Main.storyboard */,
 				E433774A206F922A00ECD9B1 /* StationSearchViewController.swift */,
@@ -180,6 +183,7 @@
 			files = (
 				E47AFE7A214AE1780019951D /* StationRules.swift in Sources */,
 				E4A2ADDD206BF6590058F564 /* GradView.swift in Sources */,
+				E48873362170CE0900A12AF5 /* EditRuleViewController.swift in Sources */,
 				E433774F206FA46A00ECD9B1 /* Station.swift in Sources */,
 				E47AFE7E214AE6380019951D /* ConfigViewController.swift in Sources */,
 				E48165652014891B005E83E3 /* MeteoServer.swift in Sources */,

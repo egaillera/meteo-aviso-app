@@ -88,13 +88,15 @@ class StationViewController : UIViewController {
     func displayNewMeasurement(_ measurement:Measurement?) {
         print("File: \(#file), Function: \(#function), line: \(#line)")
         
+        // TODO: verify that measuremet is not nil
         DispatchQueue.main.async {
-            self.stationName.text = measurement!.name
-            self.date.text = measurement!.date_created
-            self.temp.text = "\(measurement!.current_temp)"
-            self.rainfall.text = "\(measurement!.rainfall)"
+            if measurement != nil {
+                self.stationName.text = measurement!.name
+                self.date.text = measurement!.date_created
+                self.temp.text = "\(measurement!.current_temp)"
+                self.rainfall.text = "\(measurement!.rainfall)"
+            }
             self.view.setNeedsDisplay()
-            
             self.refreshControl.endRefreshing()
         }
     }
@@ -121,6 +123,32 @@ class StationViewController : UIViewController {
         })
         
         task.resume()
+        
+    }
+    
+    /*
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        print("File: \(#file), Function: \(#function), line: \(#line)")
+        print(self.stationName.text)
+        
+        if segue.identifier != nil {
+            if (segue.identifier == "ToEditRule") {
+                print("Identified segue")
+                let editRuleController = segue.destination as! EditRuleViewController
+                editRuleController.stationCode = self.stationCode
+                editRuleController.stName = self.stationName.text!
+                }
+        }
         
     }
     
