@@ -518,12 +518,21 @@ menor que</string>
                                     </label>
                                     <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="DaJ-Rs-Y1b">
                                         <rect key="frame" x="220" y="134.5" width="94" height="29"/>
+                                        <connections>
+                                            <action selector="rainfallStepperAction:" destination="Vuv-xi-kjt" eventType="valueChanged" id="ZJV-tL-q4U"/>
+                                        </connections>
                                     </stepper>
-                                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="NfP-LN-LBC">
+                                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" minimumValue="-50" maximumValue="50" translatesAutoresizingMaskIntoConstraints="NO" id="NfP-LN-LBC">
                                         <rect key="frame" x="220" y="217.5" width="94" height="29"/>
+                                        <connections>
+                                            <action selector="tempMaxStepperAction:" destination="Vuv-xi-kjt" eventType="valueChanged" id="jJb-it-nJE"/>
+                                        </connections>
                                     </stepper>
-                                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="TcS-xG-XAg">
+                                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" minimumValue="-50" maximumValue="50" translatesAutoresizingMaskIntoConstraints="NO" id="TcS-xG-XAg">
                                         <rect key="frame" x="220" y="301.5" width="94" height="29"/>
+                                        <connections>
+                                            <action selector="tempMinStepperAction:" destination="Vuv-xi-kjt" eventType="valueChanged" id="wcf-6g-ZYP"/>
+                                        </connections>
                                     </stepper>
                                 </subviews>
                                 <color key="backgroundColor" red="0.72198148699999998" green="0.992867889" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -566,9 +575,12 @@ menor que</string>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="rainfallStepper" destination="DaJ-Rs-Y1b" id="OPd-im-oIc"/>
                         <outlet property="rainfallThresholdLabel" destination="ZN6-BV-56R" id="gom-k1-Dc7"/>
                         <outlet property="stationName" destination="gDg-aN-QKc" id="1qT-Ob-RuR"/>
+                        <outlet property="tempMaxStepper" destination="NfP-LN-LBC" id="pou-Zy-cvk"/>
                         <outlet property="tempMaxThresholdLabel" destination="e2p-A0-L0O" id="LWZ-Iz-KUx"/>
+                        <outlet property="tempMinStepper" destination="TcS-xG-XAg" id="xtr-Tf-vyo"/>
                         <outlet property="tempMinThresholdLabel" destination="5Up-xr-xU7" id="7Et-th-a8B"/>
                     </connections>
                 </viewController>

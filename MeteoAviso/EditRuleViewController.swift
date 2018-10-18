@@ -14,13 +14,60 @@ class EditRuleViewController: UIViewController  {
     @IBOutlet weak var stationName: UILabel!
     @IBOutlet weak var rainfallThresholdLabel: UILabel!
     @IBOutlet weak var tempMaxThresholdLabel: UILabel!
-    
     @IBOutlet weak var tempMinThresholdLabel: UILabel!
+    @IBOutlet weak var rainfallStepper: UIStepper!
+    @IBOutlet weak var tempMaxStepper: UIStepper!
+    @IBOutlet weak var tempMinStepper: UIStepper!
+    
     // Actions
     @IBAction func saveRule(_ sender: Any) {
         print("File: \(#file), Function: \(#function), line: \(#line)")
         
+        let dataToSend = createJSONData()
+        print(dataToSend)
+        let jsonData = try? JSONSerialization.data(withJSONObject: dataToSend, options: .prettyPrinted)
+        //TODO: check errors
+        
+        // create post request
+        let url = URL(string: MeteoServer.serverURL + "save_rules")!
+        var request = URLRequest(url: url)
+        request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
+        request.httpMethod = "POST"
+        
+        // insert json data to the request
+        request.httpBody = jsonData
+        
+        //TODO: check errors
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data, error == nil else {
+                print(error?.localizedDescription ?? "No data")
+                return
+            }
+            let responseJSON = try? JSONSerialization.jsonObject(with: data, options: [])
+            if let responseJSON = responseJSON as? [String: Any] {
+                print(responseJSON)
+            }
+        }
+        
+        task.resume()
+        
+        
         presentingViewController?.dismiss(animated: true, completion: nil)
+    }
+    @IBAction func rainfallStepperAction(_ sender: Any) {
+        print("File: \(#file), Function: \(#function), line: \(#line)")
+        let stepper = sender as! UIStepper
+        rainfallThresholdLabel.text = "\(Int(stepper.value)) l."
+    }
+    @IBAction func tempMaxStepperAction(_ sender: Any) {
+        print("File: \(#file), Function: \(#function), line: \(#line)")
+        let stepper = sender as! UIStepper
+        tempMaxThresholdLabel.text = "\(Int(stepper.value))ºC"
+    }
+    @IBAction func tempMinStepperAction(_ sender: Any) {
+        print("File: \(#file), Function: \(#function), line: \(#line)")
+        let stepper = sender as! UIStepper
+        tempMinThresholdLabel.text = "\(Int(stepper.value))ºC"
     }
     
     // Properties of the class
@@ -53,6 +100,7 @@ class EditRuleViewController: UIViewController  {
             switch rule.dimension {
             case "rainfall":
                 rainfallThresholdLabel.text = "\(Int(rule.value)) l."
+                rainfallStepper.value = Double(rule.value)
             case "current_temp":
                 if rule.quantifier == ">" {
                     tempMaxThresholdLabel.text = "\(Int(rule.value))ºC"
@@ -100,6 +148,26 @@ class EditRuleViewController: UIViewController  {
         })
         
         task.resume()
+    }
+    
+    func createJSONData() -> [String:Any] {
+        print("File: \(#file), Function: \(#function), line: \(#line)")
+        
+        var jsonData:[String:Any] = [:]
+        var rules:[[String:Any]] = []
+        
+        jsonData["email"] = MeteoServer.globalUserEmail
+        jsonData["station"] = self.stationCode
+        
+        //TODO: check what happens if a user doesn't change a default value. In that case
+        // we shouldn't create the rule
+        rules.append(["dimension":"rainfall","quantifier":">","value":Float(rainfallStepper.value)])
+        rules.append(["dimension":"current_temp","quantifier":">","value":Float(tempMaxStepper.value)])
+        rules.append(["dimension":"current_temp","quantifier":"<","value":Float(tempMinStepper.value)])
+        
+        jsonData["rules"] = rules
+        
+        return jsonData
     }
     
 
