@@ -58,26 +58,33 @@ class EditRuleViewController: UIViewController  {
         print("File: \(#file), Function: \(#function), line: \(#line)")
         let stepper = sender as! UIStepper
         rainfallThresholdLabel.text = "\(Int(stepper.value)) l."
+        changedRainfallThreshold = true
     }
     @IBAction func tempMaxStepperAction(_ sender: Any) {
         print("File: \(#file), Function: \(#function), line: \(#line)")
         let stepper = sender as! UIStepper
         tempMaxThresholdLabel.text = "\(Int(stepper.value))ºC"
+        changedMaxTempThreshold = true
     }
     @IBAction func tempMinStepperAction(_ sender: Any) {
         print("File: \(#file), Function: \(#function), line: \(#line)")
         let stepper = sender as! UIStepper
         tempMinThresholdLabel.text = "\(Int(stepper.value))ºC"
+        changedMinTempThreshold = true
     }
     
     // Properties of the class
     var stationCode:String = "Codigo de estacion"
     var stName:String = "nombre de estacion"
+    var changedRainfallThreshold = false
+    var changedMaxTempThreshold = false
+    var changedMinTempThreshold = false
     
     override func viewDidLoad() {
         print("File: \(#file), Function: \(#function), line: \(#line)")
         super.viewDidLoad()
         
+        print("Displaying rules for \(self.stationCode)")
         // Do any additional setup after loading the view.
         self.stationName.text = stName
         self.getRulesFromServer()
@@ -104,9 +111,11 @@ class EditRuleViewController: UIViewController  {
             case "current_temp":
                 if rule.quantifier == ">" {
                     tempMaxThresholdLabel.text = "\(Int(rule.value))ºC"
+                    tempMaxStepper.value = Double(rule.value)
                 }
                 else {
                     tempMinThresholdLabel.text = "\(Int(rule.value))ºC"
+                    tempMinStepper.value = Double(rule.value)
                 }
             default:
                 print("Unknown dimension")
@@ -118,9 +127,10 @@ class EditRuleViewController: UIViewController  {
     func getRulesFromServer() {
         
         print("File: \(#file), Function: \(#function), line: \(#line)")
+        print("Getting rules for station \(self.stationCode)")
     
         // Request notification rules from server
-        let url:URL = URL(string: MeteoServer.serverURL + "get_rules/\(stationCode)?email=\(MeteoServer.globalUserEmail)")!
+        let url:URL = URL(string: MeteoServer.serverURL + "get_rules/\(self.stationCode)?email=\(MeteoServer.globalUserEmail)")!
         print(url.absoluteString)
         let session = URLSession.shared
         let request = NSMutableURLRequest(url: url)
@@ -159,11 +169,17 @@ class EditRuleViewController: UIViewController  {
         jsonData["email"] = MeteoServer.globalUserEmail
         jsonData["station"] = self.stationCode
         
-        //TODO: check what happens if a user doesn't change a default value. In that case
-        // we shouldn't create the rule
-        rules.append(["dimension":"rainfall","quantifier":">","value":Float(rainfallStepper.value)])
-        rules.append(["dimension":"current_temp","quantifier":">","value":Float(tempMaxStepper.value)])
-        rules.append(["dimension":"current_temp","quantifier":"<","value":Float(tempMinStepper.value)])
+        // If user hasn't changed a default value, don't send a new rule with a default
+        // value the user doesn't know
+        if changedRainfallThreshold {
+            rules.append(["dimension":"rainfall","quantifier":">","value":Float(rainfallStepper.value)])
+        }
+        if changedMaxTempThreshold {
+            rules.append(["dimension":"current_temp","quantifier":">","value":Float(tempMaxStepper.value)])
+        }
+        if changedMinTempThreshold {
+            rules.append(["dimension":"current_temp","quantifier":"<","value":Float(tempMinStepper.value)])
+        }
         
         jsonData["rules"] = rules
         

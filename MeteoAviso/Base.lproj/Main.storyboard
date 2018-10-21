@@ -230,12 +230,30 @@
                     <view key="view" contentMode="scaleToFill" id="62C-Wo-3MD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="egaillera@gmail.com" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2tB-bn-TjW">
+                                <rect key="frame" x="89" y="318.5" width="197" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="emailLabelAction:" destination="F4Z-wP-WZh" eventType="editingDidEnd" id="xBY-61-zEA"/>
+                                </connections>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" red="0.50196081400000003" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="2tB-bn-TjW" firstAttribute="centerX" secondItem="62C-Wo-3MD" secondAttribute="centerX" id="bGk-3c-HnY"/>
+                            <constraint firstItem="2tB-bn-TjW" firstAttribute="centerY" secondItem="62C-Wo-3MD" secondAttribute="centerY" id="eYj-tL-ciG"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="emailLabel" destination="2tB-bn-TjW" id="eS0-K1-EO4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aAT-TF-yYh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1870" y="165"/>
+            <point key="canvasLocation" x="1869.5999999999999" y="164.16791604197903"/>
         </scene>
         <!--Config View Controller-->
         <scene sceneID="w2L-W8-s5D">
@@ -449,7 +467,7 @@
         <!--Edit Rule View Controller-->
         <scene sceneID="Tad-VH-tEv">
             <objects>
-                <viewController id="Vuv-xi-kjt" customClass="EditRuleViewController" customModule="MeteoAviso" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EditRuleViewController" id="Vuv-xi-kjt" customClass="EditRuleViewController" customModule="MeteoAviso" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="HDq-nQ-NLb"/>
                         <viewControllerLayoutGuide type="bottom" id="GU3-TN-ZaL"/>

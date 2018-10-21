@@ -31,7 +31,16 @@ class ConfigViewController: UIViewController {
         
         print("Edit for station: \(String(describing: buttonNameDict[sender.tag]))")
         
+        print("Creating new EditRuleController")
+        let editRuleController:EditRuleViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "EditRuleViewController") as! EditRuleViewController
+        
+        editRuleController.stationCode = buttonNameDict[sender.tag]!
+        editRuleController.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+        print("Code assigned to EditViewController: \(editRuleController.stationCode)")
+        self.present(editRuleController, animated: true, completion: nil)
+        
         removeRules()
+        getRulesFromServer()
         
     }
     
