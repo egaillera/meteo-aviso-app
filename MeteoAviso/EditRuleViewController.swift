@@ -52,10 +52,17 @@ class EditRuleViewController: UIViewController  {
                 print(responseJSON)
             }
         }
-        
         task.resume()
-        //presentingViewController?.dismiss(animated: true, completion: nil)
-        //dismiss(animated: true, completion: nil)
+        dismiss(animated: true) {
+            self.delegate?.modalDismissed()
+        }
+    }
+    @IBAction func cancelEdit(_ sender: Any) {
+        print("File: \(#file), Function: \(#function), line: \(#line)")
+        dismiss(animated: true, completion: nil)
+    }
+    @IBAction func removeRule(_ sender: Any) {
+        print("File: \(#file), Function: \(#function), line: \(#line)")
         dismiss(animated: true) {
             self.delegate?.modalDismissed()
         }
