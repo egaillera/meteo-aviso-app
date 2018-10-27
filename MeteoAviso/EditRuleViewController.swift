@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol ModalHandlerDelegate: class {
+    func modalDismissed()
+}
+
 class EditRuleViewController: UIViewController  {
     
     // Outlets
@@ -50,9 +54,11 @@ class EditRuleViewController: UIViewController  {
         }
         
         task.resume()
-        
-        
-        presentingViewController?.dismiss(animated: true, completion: nil)
+        //presentingViewController?.dismiss(animated: true, completion: nil)
+        //dismiss(animated: true, completion: nil)
+        dismiss(animated: true) {
+            self.delegate?.modalDismissed()
+        }
     }
     @IBAction func rainfallStepperAction(_ sender: Any) {
         print("File: \(#file), Function: \(#function), line: \(#line)")
@@ -79,6 +85,8 @@ class EditRuleViewController: UIViewController  {
     var changedRainfallThreshold = false
     var changedMaxTempThreshold = false
     var changedMinTempThreshold = false
+    
+    weak var delegate: ModalHandlerDelegate?
     
     override func viewDidLoad() {
         print("File: \(#file), Function: \(#function), line: \(#line)")

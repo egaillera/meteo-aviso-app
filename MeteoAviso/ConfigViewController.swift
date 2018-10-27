@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ConfigViewController: UIViewController {
+class ConfigViewController: UIViewController, ModalHandlerDelegate {
 
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var scrollView: UIScrollView!
@@ -36,12 +36,16 @@ class ConfigViewController: UIViewController {
         
         editRuleController.stationCode = buttonNameDict[sender.tag]!
         editRuleController.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+        editRuleController.delegate = self
         print("Code assigned to EditViewController: \(editRuleController.stationCode)")
+        
         self.present(editRuleController, animated: true, completion: nil)
-        
-        removeRules()
-        getRulesFromServer()
-        
+    }
+    
+    func modalDismissed() {
+        print("File: \(#file), Function: \(#function), line: \(#line)")
+        self.removeRules()
+        self.getRulesFromServer()
     }
     
     func displayRules(rules:[String:ConfigData]?) {
