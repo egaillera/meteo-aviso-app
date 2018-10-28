@@ -14,6 +14,15 @@ protocol ModalHandlerDelegate: class {
 
 class EditRuleViewController: UIViewController  {
     
+    // Properties of the class
+    var stationCode:String = "Codigo de estacion"
+    var stName:String = "nombre de estacion"
+    var changedRainfallThreshold = false
+    var changedMaxTempThreshold = false
+    var changedMinTempThreshold = false
+    
+    weak var delegate: ModalHandlerDelegate?
+    
     // Outlets
     @IBOutlet weak var stationName: UILabel!
     @IBOutlet weak var rainfallThresholdLabel: UILabel!
@@ -57,16 +66,37 @@ class EditRuleViewController: UIViewController  {
             self.delegate?.modalDismissed()
         }
     }
+    
     @IBAction func cancelEdit(_ sender: Any) {
         print("File: \(#file), Function: \(#function), line: \(#line)")
         dismiss(animated: true, completion: nil)
     }
+    
     @IBAction func removeRule(_ sender: Any) {
         print("File: \(#file), Function: \(#function), line: \(#line)")
+        
+        // create post request
+        let url = URL(string: MeteoServer.serverURL + "delete_rules/" + stationCode + "?email=" + MeteoServer.globalUserEmail)!
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        //TODO: check errors
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data, error == nil else {
+                print(error?.localizedDescription ?? "No data")
+                return
+            }
+            let responseJSON = try? JSONSerialization.jsonObject(with: data, options: [])
+            if let responseJSON = responseJSON as? [String: Any] {
+                print(responseJSON)
+            }
+        }
+        task.resume()
+        
         dismiss(animated: true) {
             self.delegate?.modalDismissed()
         }
     }
+    
     @IBAction func rainfallStepperAction(_ sender: Any) {
         print("File: \(#file), Function: \(#function), line: \(#line)")
         let stepper = sender as! UIStepper
@@ -86,14 +116,6 @@ class EditRuleViewController: UIViewController  {
         changedMinTempThreshold = true
     }
     
-    // Properties of the class
-    var stationCode:String = "Codigo de estacion"
-    var stName:String = "nombre de estacion"
-    var changedRainfallThreshold = false
-    var changedMaxTempThreshold = false
-    var changedMinTempThreshold = false
-    
-    weak var delegate: ModalHandlerDelegate?
     
     override func viewDidLoad() {
         print("File: \(#file), Function: \(#function), line: \(#line)")

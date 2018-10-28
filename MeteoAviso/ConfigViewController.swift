@@ -13,7 +13,9 @@ class ConfigViewController: UIViewController, ModalHandlerDelegate {
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var scrollView: UIScrollView!
     
-    var buttonNameDict = [Int:String]()
+    // For each button, we need to know the code of the station and the
+    // name of the station, so the value is an array of two strings
+    var buttonNameDict = [Int:[String]]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,12 +31,13 @@ class ConfigViewController: UIViewController, ModalHandlerDelegate {
     @objc func editAction(sender: UIButton) {
         print("File: \(#file), Function: \(#function), line: \(#line)")
         
-        print("Edit for station: \(String(describing: buttonNameDict[sender.tag]))")
+        print("Edit for station: \(String(describing: buttonNameDict[sender.tag]![0]))")
         
         print("Creating new EditRuleController")
         let editRuleController:EditRuleViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "EditRuleViewController") as! EditRuleViewController
         
-        editRuleController.stationCode = buttonNameDict[sender.tag]!
+        editRuleController.stationCode = buttonNameDict[sender.tag]![0]
+        editRuleController.stName = buttonNameDict[sender.tag]![1]
         editRuleController.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
         editRuleController.delegate = self
         print("Code assigned to EditViewController: \(editRuleController.stationCode)")
@@ -62,9 +65,11 @@ class ConfigViewController: UIViewController, ModalHandlerDelegate {
                 sr.stationName.text = Station.replaceHtmlCodesInName(configData.station_name)
                 
                 // Add a tag to each button to identify later which button
-                // has been pressed
+                // has been pressed. Add the station_name as well, to pass it
+                // when editing the rule
                 sr.editButton.tag = buttonIndex
-                buttonNameDict[buttonIndex] = stationCode
+                buttonNameDict[buttonIndex] = [stationCode,configData.station_name]
+                //buttonNameDict[buttonIndex] = configData.station_name
                 sr.editButton.addTarget(self, action: #selector(editAction), for: UIControlEvents.touchUpInside)
                 
                 buttonIndex += 1
@@ -156,8 +161,6 @@ class ConfigViewController: UIViewController, ModalHandlerDelegate {
         
         task.resume()
     }
-    
-
     
 
     /*
