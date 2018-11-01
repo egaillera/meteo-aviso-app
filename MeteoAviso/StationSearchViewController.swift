@@ -91,7 +91,7 @@ class StationSearchViewController: UITableViewController  {
             
             // Get list of stations and order it by province
             let stList = self.extractJsonStations(data!)
-            self.stationsList = stList.sorted {$0.province < $1.province}
+            self.stationsList = stList.sorted {$0.prov < $1.prov}
         
             DispatchQueue.main.async {
                 print("Reloading data")
@@ -143,7 +143,7 @@ class StationSearchViewController: UITableViewController  {
             }
             
             cell.textLabel?.text = station.name
-            cell.detailTextLabel?.text = provinces[station.province]
+            cell.detailTextLabel?.text = provinces[station.prov]
         
         }
         
@@ -153,7 +153,7 @@ class StationSearchViewController: UITableViewController  {
     func filterRowsForSearchedText(_ searchText: String) {
         print("File: \(#file), Function: \(#function), line: \(#line)")
         filteredStations = stationsList!.filter({(station : Station) -> Bool in
-            return station.name.lowercased().contains(searchText.lowercased())||provinces[station.province].lowercased().contains(searchText.lowercased())
+            return station.name.lowercased().contains(searchText.lowercased())||provinces[station.prov].lowercased().contains(searchText.lowercased())
         })
         tableView.reloadData()
     }

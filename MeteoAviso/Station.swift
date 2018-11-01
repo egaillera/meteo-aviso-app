@@ -8,12 +8,12 @@
 
 import Foundation
 
-struct Station:CustomStringConvertible {
+struct Station:CustomStringConvertible,Codable {
     var name:String
     var lat:Float
     var lon:Float
     var code:String
-    var province:Int
+    var prov:Int
     
     init(_ dictionary:[String:Any]) {
         
@@ -21,7 +21,7 @@ struct Station:CustomStringConvertible {
         self.lat = dictionary["lat"] as! Float
         self.lon = dictionary["lon"] as! Float
         self.code = dictionary["code"] as! String
-        self.province = dictionary["prov"] as! Int
+        self.prov = dictionary["prov"] as! Int
         
         // Remove html codes
         self.name = Station.replaceHtmlCodesInName(self.name)
