@@ -62,24 +62,15 @@ class StationViewController : UIViewController {
     func extractJsonMeasurement(_ data:Data) -> Measurement? {
         print("File: \(#file), Function: \(#function), line: \(#line)")
         
-        let json:Any?
         var measurement:Measurement?
         
         do {
-            json = try JSONSerialization.jsonObject(with: data, options: [])
-        }
-        catch {
-            return nil
-        }
-        if let object = json as? [String: Any] {
-            // json is a dictionary
-            print(object)
-            measurement = Measurement(object)
-        } else if let object = json as? [Any] {
-            // json is an array
-            print(object)
-        } else {
-            print("JSON is invalid")
+            // Decode retrived data with JSONDecoder and assign to
+            // a Measurement object
+            measurement = try JSONDecoder().decode(Measurement.self, from: data)
+        } catch let jsonError {
+            print(jsonError)
+            measurement =  nil
         }
         
         return measurement
@@ -91,7 +82,7 @@ class StationViewController : UIViewController {
         // TODO: verify that measuremet is not nil
         DispatchQueue.main.async {
             if measurement != nil {
-                self.stationName.text = measurement!.name
+                self.stationName.text = Station.replaceHtmlCodesInName(measurement!.name)
                 self.date.text = measurement!.date_created
                 self.temp.text = "\(measurement!.current_temp)"
                 self.rainfall.text = "\(measurement!.rainfall)"

@@ -8,8 +8,10 @@
 
 import Foundation
 
-struct Measurement:CustomStringConvertible {
+struct Measurement:CustomStringConvertible,Codable {
     var name:String
+    var lat:Float
+    var lon:Float
     var max_gust:Float
     var date_created:String  // TODO: should be NSDAte?
     var current_pres:Float
@@ -22,6 +24,8 @@ struct Measurement:CustomStringConvertible {
     
     init(_ dictionary:[String:Any]) {
         self.name = Station.replaceHtmlCodesInName(dictionary["name"] as! String)
+        self.lat = dictionary["lat"] as! Float
+        self.lon = dictionary["lon"] as! Float
         self.max_gust = dictionary["max_gust"] as! Float
         self.date_created = dictionary["date_created"] as! String
         self.current_pres = dictionary["current_pres"] as! Float

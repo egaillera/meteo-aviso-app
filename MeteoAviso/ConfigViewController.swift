@@ -137,7 +137,7 @@ class ConfigViewController: UIViewController, ModalHandlerDelegate {
         
         print("File: \(#file), Function: \(#function), line: \(#line)")
         
-        let url:URL = URL(string: MeteoServer.serverURL + "get_rules?email=egaillera@gmail.com")!
+        let url:URL = URL(string: MeteoServer.serverURL + "get_rules?email=" + MeteoServer.globalUserEmail)!
         let session = URLSession.shared
         
         let request = NSMutableURLRequest(url: url)
