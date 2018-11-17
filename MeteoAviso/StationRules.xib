@@ -35,12 +35,14 @@
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Estación" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dxe-e7-5o0">
                                     <rect key="frame" x="0.0" y="6" width="65.5" height="34"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <nil key="textColor"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kaJ-oB-UcC">
                                     <rect key="frame" x="269" y="-10" width="46" height="30"/>
-                                    <state key="normal" title="Button"/>
+                                    <state key="normal" title="Button">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
                                 </button>
                             </subviews>
                             <constraints>
@@ -55,13 +57,13 @@
                             <rect key="frame" x="0.0" y="54.5" width="315" height="44"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Precipitacion mayor que:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Whh-jI-y8j">
-                                    <rect key="frame" x="8" y="13" width="157" height="20"/>
+                                    <rect key="frame" x="8" y="12.5" width="182" height="20"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IGx-De-Aus">
-                                    <rect key="frame" x="265" y="12" width="42" height="22"/>
+                                    <rect key="frame" x="265" y="11.5" width="42" height="22"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="42" id="wq1-S6-VGi"/>
                                     </constraints>
@@ -78,7 +80,7 @@
                                 <constraint firstItem="Whh-jI-y8j" firstAttribute="top" secondItem="ChN-EU-geN" secondAttribute="top" constant="12" id="Gfx-9r-fI8"/>
                                 <constraint firstAttribute="trailing" secondItem="IGx-De-Aus" secondAttribute="trailing" constant="8" id="JPb-5i-anI"/>
                                 <constraint firstItem="Whh-jI-y8j" firstAttribute="centerY" secondItem="ChN-EU-geN" secondAttribute="centerY" id="OR8-rX-kZl"/>
-                                <constraint firstItem="IGx-De-Aus" firstAttribute="leading" secondItem="Whh-jI-y8j" secondAttribute="trailing" constant="100" id="ceu-tl-hc3"/>
+                                <constraint firstItem="IGx-De-Aus" firstAttribute="leading" secondItem="Whh-jI-y8j" secondAttribute="trailing" constant="75" id="ceu-tl-hc3"/>
                                 <constraint firstItem="IGx-De-Aus" firstAttribute="centerY" secondItem="ChN-EU-geN" secondAttribute="centerY" id="y4Y-aN-rRx"/>
                             </constraints>
                         </view>
@@ -86,7 +88,7 @@
                             <rect key="frame" x="0.0" y="108.5" width="315" height="44.5"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temperatura mayor que:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jlO-sH-GFB">
-                                    <rect key="frame" x="8" y="12" width="157" height="20.5"/>
+                                    <rect key="frame" x="8" y="12" width="182" height="20.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -109,20 +111,20 @@
                                 <constraint firstItem="jlO-sH-GFB" firstAttribute="top" secondItem="tJ5-43-W7E" secondAttribute="top" constant="12" id="QCF-Cb-RNr"/>
                                 <constraint firstItem="0w4-W4-fN0" firstAttribute="top" secondItem="jlO-sH-GFB" secondAttribute="top" id="V26-t3-b0f"/>
                                 <constraint firstItem="0w4-W4-fN0" firstAttribute="bottom" secondItem="jlO-sH-GFB" secondAttribute="bottom" id="ja4-Wz-4js"/>
-                                <constraint firstItem="0w4-W4-fN0" firstAttribute="leading" secondItem="jlO-sH-GFB" secondAttribute="trailing" constant="100" id="sZC-lc-ZYg"/>
+                                <constraint firstItem="0w4-W4-fN0" firstAttribute="leading" secondItem="jlO-sH-GFB" secondAttribute="trailing" constant="75" id="sZC-lc-ZYg"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jzh-6x-ktr">
                             <rect key="frame" x="0.0" y="163" width="315" height="44"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temperatura menor que:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fsW-mj-Xmq">
-                                    <rect key="frame" x="8" y="14" width="157" height="18"/>
+                                    <rect key="frame" x="8" y="13.5" width="182" height="18"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eeO-c2-UkP">
-                                    <rect key="frame" x="265" y="12" width="42" height="21"/>
+                                    <rect key="frame" x="265" y="11.5" width="42" height="21"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="42" id="n3w-zN-Tbo"/>
                                     </constraints>
@@ -134,7 +136,7 @@
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstItem="eeO-c2-UkP" firstAttribute="centerY" secondItem="fsW-mj-Xmq" secondAttribute="centerY" id="2Ik-H7-0Py"/>
-                                <constraint firstItem="eeO-c2-UkP" firstAttribute="leading" secondItem="fsW-mj-Xmq" secondAttribute="trailing" constant="100" id="W9G-6d-6ix"/>
+                                <constraint firstItem="eeO-c2-UkP" firstAttribute="leading" secondItem="fsW-mj-Xmq" secondAttribute="trailing" constant="75" id="W9G-6d-6ix"/>
                                 <constraint firstItem="fsW-mj-Xmq" firstAttribute="leading" secondItem="jzh-6x-ktr" secondAttribute="leadingMargin" id="ZTu-oP-JJG"/>
                                 <constraint firstAttribute="trailing" secondItem="eeO-c2-UkP" secondAttribute="trailing" constant="8" id="jEa-Un-jGe"/>
                                 <constraint firstItem="eeO-c2-UkP" firstAttribute="baseline" secondItem="fsW-mj-Xmq" secondAttribute="baseline" id="lRi-js-YPl"/>
@@ -145,7 +147,7 @@
                     </subviews>
                 </stackView>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.071806450581795384" green="0.0075877604002371245" blue="0.51338435913705582" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Xwc-2q-mvh" secondAttribute="trailing" constant="20" id="8OX-jb-Jd1"/>
                 <constraint firstItem="Xwc-2q-mvh" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="ZwD-dJ-7NR"/>

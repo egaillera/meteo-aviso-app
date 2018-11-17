@@ -15,17 +15,24 @@ class MeasurementAnnotation: NSObject, MKAnnotation {
     
     init(measurement:Measurement) {
         self.measurement = measurement
-        self.coordinate = CLLocationCoordinate2D(latitude:CLLocationDegrees(41.1),longitude:CLLocationDegrees(1.1))
+        self.coordinate = CLLocationCoordinate2D(latitude:CLLocationDegrees(measurement.lat),
+                                                longitude:CLLocationDegrees(measurement.lon))
     }
     
     var title: String? {
-        return measurement.name
+        return Station.replaceHtmlCodesInName(measurement.name)
     }
     
     var subtitle: String? {
-        return String(measurement.current_temp)
+        return String(format:"Temperatura: %.1f ºC",measurement.current_temp,measurement.rainfall)
     }
     
-    
-    
+    var markerTintColor: UIColor  {
+        if measurement.rainfall > 0 {
+            return .cyan
+        }
+        else {
+            return .red
+        }
+    }
 }

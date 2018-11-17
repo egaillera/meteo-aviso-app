@@ -45,8 +45,12 @@ class StationViewController : UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         print("File: \(#file), Function: \(#function), line: \(#line)")
-        self.refreshDataFromServer()
-        
+        if measurement == nil {
+            self.refreshDataFromServer()
+        }
+        else {
+            displayNewMeasurement(measurement)
+        }
     }
     
     override func didReceiveMemoryWarning() {

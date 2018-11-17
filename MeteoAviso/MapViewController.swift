@@ -9,19 +9,34 @@
 import UIKit
 import MapKit
 
-class MapViewController: UIViewController, MKMapViewDelegate {
+class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
+    
+    let locationManager = CLLocationManager()
+    
+    var stCode:String = "" // Code of the selected station
+    var measurementSelected:Measurement?
 
     override func viewDidLoad() {
         print("File: \(#file), Function: \(#function), line: \(#line)")
         super.viewDidLoad()
         mapView.delegate = self
+        
+        self.locationManager.requestWhenInUseAuthorization()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
+        }
+        
+        // Asking for the location will trigger a call to locationManager,
+        // that will provide the center coordinates for the map
+        locationManager.requestLocation()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         mapView.showsUserLocation = true
-        getStationsFromServer()
     }
     
     override func didReceiveMemoryWarning() {
@@ -29,18 +44,19 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    func getStationsFromServer() {
+    func getMeasurementsFromServer() {
         
         print("File: \(#file), Function: \(#function), line: \(#line)")
         
-        let url:URL = URL(string: MeteoServer.serverURL + "stations")!
+        let url:URL = URL(string: MeteoServer.serverURL + "last_measurements")!
         let session = URLSession.shared
-        var stationList:[Station]?
+        var msList:[Measurement]?
         
         let request = NSMutableURLRequest(url: url)
         request.httpMethod = "GET"
         request.cachePolicy = NSURLRequest.CachePolicy.reloadIgnoringCacheData
         
+        print("Adding measurements to map ...")
         let task = session.dataTask(with: request as URLRequest, completionHandler: {
             (data, response, error) in
             
@@ -49,40 +65,90 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             }
             do {
                 // Decode retrieved data with JSONDecoder
-                stationList = try JSONDecoder().decode([Station].self, from: data!)
+                msList = try JSONDecoder().decode([Measurement].self, from: data!)
                 
             } catch let jsonError {
                 print(jsonError)
-                stationList =  nil
+                msList =  nil
             }
             
+            // Add anotations to the map
             DispatchQueue.main.async {
-                var st_annotations:[StationAnnotation] = []
-                if stationList != nil {
-                    for station in stationList! {
-                        st_annotations.append(StationAnnotation.init(station: station))
+                var ms_annotations:[MeasurementAnnotation] = []
+                if msList != nil {
+                    for measurement in msList! {
+                        ms_annotations.append(MeasurementAnnotation.init(measurement: measurement))
                     }
                 }
-                print("Adding stations to map")
-                self.mapView.addAnnotations(st_annotations)
+                self.mapView.addAnnotations(ms_annotations)
+                print(".. added!!")
             }
         })
         
         task.resume()
     }
     
-    // MARK: - MKMapViewDelegate methods
-    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
-        let visibleRegion = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 25000, 25000)
-        self.mapView.setRegion(self.mapView.regionThatFits(visibleRegion), animated: true)
+    // MARK: - locationManager delegete methods
+    
+    // The location is ready,so now we can center the map
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        print("File: \(#file), Function: \(#function), line: \(#line)")
+        guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
+        
+        print("Detected location: lat = \(locValue.latitude),lon = \(locValue.longitude)")
+        let initialLocation = CLLocation(latitude: locValue.latitude, longitude: locValue.longitude)
+        let regionRadius: CLLocationDistance = 25000
+        let coordinateRegion = MKCoordinateRegionMakeWithDistance(initialLocation.coordinate,
+                                                                  regionRadius, regionRadius)
+        mapView.setRegion(coordinateRegion, animated: true)
+        mapView.showsUserLocation = true
+        getMeasurementsFromServer()
     }
     
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error)
+    }
+    
+ 
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
         if annotation is MKUserLocation { return nil }
         
-        return nil
+        let identifier = "marker"
+        
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+        if annotationView == nil {
+            annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+        } else {
+            annotationView!.annotation = annotation
+        }
+        annotationView?.canShowCallout = true
+        annotationView?.calloutOffset = CGPoint(x: 0, y: 5)
+        annotationView?.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+        
+        return annotationView
+    }
+ 
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView,
+                 calloutAccessoryControlTapped control: UIControl) {
+        print("File: \(#file), Function: \(#function), line: \(#line)")
+        
+        let annotationSelected = view.annotation as! MeasurementAnnotation
+        measurementSelected = annotationSelected.measurement
+        print("Map button pressed for station: %s",measurementSelected?.name)
+        performSegue(withIdentifier: "FromMapToStationView", sender: nil)
     }
     
+     // MARK: - segue methods
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("File: \(#file), Function: \(#function), line: \(#line)")
+        if segue.identifier == "FromMapToStationView" {
+            let theStationView = segue.destination as! StationViewController
+            //theStationView.stationCode = stCode
+            theStationView.measurement = measurementSelected
+        }
+    }
+
 }
 

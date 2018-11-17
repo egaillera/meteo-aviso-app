@@ -40,12 +40,21 @@ class StationSearchViewController: UITableViewController  {
         self.getStationsList()
     }
     
-    func extractJsonStations(_ data:Data) -> [Station] {
+    func extractJsonStations(_ data:Data) -> [Station]? {
         print("File: \(#file), Function: \(#function), line: \(#line)")
         
         let json:Any?
-        var stList : [Station] = []
+        var stList : [Station]?
         
+        do {
+            // Decode retrieved data with JSONDecoder
+            stList = try JSONDecoder().decode([Station].self, from: data)
+        } catch let jsonError {
+            print(jsonError)
+            stList = nil
+        }
+        
+        /*
         do {
             json = try JSONSerialization.jsonObject(with: data, options: [])
         }
@@ -65,7 +74,7 @@ class StationSearchViewController: UITableViewController  {
             print(stList)
         } else {
             print("JSON is invalid")
-        }
+        }*/
         
         return stList
         
@@ -91,7 +100,7 @@ class StationSearchViewController: UITableViewController  {
             
             // Get list of stations and order it by province
             let stList = self.extractJsonStations(data!)
-            self.stationsList = stList.sorted {$0.prov < $1.prov}
+            self.stationsList = stList?.sorted {$0.prov < $1.prov}
         
             DispatchQueue.main.async {
                 print("Reloading data")
