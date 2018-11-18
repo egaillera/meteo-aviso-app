@@ -33,6 +33,11 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         // Asking for the location will trigger a call to locationManager,
         // that will provide the center coordinates for the map
         locationManager.requestLocation()
+        
+        // Register the marker view to be used by the map, instead of confuring
+        // it in mapView:viewFor method
+        mapView.register(MarkerMeasurementView.self,
+                         forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -109,7 +114,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         print(error)
     }
     
- 
+ /*
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
         if annotation is MKUserLocation { return nil }
@@ -118,16 +123,17 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         
         var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
         if annotationView == nil {
-            annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
         } else {
             annotationView!.annotation = annotation
         }
         annotationView?.canShowCallout = true
         annotationView?.calloutOffset = CGPoint(x: 0, y: 5)
         annotationView?.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+        annotationView?.tintColor = annotation.markTintColor as MeasurementAnnotation
         
         return annotationView
-    }
+    } */
  
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView,
                  calloutAccessoryControlTapped control: UIControl) {

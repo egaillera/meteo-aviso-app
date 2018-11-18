@@ -24,15 +24,26 @@ class MeasurementAnnotation: NSObject, MKAnnotation {
     }
     
     var subtitle: String? {
-        return String(format:"Temperatura: %.1f ºC",measurement.current_temp,measurement.rainfall)
+        return String(format:"%.1f ºC",measurement.current_temp,measurement.rainfall)
     }
     
+    // To set marker color, depending on rainfall
     var markerTintColor: UIColor  {
         if measurement.rainfall > 0 {
             return .cyan
         }
         else {
-            return .red
+            return .gray
+        }
+    }
+    
+    // To make the station as an AEMET on or a Meteoclimatic one
+    var markerStationType: String {
+        if (measurement.code.prefix(2) == "ES") && (measurement.code.count > 18) {
+            return "M"
+        }
+        else {
+            return "A"
         }
     }
 }
