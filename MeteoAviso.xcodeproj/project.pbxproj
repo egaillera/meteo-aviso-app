@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E40E6D7F21A30CE200035139 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40E6D7E21A30CE200035139 /* ActivityIndicator.swift */; };
 		E433774B206F922A00ECD9B1 /* StationSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E433774A206F922A00ECD9B1 /* StationSearchViewController.swift */; };
 		E433774D206F9C4C00ECD9B1 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E433774C206F9C4C00ECD9B1 /* FavoritesViewController.swift */; };
 		E433774F206FA46A00ECD9B1 /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = E433774E206FA46A00ECD9B1 /* Station.swift */; };
@@ -32,6 +33,7 @@
 
 /* Begin PBXFileReference section */
 		E40ABD481FFD3F050025B960 /* MeteoAviso.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MeteoAviso.entitlements; sourceTree = "<group>"; };
+		E40E6D7E21A30CE200035139 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		E433774A206F922A00ECD9B1 /* StationSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationSearchViewController.swift; sourceTree = "<group>"; };
 		E433774C206F9C4C00ECD9B1 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		E433774E206FA46A00ECD9B1 /* Station.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 				E4E5A0C5206D430C003D8562 /* LocationViewController.swift */,
 				E4A2ADDC206BF6590058F564 /* GradView.swift */,
 				E44C5B1D1E8E5E3100A48F24 /* Main.storyboard */,
+				E40E6D7E21A30CE200035139 /* ActivityIndicator.swift */,
 				E433774A206F922A00ECD9B1 /* StationSearchViewController.swift */,
 				E433774C206F9C4C00ECD9B1 /* FavoritesViewController.swift */,
 				E4B3E265218B7560008C8A22 /* MapViewController.swift */,
@@ -209,6 +212,7 @@
 				E44C5B1A1E8E5E3100A48F24 /* AppDelegate.swift in Sources */,
 				E4E5A0C6206D430C003D8562 /* LocationViewController.swift in Sources */,
 				E4B3E268218B85D4008C8A22 /* StationAnnotation.swift in Sources */,
+				E40E6D7F21A30CE200035139 /* ActivityIndicator.swift in Sources */,
 				E4B3E266218B7560008C8A22 /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -24,7 +24,7 @@ class MeasurementAnnotation: NSObject, MKAnnotation {
     }
     
     var subtitle: String? {
-        return String(format:"%.1f ºC",measurement.current_temp,measurement.rainfall)
+        return String(format:"%.1f ºC",measurement.current_temp)
     }
     
     // To set marker color, depending on rainfall
@@ -33,7 +33,7 @@ class MeasurementAnnotation: NSObject, MKAnnotation {
             return .cyan
         }
         else {
-            return .gray
+            return .green
         }
     }
     

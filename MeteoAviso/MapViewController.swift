@@ -14,6 +14,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     @IBOutlet weak var mapView: MKMapView!
     
     let locationManager = CLLocationManager()
+    let activityIndicator = ActivityIndicatorUtils()
     
     var stCode:String = "" // Code of the selected station
     var measurementSelected:Measurement?
@@ -62,6 +63,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         request.cachePolicy = NSURLRequest.CachePolicy.reloadIgnoringCacheData
         
         print("Adding measurements to map ...")
+        self.activityIndicator.showActivityIndicator(uiView: self.view)
+        
         let task = session.dataTask(with: request as URLRequest, completionHandler: {
             (data, response, error) in
             
@@ -86,6 +89,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
                     }
                 }
                 self.mapView.addAnnotations(ms_annotations)
+                self.activityIndicator.hideActivityIndicator(uiView: self.view)
                 print(".. added!!")
             }
         })

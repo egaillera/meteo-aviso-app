@@ -21,12 +21,18 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="X43-5N-P48">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BxV-kZ-pCs">
+                                <rect key="frame" x="313" y="77" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="X43-5N-P48" firstAttribute="top" secondItem="gSt-E3-RZI" secondAttribute="top" id="91S-5n-CIn"/>
                             <constraint firstItem="X43-5N-P48" firstAttribute="leading" secondItem="gSt-E3-RZI" secondAttribute="leading" id="Rvu-6M-x2h"/>
+                            <constraint firstItem="gSt-E3-RZI" firstAttribute="trailing" secondItem="BxV-kZ-pCs" secondAttribute="trailing" constant="16" id="WVE-Va-YXL"/>
                             <constraint firstItem="X43-5N-P48" firstAttribute="bottom" secondItem="gSt-E3-RZI" secondAttribute="bottom" id="blX-Ey-ifD"/>
+                            <constraint firstItem="BxV-kZ-pCs" firstAttribute="top" secondItem="gSt-E3-RZI" secondAttribute="top" constant="13" id="uNe-Qr-96S"/>
                             <constraint firstItem="X43-5N-P48" firstAttribute="trailing" secondItem="gSt-E3-RZI" secondAttribute="trailing" id="wm9-WE-GZd"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gSt-E3-RZI"/>
@@ -42,11 +48,6 @@
                             <barButtonItem title="Con" id="hvO-yE-6U9">
                                 <connections>
                                     <segue destination="1o5-U5-LeI" kind="show" id="05Y-Yf-x5N"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem title="Fav" id="sMQ-Gp-IjV">
-                                <connections>
-                                    <segue destination="F4Z-wP-WZh" kind="show" id="c8B-dK-BsU"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
@@ -106,39 +107,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mj7-1O-u85" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1871" y="-564"/>
-        </scene>
-        <!--Favorites View Controller-->
-        <scene sceneID="zfz-ZK-zym">
-            <objects>
-                <viewController id="F4Z-wP-WZh" customClass="FavoritesViewController" customModule="MeteoAviso" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="62C-Wo-3MD">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="egaillera@gmail.com" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2tB-bn-TjW">
-                                <rect key="frame" x="89" y="318.5" width="197" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="emailLabelAction:" destination="F4Z-wP-WZh" eventType="editingDidEnd" id="xBY-61-zEA"/>
-                                </connections>
-                            </textField>
-                        </subviews>
-                        <color key="backgroundColor" red="0.50196081400000003" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="2tB-bn-TjW" firstAttribute="centerX" secondItem="YRX-xT-aHf" secondAttribute="centerX" id="bGk-3c-HnY"/>
-                            <constraint firstItem="2tB-bn-TjW" firstAttribute="centerY" secondItem="62C-Wo-3MD" secondAttribute="centerY" id="eYj-tL-ciG"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="YRX-xT-aHf"/>
-                    </view>
-                    <connections>
-                        <outlet property="emailLabel" destination="2tB-bn-TjW" id="eS0-K1-EO4"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aAT-TF-yYh" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1870" y="-1318"/>
         </scene>
         <!--Config View Controller-->
         <scene sceneID="w2L-W8-s5D">
@@ -505,6 +473,6 @@ menor que</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="L33-qA-iG9"/>
+        <segue reference="u5I-XG-Ib9"/>
     </inferredMetricsTieBreakers>
 </document>
