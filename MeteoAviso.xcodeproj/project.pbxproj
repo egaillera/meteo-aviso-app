@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E4059B6D21A6E0CA00EF2E67 /* EZLoadingActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4059B6C21A6E0CA00EF2E67 /* EZLoadingActivity.swift */; };
 		E40E6D7F21A30CE200035139 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40E6D7E21A30CE200035139 /* ActivityIndicator.swift */; };
 		E433774B206F922A00ECD9B1 /* StationSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E433774A206F922A00ECD9B1 /* StationSearchViewController.swift */; };
 		E433774D206F9C4C00ECD9B1 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E433774C206F9C4C00ECD9B1 /* FavoritesViewController.swift */; };
@@ -32,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E4059B6C21A6E0CA00EF2E67 /* EZLoadingActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EZLoadingActivity.swift; sourceTree = "<group>"; };
 		E40ABD481FFD3F050025B960 /* MeteoAviso.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MeteoAviso.entitlements; sourceTree = "<group>"; };
 		E40E6D7E21A30CE200035139 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		E433774A206F922A00ECD9B1 /* StationSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationSearchViewController.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 				E433774A206F922A00ECD9B1 /* StationSearchViewController.swift */,
 				E433774C206F9C4C00ECD9B1 /* FavoritesViewController.swift */,
 				E4B3E265218B7560008C8A22 /* MapViewController.swift */,
+				E4059B6C21A6E0CA00EF2E67 /* EZLoadingActivity.swift */,
 				E44C5B201E8E5E3100A48F24 /* Assets.xcassets */,
 				E44C5B221E8E5E3100A48F24 /* LaunchScreen.storyboard */,
 				E44C5B251E8E5E3100A48F24 /* Info.plist */,
@@ -201,6 +204,7 @@
 				E48873362170CE0900A12AF5 /* EditRuleViewController.swift in Sources */,
 				E433774F206FA46A00ECD9B1 /* Station.swift in Sources */,
 				E47AFE7E214AE6380019951D /* ConfigViewController.swift in Sources */,
+				E4059B6D21A6E0CA00EF2E67 /* EZLoadingActivity.swift in Sources */,
 				E48165652014891B005E83E3 /* MeteoServer.swift in Sources */,
 				E487FD3C21A1682100FA13C9 /* MarkerMeasurementView.swift in Sources */,
 				E433774D206F9C4C00ECD9B1 /* FavoritesViewController.swift in Sources */,

@@ -35,7 +35,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         // that will provide the center coordinates for the map
         locationManager.requestLocation()
         
-        // Register the marker view to be used by the map, instead of confuring
+        // Register the marker view to be used by the map, instead of configuring
         // it in mapView:viewFor method
         mapView.register(MarkerMeasurementView.self,
                          forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
@@ -63,7 +63,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         request.cachePolicy = NSURLRequest.CachePolicy.reloadIgnoringCacheData
         
         print("Adding measurements to map ...")
-        self.activityIndicator.showActivityIndicator(uiView: self.view)
+        //self.activityIndicator.showActivityIndicator(uiView: self.view)
+        EZLoadingActivity.show("Cargando estaciones ...",disableUI: true)
         
         let task = session.dataTask(with: request as URLRequest, completionHandler: {
             (data, response, error) in
@@ -89,7 +90,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
                     }
                 }
                 self.mapView.addAnnotations(ms_annotations)
-                self.activityIndicator.hideActivityIndicator(uiView: self.view)
+                //self.activityIndicator.hideActivityIndicator(uiView: self.view)
+                EZLoadingActivity.hide(true,animated: true)
                 print(".. added!!")
             }
         })

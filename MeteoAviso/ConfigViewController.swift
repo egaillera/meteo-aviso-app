@@ -137,13 +137,14 @@ class ConfigViewController: UIViewController, ModalHandlerDelegate {
         
         print("File: \(#file), Function: \(#function), line: \(#line)")
         
-        let url:URL = URL(string: MeteoServer.serverURL + "get_rules?email=" + MeteoServer.globalUserEmail)!
+        let url:URL = URL(string: MeteoServer.serverURL + "get_rules1/" + MeteoServer.globalDeviceId!)!
         let session = URLSession.shared
         
         let request = NSMutableURLRequest(url: url)
         request.httpMethod = "GET"
         request.cachePolicy = NSURLRequest.CachePolicy.reloadIgnoringCacheData
         
+        EZLoadingActivity.show("Cargando reglas ...",disableUI: true)
         let task = session.dataTask(with: request as URLRequest, completionHandler: {
             (data, response, error) in
             
@@ -156,6 +157,7 @@ class ConfigViewController: UIViewController, ModalHandlerDelegate {
 
             DispatchQueue.main.async {
                 self.displayRules(rules: dbConfig)
+                EZLoadingActivity.hide(true,animated: true)
             }
         })
         

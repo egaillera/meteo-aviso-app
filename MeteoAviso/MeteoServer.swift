@@ -13,10 +13,10 @@ class MeteoServer {
     
     //static let serverURL = "http://meteoaviso.cloudapp.net:9090/" as String //To work with real server
     //static let serverURL = "http://meteoaviso.ddns.net:9090/" as String //To work with real server
-    static let serverURL = "http://meteoaviso.garciaillera.com:9090/" as String //To work with real server
-    //static let serverURL = "http://localhost:5000/" as String // To work with local server
-    let deviceId = UIDevice.current.identifierForVendor?.uuidString //TODO: check if it's nil
+    //static let serverURL = "http://meteoaviso.garciaillera.com:9090/" as String //To work with real server
+    static let serverURL = "http://localhost:5000/" as String // To work with local server
     
+    static var globalDeviceId = UIDevice.current.identifierForVendor?.uuidString //TODO: check if it's nil
     static var globalUserEmail = "egaillera@gmail.com"
     
     var lastMeasurement:Measurement? = nil
@@ -27,11 +27,11 @@ class MeteoServer {
         
         print("eMail Address = \(userEmail)")
         print("DEVICE TOKEN = \(tokenStr)")
-        print("Device ID = \(deviceId!)") // To identify uniquely this device
+        print("Device ID = \(MeteoServer.globalDeviceId!)") // To identify uniquely this device
         
         let request = NSMutableURLRequest(url: NSURL(string: MeteoServer.serverURL + "token")! as URL)
         request.httpMethod = "POST"
-        let postString = "emailaddress=\(userEmail)&token=\(tokenStr)&deviceid=\(deviceId!)"
+        let postString = "emailaddress=\(userEmail)&token=\(tokenStr)&deviceid=\(MeteoServer.globalDeviceId!)"
         request.setValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
         request.httpBody = postString.data(using: String.Encoding.utf8)
         

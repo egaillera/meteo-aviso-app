@@ -22,35 +22,35 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BxV-kZ-pCs">
-                                <rect key="frame" x="313" y="77" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                                <rect key="frame" x="326" y="76" width="34" height="30"/>
+                                <state key="normal" title="Lupa"/>
+                                <connections>
+                                    <segue destination="LAx-UU-ooY" kind="show" id="9nL-YG-OqX"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tu4-dv-SbU">
+                                <rect key="frame" x="262" y="76" width="46" height="30"/>
+                                <state key="normal" title="Config"/>
+                                <connections>
+                                    <segue destination="1o5-U5-LeI" kind="show" id="3IA-Ux-KR4"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="X43-5N-P48" firstAttribute="top" secondItem="gSt-E3-RZI" secondAttribute="top" id="91S-5n-CIn"/>
+                            <constraint firstItem="Tu4-dv-SbU" firstAttribute="centerY" secondItem="BxV-kZ-pCs" secondAttribute="centerY" id="AnQ-WV-urR"/>
                             <constraint firstItem="X43-5N-P48" firstAttribute="leading" secondItem="gSt-E3-RZI" secondAttribute="leading" id="Rvu-6M-x2h"/>
-                            <constraint firstItem="gSt-E3-RZI" firstAttribute="trailing" secondItem="BxV-kZ-pCs" secondAttribute="trailing" constant="16" id="WVE-Va-YXL"/>
+                            <constraint firstItem="BxV-kZ-pCs" firstAttribute="top" secondItem="gSt-E3-RZI" secondAttribute="top" constant="12" id="VBC-DT-q5y"/>
                             <constraint firstItem="X43-5N-P48" firstAttribute="bottom" secondItem="gSt-E3-RZI" secondAttribute="bottom" id="blX-Ey-ifD"/>
-                            <constraint firstItem="BxV-kZ-pCs" firstAttribute="top" secondItem="gSt-E3-RZI" secondAttribute="top" constant="13" id="uNe-Qr-96S"/>
+                            <constraint firstItem="BxV-kZ-pCs" firstAttribute="leading" secondItem="Tu4-dv-SbU" secondAttribute="trailing" constant="18" id="dMI-k1-wQe"/>
+                            <constraint firstItem="gSt-E3-RZI" firstAttribute="trailing" secondItem="BxV-kZ-pCs" secondAttribute="trailing" constant="15" id="ehC-Cq-H9t"/>
                             <constraint firstItem="X43-5N-P48" firstAttribute="trailing" secondItem="gSt-E3-RZI" secondAttribute="trailing" id="wm9-WE-GZd"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gSt-E3-RZI"/>
                     </view>
                     <navigationItem key="navigationItem" title="Mapa Estaciones" id="bnC-r8-Xap">
                         <barButtonItem key="backBarButtonItem" title="Atrás" id="V23-NG-ASl"/>
-                        <rightBarButtonItems>
-                            <barButtonItem title="Lup" id="yjF-Py-ldS">
-                                <connections>
-                                    <segue destination="LAx-UU-ooY" kind="show" id="Kat-X5-mhu"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem title="Con" id="hvO-yE-6U9">
-                                <connections>
-                                    <segue destination="1o5-U5-LeI" kind="show" id="05Y-Yf-x5N"/>
-                                </connections>
-                            </barButtonItem>
-                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="X43-5N-P48" id="zan-ly-vlo"/>
@@ -150,7 +150,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3NM-78-bEL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="810" y="774"/>
+            <point key="canvasLocation" x="926" y="786"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Qq7-cT-DBm">
@@ -475,6 +475,6 @@ menor que</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="L33-qA-iG9"/>
+        <segue reference="u5I-XG-Ib9"/>
     </inferredMetricsTieBreakers>
 </document>

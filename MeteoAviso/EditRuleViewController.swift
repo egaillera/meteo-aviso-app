@@ -76,7 +76,7 @@ class EditRuleViewController: UIViewController  {
         print("File: \(#file), Function: \(#function), line: \(#line)")
         
         // create post request
-        let url = URL(string: MeteoServer.serverURL + "delete_rules/" + stationCode + "?email=" + MeteoServer.globalUserEmail)!
+        let url = URL(string: MeteoServer.serverURL + "delete_rules1/" + MeteoServer.globalDeviceId! + "/" + stationCode)!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         //TODO: check errors
@@ -167,7 +167,7 @@ class EditRuleViewController: UIViewController  {
         print("Getting rules for station \(self.stationCode)")
     
         // Request notification rules from server
-        let url:URL = URL(string: MeteoServer.serverURL + "get_rules/\(self.stationCode)?email=\(MeteoServer.globalUserEmail)")!
+        let url:URL = URL(string: MeteoServer.serverURL + "get_rules1/\(MeteoServer.globalDeviceId!)/\(self.stationCode)")!
         print(url.absoluteString)
         let session = URLSession.shared
         let request = NSMutableURLRequest(url: url)
@@ -203,7 +203,7 @@ class EditRuleViewController: UIViewController  {
         var jsonData:[String:Any] = [:]
         var rules:[[String:Any]] = []
         
-        jsonData["email"] = MeteoServer.globalUserEmail
+        jsonData["device_id"] = MeteoServer.globalDeviceId
         jsonData["station"] = self.stationCode
         
         // If user hasn't changed a default value, don't send a new rule with a default

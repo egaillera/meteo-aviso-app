@@ -14,6 +14,7 @@ class ActivityIndicatorUtils {
     var container: UIView = UIView()
     var loadingView: UIView = UIView()
     var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
+    var strLabel: UILabel = UILabel()
     
     /*
      Show customized activity indicator,
@@ -24,11 +25,14 @@ class ActivityIndicatorUtils {
     func showActivityIndicator(uiView: UIView) {
         print("File: \(#file), Function: \(#function), line: \(#line)")
         
+        
         container.frame = uiView.frame
         container.center = uiView.center
         container.backgroundColor = UIColorFromHex(rgbValue: 0xffffff, alpha: 0.3)
         
-        loadingView.frame = CGRect(x: 0, y: 0, width: 80, height: 80)
+        
+        //loadingView.frame = CGRect(x: 0, y: 0, width: 80, height: 80)
+        loadingView.frame = CGRect(x: 0, y: 0, width: 160, height: 100)
         loadingView.center = uiView.center
         loadingView.backgroundColor = UIColorFromHex(rgbValue: 0x444444, alpha: 0.7)
         loadingView.clipsToBounds = true
@@ -36,9 +40,16 @@ class ActivityIndicatorUtils {
         
         activityIndicator.frame = CGRect(x: 0, y: 0, width: 40, height: 40);
         activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
-        activityIndicator.center = CGPoint(x:loadingView.frame.size.width / 2, y:loadingView.frame.size.height / 2);
+        activityIndicator.center = CGPoint(x:loadingView.frame.size.width / 2, y:loadingView.frame.size.height / 2)
+        
+        strLabel.frame = CGRect(x: 0, y: 0, width: 160, height: 46)
+        strLabel.text = "Cargando"
+        strLabel.font = .systemFont(ofSize: 14, weight: .medium)
+        strLabel.textColor = UIColor(white: 0.9, alpha: 0.7)
+        strLabel.center = CGPoint(x:loadingView.frame.size.width/2 + 60 , y:loadingView.frame.size.height/2 + 30)
         
         loadingView.addSubview(activityIndicator)
+        loadingView.addSubview(strLabel)
         container.addSubview(loadingView)
         uiView.addSubview(container)
         activityIndicator.startAnimating()
