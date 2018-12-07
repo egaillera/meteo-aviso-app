@@ -76,7 +76,7 @@ class EditRuleViewController: UIViewController  {
         print("File: \(#file), Function: \(#function), line: \(#line)")
         
         // create post request
-        let url = URL(string: MeteoServer.serverURL + "delete_rules1/" + MeteoServer.globalDeviceId! + "/" + stationCode)!
+        let url = URL(string: MeteoServer.serverURL + "delete_rules/" + MeteoServer.globalDeviceId! + "/" + stationCode)!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         //TODO: check errors
@@ -167,7 +167,7 @@ class EditRuleViewController: UIViewController  {
         print("Getting rules for station \(self.stationCode)")
     
         // Request notification rules from server
-        let url:URL = URL(string: MeteoServer.serverURL + "get_rules1/\(MeteoServer.globalDeviceId!)/\(self.stationCode)")!
+        let url:URL = URL(string: MeteoServer.serverURL + "get_rules/\(MeteoServer.globalDeviceId!)/\(self.stationCode)")!
         print(url.absoluteString)
         let session = URLSession.shared
         let request = NSMutableURLRequest(url: url)
