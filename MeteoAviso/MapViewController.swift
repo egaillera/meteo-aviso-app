@@ -14,6 +14,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     @IBOutlet weak var mapView: MKMapView!
     
     let locationManager = CLLocationManager()
+    var locationDetected = false
     let activityIndicator = ActivityIndicatorUtils()
     
     var stCode:String = "" // Code of the selected station
@@ -107,13 +108,22 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
         
         print("Detected location: lat = \(locValue.latitude),lon = \(locValue.longitude)")
-        let initialLocation = CLLocation(latitude: locValue.latitude, longitude: locValue.longitude)
-        let regionRadius: CLLocationDistance = 25000
-        let coordinateRegion = MKCoordinateRegionMakeWithDistance(initialLocation.coordinate,
-                                                                  regionRadius, regionRadius)
-        mapView.setRegion(coordinateRegion, animated: true)
-        mapView.showsUserLocation = true
-        getMeasurementsFromServer()
+        
+        // To avoid several calls to getMeasurementFromServer()
+        if locationDetected == false {
+            let initialLocation = CLLocation(latitude: locValue.latitude, longitude: locValue.longitude)
+            let regionRadius: CLLocationDistance = 25000
+            let coordinateRegion = MKCoordinateRegionMakeWithDistance(initialLocation.coordinate,
+                                                                      regionRadius, regionRadius)
+            mapView.setRegion(coordinateRegion, animated: true)
+            mapView.showsUserLocation = true
+            getMeasurementsFromServer()
+            locationDetected = true
+        }
+        else {
+            print("More than one call to locationManager(:didUpdateLocations)")
+        }
+        
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
@@ -156,6 +166,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         print("File: \(#file), Function: \(#function), line: \(#line)")
         if segue.identifier == "FromMapToStationView" {
+            print("Called FromMapToStationView segue")
             let theStationView = segue.destination as! StationViewController
             //theStationView.stationCode = stCode
             theStationView.measurement = measurementSelected

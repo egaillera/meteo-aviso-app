@@ -140,8 +140,8 @@ class StationViewController : UIViewController {
             if (segue.identifier == "ToEditRule") {
                 print("Identified segue")
                 let editRuleController = segue.destination as! EditRuleViewController
-                editRuleController.stationCode = self.stationCode
-                editRuleController.stName = self.stationName.text!
+                editRuleController.stationCode = (self.measurement?.code)!
+                editRuleController.stName = (self.measurement?.name)!
                 }
         }
         

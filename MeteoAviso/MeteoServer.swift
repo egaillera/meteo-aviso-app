@@ -18,7 +18,7 @@ class MeteoServer {
     //static let serverURL = "http://mac-509457.local:9090/" as String // To work with Docker local server
     
     static var globalDeviceId = UIDevice.current.identifierForVendor?.uuidString //TODO: check if it's nil
-    static var globalUserEmail = "egaillera@gmail.com"
+    static var globalUserEmail = "fake@fakemail.com"
     
     var lastMeasurement:Measurement? = nil
     

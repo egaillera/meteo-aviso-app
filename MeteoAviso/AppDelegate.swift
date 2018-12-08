@@ -64,7 +64,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         
-        MeteoServer.globalUserEmail = "egaillera@gmail.com"
+        MeteoServer.globalUserEmail = "fake@fakemail.com"
         let tokenStr = deviceToken.map { String(format: "%02hhx", $0) }.joined()
         myServer.sendToken(userEmail:MeteoServer.globalUserEmail,tokenStr:tokenStr)
         
