@@ -35,10 +35,19 @@
                                     <segue destination="1o5-U5-LeI" kind="show" id="3IA-Ux-KR4"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KVX-qA-FXu">
+                                <rect key="frame" x="214" y="76" width="30" height="30"/>
+                                <state key="normal" title="Refr"/>
+                                <connections>
+                                    <action selector="refreshButton:" destination="ULX-Qp-lnA" eventType="touchUpInside" id="bAi-lx-Q8M"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="KVX-qA-FXu" firstAttribute="centerY" secondItem="Tu4-dv-SbU" secondAttribute="centerY" id="6s8-01-p6L"/>
                             <constraint firstItem="X43-5N-P48" firstAttribute="top" secondItem="gSt-E3-RZI" secondAttribute="top" id="91S-5n-CIn"/>
+                            <constraint firstItem="Tu4-dv-SbU" firstAttribute="leading" secondItem="KVX-qA-FXu" secondAttribute="trailing" constant="18" id="AIg-vf-wIy"/>
                             <constraint firstItem="Tu4-dv-SbU" firstAttribute="centerY" secondItem="BxV-kZ-pCs" secondAttribute="centerY" id="AnQ-WV-urR"/>
                             <constraint firstItem="X43-5N-P48" firstAttribute="leading" secondItem="gSt-E3-RZI" secondAttribute="leading" id="Rvu-6M-x2h"/>
                             <constraint firstItem="BxV-kZ-pCs" firstAttribute="top" secondItem="gSt-E3-RZI" secondAttribute="top" constant="12" id="VBC-DT-q5y"/>

@@ -13,6 +13,14 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     
     @IBOutlet weak var mapView: MKMapView!
     
+    @IBAction func refreshButton(_ sender: Any) {
+        print("File: \(#file), Function: \(#function), line: \(#line)")
+        
+        let allAnnotations = self.mapView.annotations
+        self.mapView.removeAnnotations(allAnnotations)
+        getMeasurementsFromServer()
+    }
+    
     let locationManager = CLLocationManager()
     var locationDetected = false
     let activityIndicator = ActivityIndicatorUtils()
