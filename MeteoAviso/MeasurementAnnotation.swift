@@ -37,7 +37,7 @@ class MeasurementAnnotation: NSObject, MKAnnotation {
         }
     }
     
-    // To make the station as an AEMET on or a Meteoclimatic one
+    // To mark the station as an AEMET or a Meteoclimatic one
     var markerStationType: String {
         if (measurement.code.prefix(2) == "ES") && (measurement.code.count > 18) {
             return "M"
