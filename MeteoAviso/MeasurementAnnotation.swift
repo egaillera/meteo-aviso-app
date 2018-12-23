@@ -29,7 +29,7 @@ class MeasurementAnnotation: NSObject, MKAnnotation {
     
     // To set marker color, depending on rainfall
     var markerTintColor: UIColor  {
-        if measurement.rainfall > 0 {
+        if measurement.rainfall > 0.2 {
             return .cyan
         }
         else {
