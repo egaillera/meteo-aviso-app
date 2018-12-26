@@ -86,6 +86,7 @@ class StationViewController : UIViewController {
         // TODO: verify that measuremet is not nil
         DispatchQueue.main.async {
             if measurement != nil {
+                self.measurement = measurement
                 self.stationName.text = Station.replaceHtmlCodesInName(measurement!.name)
                 self.date.text = measurement!.date_created
                 self.temp.text = "\(measurement!.current_temp)"
