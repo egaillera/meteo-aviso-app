@@ -303,7 +303,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Estación" id="jam-SP-nxt">
                         <barButtonItem key="backBarButtonItem" title="Atrás" id="xRm-Pk-d6G"/>
-                        <barButtonItem key="rightBarButtonItem" title="Edit Rule" id="Mys-Kv-zBY">
+                        <barButtonItem key="rightBarButtonItem" title="Editar Alertas" id="Mys-Kv-zBY">
                             <connections>
                                 <segue destination="Vuv-xi-kjt" kind="presentation" identifier="ToEditRule" modalPresentationStyle="overCurrentContext" id="Kep-uS-l4Y"/>
                             </connections>
