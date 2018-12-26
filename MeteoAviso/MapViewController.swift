@@ -73,7 +73,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         
         print("Adding measurements to map ...")
         //self.activityIndicator.showActivityIndicator(uiView: self.view)
-        EZLoadingActivity.show("Cargando estaciones ...",disableUI: true)
+        EZLoadingActivity.show("Cargando observaciones ...",disableUI: true)
         
         let task = session.dataTask(with: request as URLRequest, completionHandler: {
             (data, response, error) in

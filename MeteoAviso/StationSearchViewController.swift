@@ -84,6 +84,8 @@ class StationSearchViewController: UITableViewController  {
         
         print("File: \(#file), Function: \(#function), line: \(#line)")
         
+        EZLoadingActivity.show("Cargando estaciones ...",disableUI: true)
+        
         let url:URL = URL(string: MeteoServer.serverURL + "stations")!
         let session = URLSession.shared
         
@@ -106,6 +108,7 @@ class StationSearchViewController: UITableViewController  {
                 print("Reloading data")
                 self.tableView.reloadData()
                 self.setupSearchController()
+                EZLoadingActivity.hide(true,animated: true)
             }
         })
         
