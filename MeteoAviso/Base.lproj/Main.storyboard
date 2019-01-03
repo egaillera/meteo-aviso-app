@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Mapa Estaciones-->
+        <!--Mapa de Estaciones-->
         <scene sceneID="IML-Tr-x9h">
             <objects>
                 <viewController id="ULX-Qp-lnA" customClass="MapViewController" customModule="MeteoAviso" customModuleProvider="target" sceneMemberID="viewController">
@@ -58,7 +58,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gSt-E3-RZI"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Mapa Estaciones" id="bnC-r8-Xap">
+                    <navigationItem key="navigationItem" title="Mapa de Estaciones" id="bnC-r8-Xap" userLabel="Mapa de Estaciones">
                         <barButtonItem key="backBarButtonItem" title="Atrás" id="V23-NG-ASl"/>
                     </navigationItem>
                     <connections>
