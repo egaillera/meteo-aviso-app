@@ -79,6 +79,13 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
             (data, response, error) in
             
             guard let _:Data = data, let _:URLResponse = response  , error == nil else {
+                print("error=\(String(describing: error))")
+                let alert = UIAlertController(title: "ERROR", message: "No se ha podido conectar con el servidor", preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+                DispatchQueue.main.async {
+                    EZLoadingActivity.hide(true,animated: true)
+                    self.present(alert, animated: true, completion: nil)
+                }
                 return
             }
             do {
