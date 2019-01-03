@@ -20,8 +20,6 @@ class MeteoServer {
     static var globalDeviceId = UIDevice.current.identifierForVendor?.uuidString //TODO: check if it's nil
     static var globalUserEmail = "fake@fakemail.com"
     
-    var lastMeasurement:Measurement? = nil
-    
     // Send notification token to the server
     func sendToken(userEmail:String, tokenStr: String) {
         print("Function: \(#function), line: \(#line)")
@@ -69,6 +67,17 @@ class MeteoServer {
         }
         
         task.resume()
+    }
+    
+    static func treatServerError(currentView:UIViewController) {
+        print("File: \(#file), Function: \(#function), line: \(#line)")
+        
+        let alert = UIAlertController(title: "ERROR", message: "No se ha podido establecer conexión con el servidor de MeteoAviso", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        DispatchQueue.main.async {
+            EZLoadingActivity.hide(true,animated: true)
+            currentView.present(alert, animated: true, completion: nil)
+        }
     }
     
 }

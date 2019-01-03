@@ -149,6 +149,8 @@ class ConfigViewController: UIViewController, ModalHandlerDelegate {
             (data, response, error) in
             
             guard let _:Data = data, let _:URLResponse = response  , error == nil else {
+                print("error=\(String(describing: error))")
+                MeteoServer.treatServerError(currentView: self)
                 return
             }
             
