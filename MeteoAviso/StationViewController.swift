@@ -107,6 +107,7 @@ class StationViewController : UIViewController {
         
         let request = NSMutableURLRequest(url: url)
         request.httpMethod = "GET"
+        request.addValue(MeteoServer.iOSapiKey, forHTTPHeaderField: "X-Auth-Token")
         request.cachePolicy = NSURLRequest.CachePolicy.reloadIgnoringCacheData
         
         let task = session.dataTask(with: request as URLRequest, completionHandler: {

@@ -20,6 +20,8 @@ class MeteoServer {
     static var globalDeviceId = UIDevice.current.identifierForVendor?.uuidString //TODO: check if it's nil
     static var globalUserEmail = "fake@fakemail.com"
     
+    static var iOSapiKey = "TWV0ZW9Bdmlzb2lPU0NsaWVudAo="
+    
     // Send notification token to the server
     func sendToken(userEmail:String, tokenStr: String) {
         print("Function: \(#function), line: \(#line)")
@@ -33,6 +35,7 @@ class MeteoServer {
         let postString = "emailaddress=\(userEmail)&token=\(tokenStr)&deviceid=\(MeteoServer.globalDeviceId!)"
         request.setValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
         request.httpBody = postString.data(using: String.Encoding.utf8)
+        request.addValue(MeteoServer.iOSapiKey, forHTTPHeaderField: "X-Auth-Token")
         
         let task = URLSession.shared.dataTask(with: request as URLRequest) { data, response, error in
             guard error == nil && data != nil else {     // check for fundamental networking error

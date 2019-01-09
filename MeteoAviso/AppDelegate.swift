@@ -8,6 +8,7 @@
 
 import UIKit
 import UserNotifications
+import GoogleMobileAds
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -24,6 +25,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         application.registerUserNotificationSettings(pushNotificationSettings)
         application.registerForRemoteNotifications()*/
+        
+        // Initialize the Google Mobile Ads SDK
+        print("Initializing Google Ads")
+        GADMobileAds.configure(withApplicationID: "ca-app-pub-8083313450645952~6257679604")
         
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) {
             (granted, error) in
