@@ -69,7 +69,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         
         let request = NSMutableURLRequest(url: url)
         request.httpMethod = "GET"
-        request.addValue(MeteoServer.iOSapiKey, forHTTPHeaderField: "X-Auth-Token")
+        request.setValue(MeteoServer.iOSapiKey, forHTTPHeaderField: "Authorization")
         request.cachePolicy = NSURLRequest.CachePolicy.reloadIgnoringCacheData
         
         print("Adding measurements to map ...")

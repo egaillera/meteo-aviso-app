@@ -142,7 +142,7 @@ class ConfigViewController: UIViewController, ModalHandlerDelegate {
         
         let request = NSMutableURLRequest(url: url)
         request.httpMethod = "GET"
-        request.addValue(MeteoServer.iOSapiKey, forHTTPHeaderField: "X-Auth-Token")
+        request.setValue(MeteoServer.iOSapiKey, forHTTPHeaderField: "Authorization")
         request.cachePolicy = NSURLRequest.CachePolicy.reloadIgnoringCacheData
         
         EZLoadingActivity.show("Cargando reglas ...",disableUI: true)

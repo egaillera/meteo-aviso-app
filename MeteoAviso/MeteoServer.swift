@@ -15,12 +15,14 @@ class MeteoServer {
     //static let serverURL = "http://meteoaviso.ddns.net:9090/" as String //To work with real server
     static let serverURL = "http://meteoaviso.garciaillera.com:9090/" as String //To work with real server
     //static let serverURL = "http://localhost:5000/" as String // To work with local server
-    //static let serverURL = "http://mac-509457.local:9090/" as String // To work with Docker local server
+    //static let serverURL = "https://mac-509457.local:9090/" as String // To work with Docker local server
     
     static var globalDeviceId = UIDevice.current.identifierForVendor?.uuidString //TODO: check if it's nil
     static var globalUserEmail = "fake@fakemail.com"
     
-    static var iOSapiKey = "TWV0ZW9Bdmlzb2lPU0NsaWVudAo="
+    //static var iOSapiKey = "TWV0ZW9Bdmlzb2lPU0NsaWVudAo="
+    static var iOSapiKey = "1234567890"
+
     
     // Send notification token to the server
     func sendToken(userEmail:String, tokenStr: String) {
@@ -34,8 +36,8 @@ class MeteoServer {
         request.httpMethod = "POST"
         let postString = "emailaddress=\(userEmail)&token=\(tokenStr)&deviceid=\(MeteoServer.globalDeviceId!)"
         request.setValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
+        request.setValue(MeteoServer.iOSapiKey, forHTTPHeaderField: "Authorization")
         request.httpBody = postString.data(using: String.Encoding.utf8)
-        request.addValue(MeteoServer.iOSapiKey, forHTTPHeaderField: "X-Auth-Token")
         
         let task = URLSession.shared.dataTask(with: request as URLRequest) { data, response, error in
             guard error == nil && data != nil else {     // check for fundamental networking error

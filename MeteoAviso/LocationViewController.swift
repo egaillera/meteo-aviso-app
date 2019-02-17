@@ -54,6 +54,7 @@ class LocationViewController : StationViewController,CLLocationManagerDelegate {
         
         let request = NSMutableURLRequest(url: url)
         request.httpMethod = "GET"
+        request.setValue(MeteoServer.iOSapiKey, forHTTPHeaderField: "Authorization")
         request.cachePolicy = NSURLRequest.CachePolicy.reloadIgnoringCacheData
         
         let task = session.dataTask(with: request as URLRequest, completionHandler: {

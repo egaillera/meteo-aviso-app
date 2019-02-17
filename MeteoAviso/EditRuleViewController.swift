@@ -46,7 +46,7 @@ class EditRuleViewController: UIViewController  {
         var request = URLRequest(url: url)
         request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "POST"
-        request.addValue(MeteoServer.iOSapiKey, forHTTPHeaderField: "X-Auth-Token")
+        request.setValue(MeteoServer.iOSapiKey, forHTTPHeaderField: "Authorization")
         
         // insert json data to the request
         request.httpBody = jsonData
@@ -80,7 +80,7 @@ class EditRuleViewController: UIViewController  {
         let url = URL(string: MeteoServer.serverURL + "delete_rules/" + MeteoServer.globalDeviceId! + "/" + stationCode)!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
-        request.addValue(MeteoServer.iOSapiKey, forHTTPHeaderField: "X-Auth-Token")
+        request.setValue(MeteoServer.iOSapiKey, forHTTPHeaderField: "Authorization")
         //TODO: check errors
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data, error == nil else {
@@ -174,7 +174,7 @@ class EditRuleViewController: UIViewController  {
         let session = URLSession.shared
         let request = NSMutableURLRequest(url: url)
         request.httpMethod = "GET"
-        request.addValue(MeteoServer.iOSapiKey, forHTTPHeaderField: "X-Auth-Token")
+        request.setValue(MeteoServer.iOSapiKey, forHTTPHeaderField: "Authorization")
         request.cachePolicy = NSURLRequest.CachePolicy.reloadIgnoringCacheData
         
         let task = session.dataTask(with: request as URLRequest, completionHandler: {
