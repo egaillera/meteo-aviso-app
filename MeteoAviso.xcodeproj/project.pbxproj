@@ -17,8 +17,6 @@
 		E44C5B1F1E8E5E3100A48F24 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E44C5B1D1E8E5E3100A48F24 /* Main.storyboard */; };
 		E44C5B211E8E5E3100A48F24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E44C5B201E8E5E3100A48F24 /* Assets.xcassets */; };
 		E44C5B241E8E5E3100A48F24 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E44C5B221E8E5E3100A48F24 /* LaunchScreen.storyboard */; };
-		E46E101E21E3808B00326639 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E46E101D21E3808B00326639 /* GoogleMobileAds.framework */; };
-		E46E101F21E380BE00326639 /* GoogleMobileAds.framework in Resources */ = {isa = PBXBuildFile; fileRef = E46E101D21E3808B00326639 /* GoogleMobileAds.framework */; };
 		E47AFE78214AE0F90019951D /* StationRules.xib in Resources */ = {isa = PBXBuildFile; fileRef = E47AFE77214AE0F90019951D /* StationRules.xib */; };
 		E47AFE7A214AE1780019951D /* StationRules.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47AFE79214AE1780019951D /* StationRules.swift */; };
 		E47AFE7E214AE6380019951D /* ConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47AFE7D214AE6380019951D /* ConfigViewController.swift */; };
@@ -48,7 +46,6 @@
 		E44C5B201E8E5E3100A48F24 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E44C5B231E8E5E3100A48F24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E44C5B251E8E5E3100A48F24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E46E101D21E3808B00326639 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
 		E47AFE77214AE0F90019951D /* StationRules.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StationRules.xib; sourceTree = "<group>"; };
 		E47AFE79214AE1780019951D /* StationRules.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationRules.swift; sourceTree = "<group>"; };
 		E47AFE7D214AE6380019951D /* ConfigViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +53,7 @@
 		E487FD3B21A1682100FA13C9 /* MarkerMeasurementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkerMeasurementView.swift; sourceTree = "<group>"; };
 		E48873352170CE0900A12AF5 /* EditRuleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditRuleViewController.swift; sourceTree = "<group>"; };
 		E4A2ADDC206BF6590058F564 /* GradView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradView.swift; sourceTree = "<group>"; };
+		E4B073F82250CD0B001CD8B2 /* MeteoAviso.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = MeteoAviso.xcodeproj; sourceTree = "<group>"; };
 		E4B3E265218B7560008C8A22 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		E4B3E267218B85D4008C8A22 /* StationAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationAnnotation.swift; sourceTree = "<group>"; };
 		E4B80C1A218F6B5E004337BA /* MeasurementAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementAnnotation.swift; sourceTree = "<group>"; };
@@ -69,7 +67,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E46E101E21E3808B00326639 /* GoogleMobileAds.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +78,7 @@
 			children = (
 				E44C5B181E8E5E3100A48F24 /* MeteoAviso */,
 				E44C5B171E8E5E3100A48F24 /* Products */,
+				E4B073F72250CD0B001CD8B2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -120,9 +118,21 @@
 				E44C5B201E8E5E3100A48F24 /* Assets.xcassets */,
 				E44C5B221E8E5E3100A48F24 /* LaunchScreen.storyboard */,
 				E44C5B251E8E5E3100A48F24 /* Info.plist */,
-				E46E101D21E3808B00326639 /* GoogleMobileAds.framework */,
 			);
 			path = MeteoAviso;
+			sourceTree = "<group>";
+		};
+		E4B073F72250CD0B001CD8B2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E4B073F82250CD0B001CD8B2 /* MeteoAviso.xcodeproj */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E4B073F92250CD0B001CD8B2 /* Products */ = {
+			isa = PBXGroup;
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -172,12 +182,19 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
 			mainGroup = E44C5B0D1E8E5E3100A48F24;
 			productRefGroup = E44C5B171E8E5E3100A48F24 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = E4B073F92250CD0B001CD8B2 /* Products */;
+					ProjectRef = E4B073F82250CD0B001CD8B2 /* MeteoAviso.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				E44C5B151E8E5E3100A48F24 /* MeteoAviso */,
@@ -190,7 +207,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E46E101F21E380BE00326639 /* GoogleMobileAds.framework in Resources */,
 				E44C5B241E8E5E3100A48F24 /* LaunchScreen.storyboard in Resources */,
 				E44C5B211E8E5E3100A48F24 /* Assets.xcassets in Resources */,
 				E47AFE78214AE0F90019951D /* StationRules.xib in Resources */,
