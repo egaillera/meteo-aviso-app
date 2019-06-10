@@ -13,7 +13,7 @@ class MeteoServer {
     
     //static let serverURL = "http://meteoaviso.cloudapp.net:9090/" as String //To work with real server
     //static let serverURL = "http://meteoaviso.ddns.net:9090/" as String //To work with real server
-    static let serverURL = "http://meteoaviso.garciaillera.com:9090/" as String //To work with real server
+    static let serverURL = "https://meteoaviso.garciaillera.com:9090/" as String //To work with real server
     //static let serverURL = "http://localhost:5000/" as String // To work with local server
     //static let serverURL = "https://mac-509457.local:9090/" as String // To work with Docker local server
     
