@@ -212,13 +212,13 @@ class EditRuleViewController: UIViewController  {
         // If user hasn't changed a default value, don't send a new rule with a default
         // value the user doesn't know
         if changedRainfallThreshold {
-            rules.append(["dimension":"rainfall","quantifier":">","value":Float(rainfallStepper.value)])
+            rules.append(["dimension":"rainfall","quantifier":">","value":Float(rainfallStepper.value),"offset":0])
         }
         if changedMaxTempThreshold {
-            rules.append(["dimension":"current_temp","quantifier":">","value":Float(tempMaxStepper.value)])
+            rules.append(["dimension":"current_temp","quantifier":">","value":Float(tempMaxStepper.value),"offset":0])
         }
         if changedMinTempThreshold {
-            rules.append(["dimension":"current_temp","quantifier":"<","value":Float(tempMinStepper.value)])
+            rules.append(["dimension":"current_temp","quantifier":"<","value":Float(tempMinStepper.value),"offset":0])
         }
         
         jsonData["rules"] = rules

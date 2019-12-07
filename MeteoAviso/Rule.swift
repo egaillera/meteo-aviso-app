@@ -13,16 +13,18 @@ struct Rule:CustomStringConvertible,Codable {
     var dimension:String
     var quantifier:String
     var value:Float
+    var offset:Float
     
     init(_ dictionary:[String:Any]) {
         
         self.dimension = dictionary["dimension"] as! String
         self.quantifier = dictionary["quantifier"] as! String
         self.value = dictionary["value"] as! Float
+        self.offset = dictionary["offset"] as! Float
     }
     
     var description: String {
-        return "{dimension:\(self.dimension),quantifier:\(self.quantifier),value:\(self.value)}"
+        return "{dimension:\(self.dimension),quantifier:\(self.quantifier),value:\(self.value),offset:\(self.offset)}"
     }
 }
 

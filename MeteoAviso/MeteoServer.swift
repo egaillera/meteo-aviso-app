@@ -11,7 +11,7 @@ import UIKit
 
 class MeteoServer {
     
-    //static let serverURL = "http://meteoaviso.cloudapp.net:9090/" as String //To work with real server
+    //static let serverURL = "http://meteoaviso.cloudapp.net:9090/" as String //To work MS real server
     //static let serverURL = "http://meteoaviso.ddns.net:9090/" as String //To work with real server
     static let serverURL = "https://meteoaviso.garciaillera.com:9090/" as String //To work with real server
     //static let serverURL = "http://localhost:5000/" as String // To work with local server
