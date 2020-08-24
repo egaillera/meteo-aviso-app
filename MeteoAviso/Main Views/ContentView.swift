@@ -81,29 +81,25 @@ struct ContentView: View {
             }*/
             
             Button(action: {self.msList.getMeasurementsFromServer()}) {
-                Text("Recarga")
+                Image("RefreshButton")
+                    .renderingMode(.original)
                 }
             
-            /*Button(action: {
-                self.navigateToRules = true
-            }) {
-                Text("Lista")
-            }
-            // When the button appears, change the rules flag
-            .onAppear(perform: {self.navigateToRules = false})*/
             NavigationLink(destination:RulesListView()) {
-                Text("Lista")
+                Image("ConfigButton")
+                    .renderingMode(.original)
             }
             
             Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
-                Text("Lupa")
+                Image("SearchButton")
+                    .renderingMode(.original)
             }
         }.padding()  //HStack buttons
     }
     
     private var map_view: some View {
         
-        // Covers all the screen and includes a map and the buttons
+        // Covers all the screen and includes a map and 
         // the buttons inside the map
         ZStack(alignment: .topTrailing) {
             
