@@ -7,23 +7,69 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E4E8810924F400C500FB7119 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8810824F400C500FB7119 /* AppDelegate.swift */; };
-		E4E8810B24F400C500FB7119 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8810A24F400C500FB7119 /* SceneDelegate.swift */; };
-		E4E8810D24F400C500FB7119 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8810C24F400C500FB7119 /* ContentView.swift */; };
 		E4E8810F24F400C700FB7119 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4E8810E24F400C700FB7119 /* Assets.xcassets */; };
 		E4E8811224F400C700FB7119 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4E8811124F400C700FB7119 /* Preview Assets.xcassets */; };
 		E4E8811524F400C700FB7119 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4E8811324F400C700FB7119 /* LaunchScreen.storyboard */; };
+		E4E8813C24F401CE00FB7119 /* RuleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8811D24F401CE00FB7119 /* RuleView.swift */; };
+		E4E8813D24F401CE00FB7119 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8811E24F401CE00FB7119 /* MapView.swift */; };
+		E4E8813E24F401CE00FB7119 /* RulesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8811F24F401CE00FB7119 /* RulesListView.swift */; };
+		E4E8813F24F401CE00FB7119 /* EditRuleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8812024F401CE00FB7119 /* EditRuleView.swift */; };
+		E4E8814024F401CE00FB7119 /* StationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8812124F401CE00FB7119 /* StationView.swift */; };
+		E4E8814124F401CE00FB7119 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8812224F401CE00FB7119 /* ContentView.swift */; };
+		E4E8814224F401CE00FB7119 /* RulesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8812424F401CE00FB7119 /* RulesList.swift */; };
+		E4E8814324F401CE00FB7119 /* Measurement.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8812524F401CE00FB7119 /* Measurement.swift */; };
+		E4E8814424F401CE00FB7119 /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8812624F401CE00FB7119 /* Station.swift */; };
+		E4E8814524F401CE00FB7119 /* Rule.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8812724F401CE00FB7119 /* Rule.swift */; };
+		E4E8814624F401CE00FB7119 /* MesasurementsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8812824F401CE00FB7119 /* MesasurementsList.swift */; };
+		E4E8814724F401CE00FB7119 /* MeteoServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8812A24F401CE00FB7119 /* MeteoServer.swift */; };
+		E4E8814824F401CE00FB7119 /* Agent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8812B24F401CE00FB7119 /* Agent.swift */; };
+		E4E8814924F401CE00FB7119 /* MeteoAvisoAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8812C24F401CE00FB7119 /* MeteoAvisoAPI.swift */; };
+		E4E8814A24F401CE00FB7119 /* LocationDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8812E24F401CE00FB7119 /* LocationDetector.swift */; };
+		E4E8814B24F401CE00FB7119 /* MeasurementAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8812F24F401CE00FB7119 /* MeasurementAnnotation.swift */; };
+		E4E8814C24F401CE00FB7119 /* StationAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8813024F401CE00FB7119 /* StationAnnotation.swift */; };
+		E4E8814D24F401CE00FB7119 /* MarkerMeasurementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8813124F401CE00FB7119 /* MarkerMeasurementView.swift */; };
+		E4E8814E24F401CE00FB7119 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8813224F401CE00FB7119 /* LocationManager.swift */; };
+		E4E8814F24F401CE00FB7119 /* ActivityIndicatorUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8813424F401CE00FB7119 /* ActivityIndicatorUtils.swift */; };
+		E4E8815024F401CE00FB7119 /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8813524F401CE00FB7119 /* Spinner.swift */; };
+		E4E8815124F401CE00FB7119 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8813624F401CE00FB7119 /* ActivityIndicator.swift */; };
+		E4E8815224F401CE00FB7119 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8813724F401CE00FB7119 /* LoadingView.swift */; };
+		E4E8815324F401CE00FB7119 /* NavigationConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8813824F401CE00FB7119 /* NavigationConfigurator.swift */; };
+		E4E8815424F401CE00FB7119 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8813A24F401CE00FB7119 /* AppDelegate.swift */; };
+		E4E8815524F401CE00FB7119 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8813B24F401CE00FB7119 /* SceneDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		E4E8810524F400C500FB7119 /* MeteoAviso.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeteoAviso.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		E4E8810824F400C500FB7119 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E4E8810A24F400C500FB7119 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E4E8810C24F400C500FB7119 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E4E8810E24F400C700FB7119 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E4E8811124F400C700FB7119 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E4E8811424F400C700FB7119 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E4E8811624F400C700FB7119 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E4E8811D24F401CE00FB7119 /* RuleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RuleView.swift; sourceTree = "<group>"; };
+		E4E8811E24F401CE00FB7119 /* MapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		E4E8811F24F401CE00FB7119 /* RulesListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RulesListView.swift; sourceTree = "<group>"; };
+		E4E8812024F401CE00FB7119 /* EditRuleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditRuleView.swift; sourceTree = "<group>"; };
+		E4E8812124F401CE00FB7119 /* StationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationView.swift; sourceTree = "<group>"; };
+		E4E8812224F401CE00FB7119 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		E4E8812424F401CE00FB7119 /* RulesList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RulesList.swift; sourceTree = "<group>"; };
+		E4E8812524F401CE00FB7119 /* Measurement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Measurement.swift; sourceTree = "<group>"; };
+		E4E8812624F401CE00FB7119 /* Station.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
+		E4E8812724F401CE00FB7119 /* Rule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rule.swift; sourceTree = "<group>"; };
+		E4E8812824F401CE00FB7119 /* MesasurementsList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MesasurementsList.swift; sourceTree = "<group>"; };
+		E4E8812A24F401CE00FB7119 /* MeteoServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeteoServer.swift; sourceTree = "<group>"; };
+		E4E8812B24F401CE00FB7119 /* Agent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Agent.swift; sourceTree = "<group>"; };
+		E4E8812C24F401CE00FB7119 /* MeteoAvisoAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeteoAvisoAPI.swift; sourceTree = "<group>"; };
+		E4E8812E24F401CE00FB7119 /* LocationDetector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationDetector.swift; sourceTree = "<group>"; };
+		E4E8812F24F401CE00FB7119 /* MeasurementAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeasurementAnnotation.swift; sourceTree = "<group>"; };
+		E4E8813024F401CE00FB7119 /* StationAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationAnnotation.swift; sourceTree = "<group>"; };
+		E4E8813124F401CE00FB7119 /* MarkerMeasurementView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkerMeasurementView.swift; sourceTree = "<group>"; };
+		E4E8813224F401CE00FB7119 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		E4E8813424F401CE00FB7119 /* ActivityIndicatorUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorUtils.swift; sourceTree = "<group>"; };
+		E4E8813524F401CE00FB7119 /* Spinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
+		E4E8813624F401CE00FB7119 /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
+		E4E8813724F401CE00FB7119 /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		E4E8813824F401CE00FB7119 /* NavigationConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationConfigurator.swift; sourceTree = "<group>"; };
+		E4E8813A24F401CE00FB7119 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E4E8813B24F401CE00FB7119 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,9 +102,12 @@
 		E4E8810724F400C500FB7119 /* MeteoAviso */ = {
 			isa = PBXGroup;
 			children = (
-				E4E8810824F400C500FB7119 /* AppDelegate.swift */,
-				E4E8810A24F400C500FB7119 /* SceneDelegate.swift */,
-				E4E8810C24F400C500FB7119 /* ContentView.swift */,
+				E4E8813924F401CE00FB7119 /* App */,
+				E4E8811C24F401CE00FB7119 /* Main Views */,
+				E4E8812D24F401CE00FB7119 /* Map Support */,
+				E4E8812324F401CE00FB7119 /* Models */,
+				E4E8812924F401CE00FB7119 /* NetworkLayer */,
+				E4E8813324F401CE00FB7119 /* Supporting Views */,
 				E4E8810E24F400C700FB7119 /* Assets.xcassets */,
 				E4E8811324F400C700FB7119 /* LaunchScreen.storyboard */,
 				E4E8811624F400C700FB7119 /* Info.plist */,
@@ -73,6 +122,74 @@
 				E4E8811124F400C700FB7119 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E4E8811C24F401CE00FB7119 /* Main Views */ = {
+			isa = PBXGroup;
+			children = (
+				E4E8811D24F401CE00FB7119 /* RuleView.swift */,
+				E4E8811E24F401CE00FB7119 /* MapView.swift */,
+				E4E8811F24F401CE00FB7119 /* RulesListView.swift */,
+				E4E8812024F401CE00FB7119 /* EditRuleView.swift */,
+				E4E8812124F401CE00FB7119 /* StationView.swift */,
+				E4E8812224F401CE00FB7119 /* ContentView.swift */,
+			);
+			path = "Main Views";
+			sourceTree = "<group>";
+		};
+		E4E8812324F401CE00FB7119 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E4E8812424F401CE00FB7119 /* RulesList.swift */,
+				E4E8812524F401CE00FB7119 /* Measurement.swift */,
+				E4E8812624F401CE00FB7119 /* Station.swift */,
+				E4E8812724F401CE00FB7119 /* Rule.swift */,
+				E4E8812824F401CE00FB7119 /* MesasurementsList.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E4E8812924F401CE00FB7119 /* NetworkLayer */ = {
+			isa = PBXGroup;
+			children = (
+				E4E8812A24F401CE00FB7119 /* MeteoServer.swift */,
+				E4E8812B24F401CE00FB7119 /* Agent.swift */,
+				E4E8812C24F401CE00FB7119 /* MeteoAvisoAPI.swift */,
+			);
+			path = NetworkLayer;
+			sourceTree = "<group>";
+		};
+		E4E8812D24F401CE00FB7119 /* Map Support */ = {
+			isa = PBXGroup;
+			children = (
+				E4E8812E24F401CE00FB7119 /* LocationDetector.swift */,
+				E4E8812F24F401CE00FB7119 /* MeasurementAnnotation.swift */,
+				E4E8813024F401CE00FB7119 /* StationAnnotation.swift */,
+				E4E8813124F401CE00FB7119 /* MarkerMeasurementView.swift */,
+				E4E8813224F401CE00FB7119 /* LocationManager.swift */,
+			);
+			path = "Map Support";
+			sourceTree = "<group>";
+		};
+		E4E8813324F401CE00FB7119 /* Supporting Views */ = {
+			isa = PBXGroup;
+			children = (
+				E4E8813424F401CE00FB7119 /* ActivityIndicatorUtils.swift */,
+				E4E8813524F401CE00FB7119 /* Spinner.swift */,
+				E4E8813624F401CE00FB7119 /* ActivityIndicator.swift */,
+				E4E8813724F401CE00FB7119 /* LoadingView.swift */,
+				E4E8813824F401CE00FB7119 /* NavigationConfigurator.swift */,
+			);
+			path = "Supporting Views";
+			sourceTree = "<group>";
+		};
+		E4E8813924F401CE00FB7119 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				E4E8813A24F401CE00FB7119 /* AppDelegate.swift */,
+				E4E8813B24F401CE00FB7119 /* SceneDelegate.swift */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -146,9 +263,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E4E8810924F400C500FB7119 /* AppDelegate.swift in Sources */,
-				E4E8810B24F400C500FB7119 /* SceneDelegate.swift in Sources */,
-				E4E8810D24F400C500FB7119 /* ContentView.swift in Sources */,
+				E4E8813C24F401CE00FB7119 /* RuleView.swift in Sources */,
+				E4E8814724F401CE00FB7119 /* MeteoServer.swift in Sources */,
+				E4E8814C24F401CE00FB7119 /* StationAnnotation.swift in Sources */,
+				E4E8814624F401CE00FB7119 /* MesasurementsList.swift in Sources */,
+				E4E8814524F401CE00FB7119 /* Rule.swift in Sources */,
+				E4E8814A24F401CE00FB7119 /* LocationDetector.swift in Sources */,
+				E4E8814924F401CE00FB7119 /* MeteoAvisoAPI.swift in Sources */,
+				E4E8814424F401CE00FB7119 /* Station.swift in Sources */,
+				E4E8814B24F401CE00FB7119 /* MeasurementAnnotation.swift in Sources */,
+				E4E8814824F401CE00FB7119 /* Agent.swift in Sources */,
+				E4E8815324F401CE00FB7119 /* NavigationConfigurator.swift in Sources */,
+				E4E8815024F401CE00FB7119 /* Spinner.swift in Sources */,
+				E4E8814F24F401CE00FB7119 /* ActivityIndicatorUtils.swift in Sources */,
+				E4E8815424F401CE00FB7119 /* AppDelegate.swift in Sources */,
+				E4E8813D24F401CE00FB7119 /* MapView.swift in Sources */,
+				E4E8814324F401CE00FB7119 /* Measurement.swift in Sources */,
+				E4E8814124F401CE00FB7119 /* ContentView.swift in Sources */,
+				E4E8814D24F401CE00FB7119 /* MarkerMeasurementView.swift in Sources */,
+				E4E8815124F401CE00FB7119 /* ActivityIndicator.swift in Sources */,
+				E4E8813F24F401CE00FB7119 /* EditRuleView.swift in Sources */,
+				E4E8813E24F401CE00FB7119 /* RulesListView.swift in Sources */,
+				E4E8815524F401CE00FB7119 /* SceneDelegate.swift in Sources */,
+				E4E8814024F401CE00FB7119 /* StationView.swift in Sources */,
+				E4E8814E24F401CE00FB7119 /* LocationManager.swift in Sources */,
+				E4E8814224F401CE00FB7119 /* RulesList.swift in Sources */,
+				E4E8815224F401CE00FB7119 /* LoadingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
