@@ -56,5 +56,18 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSExceptionsDomains</key>
+		<dict>
+			<key>mac-513527.local</key>
+			<dict>
+				<key>NSExceptionAllowsInsecureHttpLoads</key>
+				<true/>
+				<key>NSIncludesSubdomains</key>
+				<string></string>
+			</dict>
+		</dict>
+	</dict>
 </dict>
 </plist>
