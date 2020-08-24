@@ -58,14 +58,14 @@
 	</array>
 	<key>NSAppTransportSecurity</key>
 	<dict>
-		<key>NSExceptionsDomains</key>
+		<key>NSExceptionDomains</key>
 		<dict>
 			<key>mac-513527.local</key>
 			<dict>
-				<key>NSExceptionAllowsInsecureHttpLoads</key>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
 				<true/>
 				<key>NSIncludesSubdomains</key>
-				<string></string>
+				<true/>
 			</dict>
 		</dict>
 	</dict>

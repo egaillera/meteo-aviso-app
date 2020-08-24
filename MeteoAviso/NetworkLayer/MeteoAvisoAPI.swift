@@ -11,8 +11,8 @@ import Combine
 
 enum MeteoAvisoAPI {
     static let agent = Agent()
-    //static let base = URL(string:"http://mac-513527.local:9090")! // Local Docker environment, set up in Info.plist
-    static let base = URL(string:"https://meteoaviso.garciaillera.com:9090")! // Production environment
+    static let base = URL(string:"http://mac-513527:9090")! // Local Docker environment, set up in Info.plist
+    //static let base = URL(string:"https://meteoaviso.garciaillera.com:9090")! // Production environment
     static let iOSapiKey = "1234567890"
     
     static func last_measurements() -> AnyPublisher<[Measurement],Error> {
