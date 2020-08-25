@@ -15,8 +15,12 @@ class MeteoServer {
     
     //static let serverURL = "http://meteoaviso.cloudapp.net:9090/" as String //To work MS real server
     //static let serverURL = "http://meteoaviso.ddns.net:9090/" as String //To work with real server
-    static let serverURL = "https://meteoaviso.garciaillera.com:9090/" as String //To work with real server
-    //(static let serverURL = "http://mac-513527:9090/" as String // To work with Docker local server
+    
+#if targetEnvironment(simulator)
+    static let serverURL = "http://localhost:9090/" as String // To work with Docker local server
+#else
+    static let serverURL = "https://meteoaviso.garciaillera.com:9090/" //To work with real server
+#endif
     
     static var globalDeviceId = UIDevice.current.identifierForVendor?.uuidString //TODO: check if it's nil
     static var globalUserEmail = "fake@fakemail.com"
