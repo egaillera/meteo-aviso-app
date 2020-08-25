@@ -22,7 +22,6 @@
 		E4E8814424F401CE00FB7119 /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8812624F401CE00FB7119 /* Station.swift */; };
 		E4E8814524F401CE00FB7119 /* Rule.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8812724F401CE00FB7119 /* Rule.swift */; };
 		E4E8814624F401CE00FB7119 /* MesasurementsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8812824F401CE00FB7119 /* MesasurementsList.swift */; };
-		E4E8814724F401CE00FB7119 /* MeteoServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8812A24F401CE00FB7119 /* MeteoServer.swift */; };
 		E4E8814824F401CE00FB7119 /* Agent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8812B24F401CE00FB7119 /* Agent.swift */; };
 		E4E8814924F401CE00FB7119 /* MeteoAvisoAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8812C24F401CE00FB7119 /* MeteoAvisoAPI.swift */; };
 		E4E8814A24F401CE00FB7119 /* LocationDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8812E24F401CE00FB7119 /* LocationDetector.swift */; };
@@ -54,7 +53,6 @@
 		E4E8812624F401CE00FB7119 /* Station.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
 		E4E8812724F401CE00FB7119 /* Rule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rule.swift; sourceTree = "<group>"; };
 		E4E8812824F401CE00FB7119 /* MesasurementsList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MesasurementsList.swift; sourceTree = "<group>"; };
-		E4E8812A24F401CE00FB7119 /* MeteoServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeteoServer.swift; sourceTree = "<group>"; };
 		E4E8812B24F401CE00FB7119 /* Agent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Agent.swift; sourceTree = "<group>"; };
 		E4E8812C24F401CE00FB7119 /* MeteoAvisoAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeteoAvisoAPI.swift; sourceTree = "<group>"; };
 		E4E8812E24F401CE00FB7119 /* LocationDetector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationDetector.swift; sourceTree = "<group>"; };
@@ -149,7 +147,6 @@
 		E4E8812924F401CE00FB7119 /* NetworkLayer */ = {
 			isa = PBXGroup;
 			children = (
-				E4E8812A24F401CE00FB7119 /* MeteoServer.swift */,
 				E4E8812B24F401CE00FB7119 /* Agent.swift */,
 				E4E8812C24F401CE00FB7119 /* MeteoAvisoAPI.swift */,
 			);
@@ -258,7 +255,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4E8813C24F401CE00FB7119 /* RuleView.swift in Sources */,
-				E4E8814724F401CE00FB7119 /* MeteoServer.swift in Sources */,
 				E4E8814C24F401CE00FB7119 /* StationAnnotation.swift in Sources */,
 				E4E8814624F401CE00FB7119 /* MesasurementsList.swift in Sources */,
 				E4E8814524F401CE00FB7119 /* Rule.swift in Sources */,
