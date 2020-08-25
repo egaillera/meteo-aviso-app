@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E419A4C524F4E39D005BFD48 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E419A4C424F4E39D005BFD48 /* Default-568h@2x.png */; };
 		E4E8810F24F400C700FB7119 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4E8810E24F400C700FB7119 /* Assets.xcassets */; };
 		E4E8811224F400C700FB7119 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4E8811124F400C700FB7119 /* Preview Assets.xcassets */; };
 		E4E8811524F400C700FB7119 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4E8811324F400C700FB7119 /* LaunchScreen.storyboard */; };
@@ -39,6 +40,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E419A4C424F4E39D005BFD48 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		E4E8810524F400C500FB7119 /* MeteoAviso.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeteoAviso.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4E8810E24F400C700FB7119 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E4E8811124F400C700FB7119 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 		E4E880FC24F400C500FB7119 = {
 			isa = PBXGroup;
 			children = (
+				E419A4C424F4E39D005BFD48 /* Default-568h@2x.png */,
 				E4E8810724F400C500FB7119 /* MeteoAviso */,
 				E4E8810624F400C500FB7119 /* Products */,
 			);
@@ -251,6 +254,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4E8811524F400C700FB7119 /* LaunchScreen.storyboard in Resources */,
+				E419A4C524F4E39D005BFD48 /* Default-568h@2x.png in Resources */,
 				E4E8811224F400C700FB7119 /* Preview Assets.xcassets in Resources */,
 				E4E8810F24F400C700FB7119 /* Assets.xcassets in Resources */,
 			);
