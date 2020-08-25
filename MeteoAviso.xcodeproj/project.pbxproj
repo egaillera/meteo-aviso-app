@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E458BAA024F5422200BE87AD /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E458BA9F24F5422200BE87AD /* TokenManager.swift */; };
 		E4E8810F24F400C700FB7119 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4E8810E24F400C700FB7119 /* Assets.xcassets */; };
 		E4E8811224F400C700FB7119 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4E8811124F400C700FB7119 /* Preview Assets.xcassets */; };
 		E4E8811524F400C700FB7119 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4E8811324F400C700FB7119 /* LaunchScreen.storyboard */; };
@@ -36,6 +37,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E458BA9F24F5422200BE87AD /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
 		E4E8810524F400C500FB7119 /* MeteoAviso.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeteoAviso.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4E8810E24F400C700FB7119 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E4E8811124F400C700FB7119 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 				E4E8812624F401CE00FB7119 /* Station.swift */,
 				E4E8812724F401CE00FB7119 /* Rule.swift */,
 				E4E8812824F401CE00FB7119 /* MesasurementsList.swift */,
+				E458BA9F24F5422200BE87AD /* TokenManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 				E4E8813F24F401CE00FB7119 /* EditRuleView.swift in Sources */,
 				E4E8813E24F401CE00FB7119 /* RulesListView.swift in Sources */,
 				E4E8815524F401CE00FB7119 /* SceneDelegate.swift in Sources */,
+				E458BAA024F5422200BE87AD /* TokenManager.swift in Sources */,
 				E4E8814024F401CE00FB7119 /* StationView.swift in Sources */,
 				E4E8814E24F401CE00FB7119 /* LocationManager.swift in Sources */,
 				E4E8814224F401CE00FB7119 /* RulesList.swift in Sources */,

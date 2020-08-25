@@ -13,14 +13,14 @@ let myLocation = LocationDetector()
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    let myServer = MeteoServer()
+    let myTokenManager = TokenManager()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) {
             (granted, error) in
-            print("Permission granted: \(granted)")
+            print("Notifications permission granted: \(granted)")
         }
         
         // Register with APNs
@@ -28,19 +28,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print("Registered in APN")
         
         //UNCOMMENT JUST FOR TESTING IN SIMULATOR, TO HAVE A RECORD WITH A USER
-        //myServer.sendToken(userEmail:"egaillera@gmail.com",tokenStr:"token_de_prueba")
-        
+        //myTokenManager.sendToken(userEmail:"egaillera@gmail.com",tokenStr:"token_de_prueba")
         
         return true
     }
     
     // MARK: Notifications boilerplate
-    
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        print("File: \(#file), Function: \(#function), line: \(#line)")
         
-        MeteoServer.globalUserEmail = "fake1@fakemail.com"
+        let globalUserEmail = "fake1@fakemail.com"
         let tokenStr = deviceToken.map { String(format: "%02hhx", $0) }.joined()
-        myServer.sendToken(userEmail:MeteoServer.globalUserEmail,tokenStr:tokenStr)
+        myTokenManager.sendToken(userEmail:globalUserEmail,tokenStr:tokenStr)
         
     }
     

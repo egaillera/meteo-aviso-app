@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 import Security
-
+/*
 class MeteoServer {
     
     //static let serverURL = "http://meteoaviso.cloudapp.net:9090/" as String //To work MS real server
@@ -92,3 +92,4 @@ class MeteoServer {
     }
     
 }
+*/
