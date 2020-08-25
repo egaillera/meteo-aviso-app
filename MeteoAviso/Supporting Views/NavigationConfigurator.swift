@@ -1,6 +1,6 @@
 //
 //  NavigationConfigurator.swift
-//  MAviso
+//  MeteoAviso
 //
 //  Created by Enrique Garcia Illera on 02/05/2020.
 //  Copyright © 2020 Enrique Garcia Illera. All rights reserved.

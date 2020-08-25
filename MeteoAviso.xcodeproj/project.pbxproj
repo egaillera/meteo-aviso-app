@@ -29,10 +29,7 @@
 		E4E8814C24F401CE00FB7119 /* StationAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8813024F401CE00FB7119 /* StationAnnotation.swift */; };
 		E4E8814D24F401CE00FB7119 /* MarkerMeasurementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8813124F401CE00FB7119 /* MarkerMeasurementView.swift */; };
 		E4E8814E24F401CE00FB7119 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8813224F401CE00FB7119 /* LocationManager.swift */; };
-		E4E8814F24F401CE00FB7119 /* ActivityIndicatorUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8813424F401CE00FB7119 /* ActivityIndicatorUtils.swift */; };
 		E4E8815024F401CE00FB7119 /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8813524F401CE00FB7119 /* Spinner.swift */; };
-		E4E8815124F401CE00FB7119 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8813624F401CE00FB7119 /* ActivityIndicator.swift */; };
-		E4E8815224F401CE00FB7119 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8813724F401CE00FB7119 /* LoadingView.swift */; };
 		E4E8815324F401CE00FB7119 /* NavigationConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8813824F401CE00FB7119 /* NavigationConfigurator.swift */; };
 		E4E8815424F401CE00FB7119 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8813A24F401CE00FB7119 /* AppDelegate.swift */; };
 		E4E8815524F401CE00FB7119 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8813B24F401CE00FB7119 /* SceneDelegate.swift */; };
@@ -63,10 +60,7 @@
 		E4E8813024F401CE00FB7119 /* StationAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationAnnotation.swift; sourceTree = "<group>"; };
 		E4E8813124F401CE00FB7119 /* MarkerMeasurementView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkerMeasurementView.swift; sourceTree = "<group>"; };
 		E4E8813224F401CE00FB7119 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
-		E4E8813424F401CE00FB7119 /* ActivityIndicatorUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorUtils.swift; sourceTree = "<group>"; };
 		E4E8813524F401CE00FB7119 /* Spinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
-		E4E8813624F401CE00FB7119 /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
-		E4E8813724F401CE00FB7119 /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		E4E8813824F401CE00FB7119 /* NavigationConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationConfigurator.swift; sourceTree = "<group>"; };
 		E4E8813A24F401CE00FB7119 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E4E8813B24F401CE00FB7119 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -174,10 +168,7 @@
 		E4E8813324F401CE00FB7119 /* Supporting Views */ = {
 			isa = PBXGroup;
 			children = (
-				E4E8813424F401CE00FB7119 /* ActivityIndicatorUtils.swift */,
 				E4E8813524F401CE00FB7119 /* Spinner.swift */,
-				E4E8813624F401CE00FB7119 /* ActivityIndicator.swift */,
-				E4E8813724F401CE00FB7119 /* LoadingView.swift */,
 				E4E8813824F401CE00FB7119 /* NavigationConfigurator.swift */,
 			);
 			path = "Supporting Views";
@@ -275,20 +266,17 @@
 				E4E8814824F401CE00FB7119 /* Agent.swift in Sources */,
 				E4E8815324F401CE00FB7119 /* NavigationConfigurator.swift in Sources */,
 				E4E8815024F401CE00FB7119 /* Spinner.swift in Sources */,
-				E4E8814F24F401CE00FB7119 /* ActivityIndicatorUtils.swift in Sources */,
 				E4E8815424F401CE00FB7119 /* AppDelegate.swift in Sources */,
 				E4E8813D24F401CE00FB7119 /* MapView.swift in Sources */,
 				E4E8814324F401CE00FB7119 /* Measurement.swift in Sources */,
 				E4E8814124F401CE00FB7119 /* ContentView.swift in Sources */,
 				E4E8814D24F401CE00FB7119 /* MarkerMeasurementView.swift in Sources */,
-				E4E8815124F401CE00FB7119 /* ActivityIndicator.swift in Sources */,
 				E4E8813F24F401CE00FB7119 /* EditRuleView.swift in Sources */,
 				E4E8813E24F401CE00FB7119 /* RulesListView.swift in Sources */,
 				E4E8815524F401CE00FB7119 /* SceneDelegate.swift in Sources */,
 				E4E8814024F401CE00FB7119 /* StationView.swift in Sources */,
 				E4E8814E24F401CE00FB7119 /* LocationManager.swift in Sources */,
 				E4E8814224F401CE00FB7119 /* RulesList.swift in Sources */,
-				E4E8815224F401CE00FB7119 /* LoadingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
