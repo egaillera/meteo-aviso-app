@@ -18,14 +18,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) {
-            (granted, error) in
-            print("Notifications permission granted: \(granted)")
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
+            if let error = error {
+                print("D'oh: \(error.localizedDescription)")
+            } else {
+                print("Notifications request granted")
+            }
         }
         
         // Register with APNs
         UIApplication.shared.registerForRemoteNotifications()
-        print("Registered in APN")
+        //print("Registered in APN")
         
         //UNCOMMENT JUST FOR TESTING IN SIMULATOR, TO HAVE A RECORD WITH A USER
         //myTokenManager.sendToken(userEmail:"egaillera@gmail.com",tokenStr:"token_de_prueba")

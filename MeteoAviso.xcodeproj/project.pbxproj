@@ -37,6 +37,7 @@
 
 /* Begin PBXFileReference section */
 		E458BA9F24F5422200BE87AD /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
+		E458BAA124F8E2A300BE87AD /* MeteoAvisoRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MeteoAvisoRelease.entitlements; sourceTree = "<group>"; };
 		E4E8810524F400C500FB7119 /* MeteoAviso.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeteoAviso.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4E8810E24F400C700FB7119 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E4E8811124F400C700FB7119 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -96,6 +97,7 @@
 		E4E8810724F400C500FB7119 /* MeteoAviso */ = {
 			isa = PBXGroup;
 			children = (
+				E458BAA124F8E2A300BE87AD /* MeteoAvisoRelease.entitlements */,
 				E4E8813924F401CE00FB7119 /* App */,
 				E4E8811C24F401CE00FB7119 /* Main Views */,
 				E4E8812D24F401CE00FB7119 /* Map Support */,
@@ -412,6 +414,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_ENTITLEMENTS[sdk=*]" = MeteoAviso/MeteoAvisoRelease.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"MeteoAviso/Preview Content\"";
 				DEVELOPMENT_TEAM = 68DY29NLF9;
@@ -432,6 +435,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MeteoAviso/MeteoAvisoRelease.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"MeteoAviso/Preview Content\"";
 				DEVELOPMENT_TEAM = 68DY29NLF9;

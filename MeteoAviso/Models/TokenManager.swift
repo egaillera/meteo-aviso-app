@@ -9,9 +9,10 @@
 import Foundation
 import Combine
 
+// Struct to get the answer of the send token operation
 struct TokenResult:Codable {
     var token:String
-    var result_code:Int
+    var status:Int
 }
 
 class TokenManager:NSObject {
@@ -22,7 +23,7 @@ class TokenManager:NSObject {
         print("File: \(#file), Function: \(#function), line: \(#line)")
       
         self.sub = MeteoAvisoAPI.send_token(userEmail: userEmail, tokenStr: tokenStr)
-        /*.print()*/
+        .print()
         .sink(receiveCompletion: { completion in
             switch completion {
                     case .finished:
@@ -37,7 +38,7 @@ class TokenManager:NSObject {
                 }
             },
           receiveValue: {
-            print("Received answer with code: \($0.result_code) ...")
+            print("Received answer with code: \($0.status) ...")
             }
         )
         
