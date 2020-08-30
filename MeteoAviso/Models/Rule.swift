@@ -50,3 +50,9 @@ struct ConfigData:Codable {
     }
 }
 
+// Struct to get the answer of the save rules operation
+struct RuleResult:Codable {
+    var rule:String
+    var status:Int
+}
+

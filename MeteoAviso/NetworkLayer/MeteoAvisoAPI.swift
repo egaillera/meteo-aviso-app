@@ -63,7 +63,27 @@ enum MeteoAvisoAPI {
         return agent.run(request)
             .map(\.value)
             .eraseToAnyPublisher()
+    }
+    
+    static func save_rules(stationCode:String,stationRules:[Rule]) -> AnyPublisher<RuleResult, Error> {
+        print("File: \(#file), Function: \(#function), line: \(#line)")
         
+        var dataToSend:[String:Any] = [:]
+        dataToSend["device_id"] = globalDeviceId
+        dataToSend["station"] = stationCode
+        dataToSend["rules"] = stationRules
+        let jsonData = try? JSONSerialization.data(withJSONObject: dataToSend, options: .prettyPrinted)
+        
+        var request = URLRequest(url:base.appendingPathComponent("save_rules"))
+        request.httpMethod = "POST"
+        request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
+        request.httpBody = jsonData
+        
+        print("Request: \(request)")
+        
+        return agent.run(request)
+            .map(\.value)
+            .eraseToAnyPublisher()
         
     }
     
