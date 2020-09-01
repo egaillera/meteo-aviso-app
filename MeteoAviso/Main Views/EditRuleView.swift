@@ -19,7 +19,6 @@ struct EditRuleView: View {
     
     @Environment(\.presentationMode) var presentationMode
     
-    
     var body: some View {
         VStack {
             VStack {

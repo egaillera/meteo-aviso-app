@@ -10,6 +10,8 @@ import SwiftUI
 
 struct RulesListView: View {
     
+    // Rules are loaded in this view, and then shared with
+    // the child views
     @ObservedObject var rulesList = RulesList()
     
     var body: some View {
@@ -27,6 +29,9 @@ struct RulesListView: View {
                   Text("")
                   ScrollView(showsIndicators: false) {
                       ForEach(self.rulesList.rulesDict.keys.sorted(),id:\.self) { key in
+                        // Full rulesList object is shared with the child view, but also the
+                        // code of the station whose rules will be processed, so the child view
+                        // will modify only the rules that belgons to this station
                         RuleView(stationCode: key, rulesList: self.rulesList)
                       }
                   }

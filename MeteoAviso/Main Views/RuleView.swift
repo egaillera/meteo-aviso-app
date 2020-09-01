@@ -12,7 +12,6 @@ struct RuleView: View {
     
     var stationCode:String
     @ObservedObject var rulesList:RulesList
-    
     @State var editRule = false
    
     var body: some View {
