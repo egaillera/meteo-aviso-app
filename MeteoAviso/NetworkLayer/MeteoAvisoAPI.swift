@@ -65,7 +65,7 @@ enum MeteoAvisoAPI {
             .eraseToAnyPublisher()
     }
     
-    static func save_rules(stationCode:String,stationRules:[Rule]) -> AnyPublisher<RuleResult, Error> {
+    static func save_rules(stationCode:String,stationRules:[[String:Any]]) -> AnyPublisher<RuleResult, Error> {
         print("File: \(#file), Function: \(#function), line: \(#line)")
         
         var dataToSend:[String:Any] = [:]
@@ -76,6 +76,7 @@ enum MeteoAvisoAPI {
         
         var request = URLRequest(url:base.appendingPathComponent("save_rules"))
         request.httpMethod = "POST"
+        request.setValue(iOSapiKey, forHTTPHeaderField: "Authorization")
         request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
         request.httpBody = jsonData
         
