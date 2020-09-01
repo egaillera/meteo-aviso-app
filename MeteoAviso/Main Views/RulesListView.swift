@@ -33,7 +33,7 @@ struct RulesListView: View {
               }
             }
             }.onAppear(perform: {self.rulesList.getRulesFromServer()})
-         .alert(isPresented: self.$rulesList.commError) {
+            .alert(isPresented: self.$rulesList.commError) {
                 Alert(title: Text("Error de comunicaciones con servidor"))
             }
     }

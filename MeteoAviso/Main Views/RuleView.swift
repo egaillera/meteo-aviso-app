@@ -16,8 +16,7 @@ struct RuleView: View {
     @State var editRule = false
    
     var body: some View {
-        print("File: \(#file), Function: \(#function), line: \(#line)")
-        return VStack() {
+        VStack() {
             HStack {
                 Text(self.rulesList.rulesDict[self.stationCode]!.station_name)
                     .padding()

@@ -21,8 +21,7 @@ struct EditRuleView: View {
     
     
     var body: some View {
-        print("File: \(#file), Function: \(#function), line: \(#line)")
-        return VStack {
+        VStack {
             VStack {
                 Text("Editar reglas para \(self.rulesList.rulesDict[self.stationCode]!.station_name)").padding()
                 Text("Codigo estación: \(stationCode)").padding()
@@ -62,6 +61,11 @@ struct EditRuleView: View {
         rulesList.rulesDict[self.stationCode]!.rules.append(Rule(["dimension":"current_temp","quantifier":"<","value":minTempTh,"offset":Float(0)]))
         
         // Tell the object to save itself to the server for this station
+        /*
+            TODO: what happens if the save operation fails? Looks like the
+            the RuleListView is not updated fron the server: it shows the current
+            rulesList object
+        */
         self.rulesList.save_rules(station_code: stationCode)
         
         self.presentationMode.wrappedValue.dismiss()
