@@ -8,8 +8,6 @@
 
 import UIKit
 
-let myLocation = LocationDetector()
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
