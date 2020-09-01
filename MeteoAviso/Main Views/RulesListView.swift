@@ -14,6 +14,7 @@ struct RulesListView: View {
     
     var body: some View {
         print("File: \(#file), Function: \(#function), line: \(#line)")
+        //rulesList.getRulesFromServer()
         
         return Group {
             
@@ -26,12 +27,12 @@ struct RulesListView: View {
                   Text("")
                   ScrollView(showsIndicators: false) {
                       ForEach(self.rulesList.rulesDict.keys.sorted(),id:\.self) { key in
-                          RuleView(stationCode: key,ruleConfig: self.rulesList.rulesDict[key]!)
+                        RuleView(stationCode: key, rulesList: self.rulesList)
                       }
                   }
               }
             }
-        }.onAppear(perform: {self.rulesList.getRulesFromServer()})
+            }.onAppear(perform: {self.rulesList.getRulesFromServer()})
          .alert(isPresented: self.$rulesList.commError) {
                 Alert(title: Text("Error de comunicaciones con servidor"))
             }
