@@ -37,6 +37,7 @@ class RulesList: ObservableObject {
         print("File: \(#file), Function: \(#function), line: \(#line)")
               
         self.isDataLoading = true
+        self.rulesLoaded = false
         
         self.sub = MeteoAvisoAPI.get_rules()
             .print()
