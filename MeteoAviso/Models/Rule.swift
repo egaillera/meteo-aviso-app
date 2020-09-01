@@ -35,6 +35,7 @@ struct ConfigData:Codable {
     var rules:[Rule]
     var station_name:String
     
+    
     init() {
         print("File: \(#file), Function: \(#function), line: \(#line)")
         rules = []
@@ -49,4 +50,13 @@ struct ConfigData:Codable {
         self.station_name = station_name
     }
 }
+
+// Struct to get the answer of the save rules operation
+struct RuleResult:Codable {
+    var rules:String
+    var status:Int
+}
+
+
+
 

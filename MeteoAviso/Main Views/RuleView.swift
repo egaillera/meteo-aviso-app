@@ -11,7 +11,7 @@ import SwiftUI
 struct RuleView: View {
     
     var stationCode:String
-    var ruleConfig:ConfigData
+    @ObservedObject var rulesList:RulesList
     
     @State var editRule = false
    
@@ -19,19 +19,16 @@ struct RuleView: View {
         print("File: \(#file), Function: \(#function), line: \(#line)")
         return VStack() {
             HStack {
-                Text(ruleConfig.station_name)
+                Text(self.rulesList.rulesDict[self.stationCode]!.station_name)
                     .padding()
                     .font(.system(size: 18, weight: .heavy, design: .default))
                 Spacer()
                 Button(action: {self.editRule = true}) {
                     Text("Edit")
                 }.padding()
-                 .sheet(isPresented: $editRule,
-                        onDismiss: {print("Get rules")}) {
-                    EditRuleView(stationCode: self.stationCode,
-                                 stationName: self.ruleConfig.station_name,
-                                 maxRainTh: self.getRuleThresholds(dimension: "rainfall",
-                                                                quantifier: ">"),
+                 .sheet(isPresented: $editRule) {
+                    EditRuleView(stationCode: self.stationCode,rulesList:self.rulesList,
+                                 maxRainTh: self.getRuleThresholds(dimension: "rainfall",quantifier: ">"),
                                  maxTempTh: self.getRuleThresholds(dimension: "current_temp",quantifier: ">"),
                                  minTempTh: self.getRuleThresholds(dimension: "current_temp",quantifier: "<"))
                 }
@@ -54,13 +51,13 @@ struct RuleView: View {
         }.frame(width:400,height: 200)
     }
     
-    func getRuleThresholds(dimension:String, quantifier:String) -> Double {
+    func getRuleThresholds(dimension:String, quantifier:String) -> Float {
         
-        var dimensionValue:Double = -999
+        var dimensionValue:Float = -999
         
-        for r in ruleConfig.rules {
+        for r in rulesList.rulesDict[self.stationCode]!.rules {
             if (r.dimension == dimension && r.quantifier == quantifier) {
-                dimensionValue =  Double(r.value)
+                dimensionValue =  Float(r.value)
             }
         }
         
@@ -71,7 +68,7 @@ struct RuleView: View {
 #if DEBUG
 struct RuleView_Previews: PreviewProvider {
     static var previews: some View {
-        return RuleView(stationCode:"Alicante",ruleConfig:ConfigData(station_name: "Alicante"))
+        return RuleView(stationCode:"Alicante",rulesList:RulesList(stationCode:"Alicante"))
     }
 }
 #endif

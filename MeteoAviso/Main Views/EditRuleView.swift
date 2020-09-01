@@ -11,17 +11,20 @@ import SwiftUI
 struct EditRuleView: View {
     
     var stationCode:String
-    var stationName:String
+    @ObservedObject var rulesList:RulesList
     
-    @State var maxRainTh:Double
-    @State var maxTempTh:Double
-    @State var minTempTh:Double
+    @State var maxRainTh:Float
+    @State var maxTempTh:Float
+    @State var minTempTh:Float
+    
+    @Environment(\.presentationMode) var presentationMode
+    
     
     var body: some View {
         print("File: \(#file), Function: \(#function), line: \(#line)")
         return VStack {
             VStack {
-                Text("Editar reglas para \(stationName)").padding()
+                Text("Editar reglas para \(self.rulesList.rulesDict[self.stationCode]!.station_name)").padding()
                 Text("Codigo estación: \(stationCode)").padding()
             }.padding()
             Spacer()
@@ -39,16 +42,34 @@ struct EditRuleView: View {
             }.padding()
             Spacer()
             HStack {
-                Button(action: {}) {Text("Guardar")}.padding()
-                Button(action: {}) {Text("Cancelar")}.padding()
+                Button(action: {self.saveRules()}) {Text("Guardar")}.padding()
+                Button(action: {self.presentationMode.wrappedValue.dismiss()}) {Text("Cancelar")}.padding()
             }
             Spacer()
         }
+    }
+    
+    // Modify the rules in the rulesList object according to the information in the view
+    func saveRules() {
+        print("File: \(#file), Function: \(#function), line: \(#line)")
+        
+        // Empty the existing rules
+        self.rulesList.rulesDict[self.stationCode]!.rules = []
+        
+        // Add new rules to the rulesList object
+        rulesList.rulesDict[self.stationCode]!.rules.append(Rule(["dimension":"rainfall","quantifier":">","value":maxRainTh,"offset":Float(0)]))
+        rulesList.rulesDict[self.stationCode]!.rules.append(Rule(["dimension":"current_temp","quantifier":">","value":maxTempTh,"offset":Float(0)]))
+        rulesList.rulesDict[self.stationCode]!.rules.append(Rule(["dimension":"current_temp","quantifier":"<","value":minTempTh,"offset":Float(0)]))
+        
+        // Tell the object to save itself to the server for this station
+        self.rulesList.save_rules(station_code: stationCode)
+        
+        self.presentationMode.wrappedValue.dismiss()
     }
 }
 
 struct EditRuleView_Previews: PreviewProvider {
     static var previews: some View {
-        EditRuleView(stationCode: "0852X", stationName:"Alicante",maxRainTh: 0, maxTempTh: 0, minTempTh: 0)
+        EditRuleView(stationCode: "0852X", rulesList:RulesList(stationCode:"Alicante"),maxRainTh: 0, maxTempTh: 0, minTempTh: 0)
     }
 }
