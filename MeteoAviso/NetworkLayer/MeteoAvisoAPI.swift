@@ -24,31 +24,7 @@ enum MeteoAvisoAPI {
     static let base = URL(string:"https://meteoaviso.garciaillera.com:9090")! // Production environment
 #endif
     
-    
-    static func last_measurements() -> AnyPublisher<[Measurement],Error> {
-        print("File: \(#file), Function: \(#function), line: \(#line)")
-        
-        var request = URLRequest(url:base.appendingPathComponent("last_measurements"))
-        request.setValue(iOSapiKey, forHTTPHeaderField: "Authorization")
-        print("Request: \(request)")
-        
-        return agent.run(request)
-            .map(\.value)
-            .eraseToAnyPublisher()
-    }
-    
-    static func get_rules() -> AnyPublisher<[String:ConfigData],Error> {
-        print("File: \(#file), Function: \(#function), line: \(#line)")
-        
-        var request = URLRequest(url:base.appendingPathComponent("get_rules/\(globalDeviceId!)"))
-        request.setValue(iOSapiKey, forHTTPHeaderField: "Authorization")
-        print("Request: \(request)")
-        
-        return agent.run(request)
-            .map(\.value)
-            .eraseToAnyPublisher()
-    }
-    
+    // Send the notification token to server, so the server can send notifications later
     static func send_token(userEmail:String,tokenStr:String) -> AnyPublisher<TokenResult,Error> {
         print("File: \(#file), Function: \(#function), line: \(#line)")
         
@@ -65,6 +41,47 @@ enum MeteoAvisoAPI {
             .eraseToAnyPublisher()
     }
     
+    // Returns measurements for all stations
+    static func last_measurements() -> AnyPublisher<[Measurement],Error> {
+        print("File: \(#file), Function: \(#function), line: \(#line)")
+        
+        var request = URLRequest(url:base.appendingPathComponent("last_measurements"))
+        request.setValue(iOSapiKey, forHTTPHeaderField: "Authorization")
+        print("Request: \(request)")
+        
+        return agent.run(request)
+            .map(\.value)
+            .eraseToAnyPublisher()
+    }
+    
+    // Returns the rules for all stations configured for this device
+    static func get_rules() -> AnyPublisher<[String:ConfigData],Error> {
+        print("File: \(#file), Function: \(#function), line: \(#line)")
+        
+        var request = URLRequest(url:base.appendingPathComponent("get_rules/\(globalDeviceId!)"))
+        request.setValue(iOSapiKey, forHTTPHeaderField: "Authorization")
+        print("Request: \(request)")
+        
+        return agent.run(request)
+            .map(\.value)
+            .eraseToAnyPublisher()
+    }
+    
+    // Returns the rules for one station configured for this device
+    static func get_rules(stationCode:String) -> AnyPublisher<[Rule],Error> {
+        print("File: \(#file), Function: \(#function), line: \(#line)")
+        
+        var request = URLRequest(url:base.appendingPathComponent("get_rules/\(globalDeviceId!)/\(stationCode)"))
+        request.setValue(iOSapiKey, forHTTPHeaderField: "Authorization")
+        print("Request: \(request)")
+        
+        return agent.run(request)
+            .map(\.value)
+            .eraseToAnyPublisher()
+    }
+    
+    
+    // Send to the server the new configured rules to save them in the database
     static func save_rules(stationCode:String,stationRules:[[String:Any]]) -> AnyPublisher<RuleResult, Error> {
         print("File: \(#file), Function: \(#function), line: \(#line)")
         
