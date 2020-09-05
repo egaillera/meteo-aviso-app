@@ -44,7 +44,7 @@ struct ContentView: View {
     
     private var content: some View {
         
-        // Use Group to return diffente view types
+        // Use Group to return different view types
         Group {
             if (self.msList.isDataLoading == false) {
                 

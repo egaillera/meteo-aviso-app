@@ -25,19 +25,21 @@ class RulesList: ObservableObject {
     
     init() {
         print("File: \(#file), Function: \(#function), line: \(#line)")
-        //getRulesFromServer()
     }
     
     init(stationCode:String) {
         rulesDict = [stationCode:ConfigData(station_name:stationCode)]
+        rulesLoaded = true // To simulate a complet object
     }
     
+    // Get all the rules from server and save then in self
     func getRulesFromServer() {
         
         print("File: \(#file), Function: \(#function), line: \(#line)")
               
         self.isDataLoading = true
         self.rulesLoaded = false
+        self.commError = false
         
         self.sub = MeteoAvisoAPI.get_rules()
             .print()
@@ -61,7 +63,49 @@ class RulesList: ObservableObject {
                     self.rulesDict = $0
                     self.isDataLoading = false
                     self.rulesLoaded = true
-                    print("Rules loaded!!")
+                    print("  All rules loaded!!")
+            }
+        )
+    }
+    
+    // Get only the rules of a station, an updates self only with
+    // the information about the station
+    func getRulesFromServer(stationCode:String) {
+        
+        print("File: \(#file), Function: \(#function), line: \(#line)")
+        print("    Getting rules for station \(stationCode)")
+        
+        self.isDataLoading = true
+        self.rulesLoaded = false
+        self.commError = false
+        
+        // Make sure the placeholder in the dict for the rules of
+        // the specific station exists and it's empty
+        self.rulesDict[stationCode] = ConfigData()
+        
+        self.sub = MeteoAvisoAPI.get_rules(stationCode: stationCode)
+            .print()
+            .sink(receiveCompletion: { completion in
+                switch completion {
+                        case .finished:
+                            // no associated data, but you can react to knowing the
+                            // request has been completed
+                            break
+                        case .failure(let anError):
+                            // do what you want with the error details, presenting,
+                            // logging, or hiding as appropriate
+                            self.commError = true
+                            self.isDataLoading = false
+                            print("received the error: ", anError)
+                            break
+                    }
+                },
+                  receiveValue: {
+                    print("Received data: \($0.prefix(1)) ...") // Show only first rule
+                    self.rulesDict[stationCode]!.rules = $0  // Can unwrap safely due to the previous placeholder
+                    self.isDataLoading = false
+                    self.rulesLoaded = true
+                    print("Rules loaded for station \(stationCode)!!")
             }
         )
     }
@@ -101,5 +145,18 @@ class RulesList: ObservableObject {
             )
         }
         
+    }
+    
+    func getRuleThresholds(stationCode:String, dimension:String, quantifier:String) -> Double {
+        
+        var dimensionValue:Float = -999
+        
+        for r in rulesDict[stationCode]!.rules {
+            if (r.dimension == dimension && r.quantifier == quantifier) {
+                dimensionValue =  Float(r.value)
+            }
+        }
+        
+        return Double(dimensionValue)
     }
 }

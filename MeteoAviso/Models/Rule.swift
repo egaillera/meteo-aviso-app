@@ -12,15 +12,15 @@ import Foundation
 struct Rule:CustomStringConvertible,Codable {
     var dimension:String
     var quantifier:String
-    var value:Float
-    var offset:Float
+    var value:Double
+    var offset:Double
     
     init(_ dictionary:[String:Any]) {
         
         self.dimension = dictionary["dimension"] as! String
         self.quantifier = dictionary["quantifier"] as! String
-        self.value = dictionary["value"] as! Float
-        self.offset = dictionary["offset"] as! Float
+        self.value = dictionary["value"] as! Double
+        self.offset = dictionary["offset"] as! Double
     }
     
     var description: String {

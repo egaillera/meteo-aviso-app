@@ -13,13 +13,25 @@ struct EditRuleView: View {
     var stationCode:String
     @ObservedObject var rulesList:RulesList
     
-    @State var maxRainTh:Float
-    @State var maxTempTh:Float
-    @State var minTempTh:Float
+    @State var maxRainTh = -999.0
+    @State var maxTempTh = -999.0
+    @State var minTempTh = -999.0
     
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
+        
+        return Group {
+            if (rulesList.rulesLoaded) {
+                station_info
+            }
+            else {
+              Spinner(isAnimating: true, style: .large)
+            }
+        }
+    }
+    
+    private var station_info: some View {
         VStack {
             VStack {
                 Text("Editar reglas para \(self.rulesList.rulesDict[self.stationCode]!.station_name)").padding()
@@ -29,6 +41,7 @@ struct EditRuleView: View {
             HStack {
                 Text("Umbral de lluvia: \(maxRainTh)")
                 Slider(value:$maxRainTh,in:0...200,step: 1.0)
+                    
             }.padding()
             HStack {
                 Text("Umbral de temperatura maxima: \(maxTempTh)")
@@ -44,26 +57,40 @@ struct EditRuleView: View {
                 Button(action: {self.presentationMode.wrappedValue.dismiss()}) {Text("Cancelar")}.padding()
             }
             Spacer()
-        }
+        }.onAppear(perform:{ // Set current values of the slider
+            self.maxRainTh =
+                self.rulesList.getRuleThresholds(stationCode:self.stationCode,dimension: "rainfall",quantifier: ">")
+            self.maxTempTh =
+                self.rulesList.getRuleThresholds(stationCode:self.stationCode,dimension: "current_temp",quantifier: ">")
+            self.minTempTh =
+                self.rulesList.getRuleThresholds(stationCode:self.stationCode,dimension: "current_temp",quantifier: "<")
+        })
     }
     
     // Modify the rules in the rulesList object according to the information in the view
+    // and persist object in the server
     func saveRules() {
         print("File: \(#file), Function: \(#function), line: \(#line)")
         
         // Empty the existing rules
         self.rulesList.rulesDict[self.stationCode]!.rules = []
         
-        // Add new rules to the rulesList object
-        rulesList.rulesDict[self.stationCode]!.rules.append(Rule(["dimension":"rainfall","quantifier":">","value":maxRainTh,"offset":Float(0)]))
-        rulesList.rulesDict[self.stationCode]!.rules.append(Rule(["dimension":"current_temp","quantifier":">","value":maxTempTh,"offset":Float(0)]))
-        rulesList.rulesDict[self.stationCode]!.rules.append(Rule(["dimension":"current_temp","quantifier":"<","value":minTempTh,"offset":Float(0)]))
+        // Add the new rules to the rulesList object. Skip rules with default value -999.0
+        if (maxRainTh != -999.0) {
+            rulesList.rulesDict[self.stationCode]!.rules.append(Rule(["dimension":"rainfall","quantifier":">","value":maxRainTh,"offset":0.0]))
+        }
+        if (maxTempTh != -999.0) {
+            rulesList.rulesDict[self.stationCode]!.rules.append(Rule(["dimension":"current_temp","quantifier":">","value":maxTempTh,"offset":0.0]))
+        }
+        if (minTempTh != -999.0) {
+            rulesList.rulesDict[self.stationCode]!.rules.append(Rule(["dimension":"current_temp","quantifier":"<","value":minTempTh,"offset":0.0]))
+        }
         
-        // Tell the object to save itself to the server for this station
+        // Tell the object to save itself to the server with this station rules updated
         /*
             TODO: what happens if the save operation fails? Looks like the
-            the RuleListView is not updated fron the server: it shows the current
-            rulesList object
+            the RuleListView won't be updated from the server, but from the
+            local RuleList object
         */
         self.rulesList.save_rules(station_code: stationCode)
         

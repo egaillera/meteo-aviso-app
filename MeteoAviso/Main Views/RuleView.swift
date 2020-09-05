@@ -15,7 +15,7 @@ struct RuleView: View {
     @State var editRule = false
    
     var body: some View {
-        VStack() {
+         VStack() {
             HStack {
                 Text(self.rulesList.rulesDict[self.stationCode]!.station_name)
                     .padding()
@@ -23,44 +23,29 @@ struct RuleView: View {
                 Spacer()
                 Button(action: {self.editRule = true}) {
                     Text("Edit")
-                }.padding()
+                    }.padding()
                  .sheet(isPresented: $editRule) {
-                    EditRuleView(stationCode: self.stationCode,rulesList:self.rulesList,
-                                 maxRainTh: self.getRuleThresholds(dimension: "rainfall",quantifier: ">"),
-                                 maxTempTh: self.getRuleThresholds(dimension: "current_temp",quantifier: ">"),
-                                 minTempTh: self.getRuleThresholds(dimension: "current_temp",quantifier: "<"))
+                    EditRuleView(stationCode: self.stationCode,rulesList:self.rulesList)
                 }
             }
             HStack {
                 Text("Precipitación mayor que ").padding()
                 Spacer()
-                Text("\(getRuleThresholds(dimension: "rainfall",quantifier: ">")) l.").padding()
+                Text("\(self.rulesList.getRuleThresholds(stationCode:self.stationCode,dimension: "rainfall",quantifier: ">")) l.").padding()
             }
             HStack {
                 Text("Temperatura mayor que ").padding()
                 Spacer()
-                Text("\(getRuleThresholds(dimension: "current_temp",quantifier: ">")) ºC").padding()
+                Text("\(self.rulesList.getRuleThresholds(stationCode:self.stationCode,dimension: "current_temp",quantifier: ">")) ºC").padding()
             }
             HStack {
                 Text("Temperatura menor que ").padding()
                 Spacer()
-                Text("\(getRuleThresholds(dimension: "current_temp",quantifier: "<")) ºC").padding()
+                Text("\(self.rulesList.getRuleThresholds(stationCode:self.stationCode,dimension: "current_temp",quantifier: "<")) ºC").padding()
             }
         }.frame(width:400,height: 200)
     }
     
-    func getRuleThresholds(dimension:String, quantifier:String) -> Float {
-        
-        var dimensionValue:Float = -999
-        
-        for r in rulesList.rulesDict[self.stationCode]!.rules {
-            if (r.dimension == dimension && r.quantifier == quantifier) {
-                dimensionValue =  Float(r.value)
-            }
-        }
-        
-        return dimensionValue
-    }
 }
 
 #if DEBUG
