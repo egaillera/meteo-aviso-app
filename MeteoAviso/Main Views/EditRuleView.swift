@@ -13,9 +13,9 @@ struct EditRuleView: View {
     var stationCode:String
     @ObservedObject var rulesList:RulesList
     
-    @State var maxRainTh = -999.0
-    @State var maxTempTh = -999.0
-    @State var minTempTh = -999.0
+    @State var maxRainTh = Constants.rulesDefaultValue
+    @State var maxTempTh = Constants.rulesDefaultValue
+    @State var minTempTh = Constants.rulesDefaultValue
     
     @Environment(\.presentationMode) var presentationMode
     
@@ -75,14 +75,14 @@ struct EditRuleView: View {
         // Empty the existing rules
         self.rulesList.rulesDict[self.stationCode]!.rules = []
         
-        // Add the new rules to the rulesList object. Skip rules with default value -999.0
-        if (maxRainTh != -999.0) {
+        // Add the new rules to the rulesList object. Skip rules with default value
+        if (maxRainTh != Constants.rulesDefaultValue) {
             rulesList.rulesDict[self.stationCode]!.rules.append(Rule(["dimension":"rainfall","quantifier":">","value":maxRainTh,"offset":0.0]))
         }
-        if (maxTempTh != -999.0) {
+        if (maxTempTh != Constants.rulesDefaultValue) {
             rulesList.rulesDict[self.stationCode]!.rules.append(Rule(["dimension":"current_temp","quantifier":">","value":maxTempTh,"offset":0.0]))
         }
-        if (minTempTh != -999.0) {
+        if (minTempTh != Constants.rulesDefaultValue) {
             rulesList.rulesDict[self.stationCode]!.rules.append(Rule(["dimension":"current_temp","quantifier":"<","value":minTempTh,"offset":0.0]))
         }
         

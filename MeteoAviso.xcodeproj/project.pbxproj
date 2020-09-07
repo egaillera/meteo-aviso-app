@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E40543D42506A2B600202146 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40543D32506A2B600202146 /* Constants.swift */; };
 		E458BAA024F5422200BE87AD /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E458BA9F24F5422200BE87AD /* TokenManager.swift */; };
 		E4E8810F24F400C700FB7119 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4E8810E24F400C700FB7119 /* Assets.xcassets */; };
 		E4E8811224F400C700FB7119 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4E8811124F400C700FB7119 /* Preview Assets.xcassets */; };
@@ -35,6 +36,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E40543D32506A2B600202146 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E458BA9F24F5422200BE87AD /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
 		E458BAA124F8E2A300BE87AD /* MeteoAvisoRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MeteoAvisoRelease.entitlements; sourceTree = "<group>"; };
 		E4E8810524F400C500FB7119 /* MeteoAviso.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeteoAviso.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -178,6 +180,7 @@
 			children = (
 				E4E8813A24F401CE00FB7119 /* AppDelegate.swift */,
 				E4E8813B24F401CE00FB7119 /* SceneDelegate.swift */,
+				E40543D32506A2B600202146 /* Constants.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 				E4E8814524F401CE00FB7119 /* Rule.swift in Sources */,
 				E4E8814924F401CE00FB7119 /* MeteoAvisoAPI.swift in Sources */,
 				E4E8814424F401CE00FB7119 /* Station.swift in Sources */,
+				E40543D42506A2B600202146 /* Constants.swift in Sources */,
 				E4E8814B24F401CE00FB7119 /* MeasurementAnnotation.swift in Sources */,
 				E4E8814824F401CE00FB7119 /* Agent.swift in Sources */,
 				E4E8815324F401CE00FB7119 /* NavigationConfigurator.swift in Sources */,

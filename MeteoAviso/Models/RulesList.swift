@@ -149,7 +149,7 @@ class RulesList: ObservableObject {
     
     func getRuleThresholds(stationCode:String, dimension:String, quantifier:String) -> Double {
         
-        var dimensionValue:Float = -999
+        var dimensionValue:Float = Float(Constants.rulesDefaultValue)
         
         for r in rulesDict[stationCode]!.rules {
             if (r.dimension == dimension && r.quantifier == quantifier) {

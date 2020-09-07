@@ -16,12 +16,12 @@ let globalDeviceId = UIDevice.current.identifierForVendor?.uuidString
 enum MeteoAvisoAPI {
     
     static let agent = Agent()
-    static let iOSapiKey = "1234567890"
+    
     
 #if targetEnvironment(simulator)
-    static let base = URL(string:"http://localhost:9090/")! // Local Docker environment, set up in Info.plist
+    static let base = URL(string:Constants.urlTestEnvironment)! // Local Docker environment, set up in Info.plist
 #else
-    static let base = URL(string:"https://meteoaviso.garciaillera.com:9090")! // Production environment
+    static let base = URL(string:Constants.urlProductionEnvironment)! // Production environment
 #endif
     
     // Send the notification token to server, so the server can send notifications later
@@ -32,7 +32,7 @@ enum MeteoAvisoAPI {
         request.httpMethod = "POST"
         let postString = "emailaddress=\(userEmail)&token=\(tokenStr)&deviceid=\(globalDeviceId!)"
         request.setValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
-        request.setValue(iOSapiKey, forHTTPHeaderField: "Authorization")
+        request.setValue(Constants.iOSapiKey, forHTTPHeaderField: "Authorization")
         request.httpBody = postString.data(using: String.Encoding.utf8)
         print("Request: \(request)")
         
@@ -46,7 +46,7 @@ enum MeteoAvisoAPI {
         print("File: \(#file), Function: \(#function), line: \(#line)")
         
         var request = URLRequest(url:base.appendingPathComponent("last_measurements"))
-        request.setValue(iOSapiKey, forHTTPHeaderField: "Authorization")
+        request.setValue(Constants.iOSapiKey, forHTTPHeaderField: "Authorization")
         print("Request: \(request)")
         
         return agent.run(request)
@@ -59,7 +59,7 @@ enum MeteoAvisoAPI {
         print("File: \(#file), Function: \(#function), line: \(#line)")
         
         var request = URLRequest(url:base.appendingPathComponent("get_rules/\(globalDeviceId!)"))
-        request.setValue(iOSapiKey, forHTTPHeaderField: "Authorization")
+        request.setValue(Constants.iOSapiKey, forHTTPHeaderField: "Authorization")
         print("Request: \(request)")
         
         return agent.run(request)
@@ -72,7 +72,7 @@ enum MeteoAvisoAPI {
         print("File: \(#file), Function: \(#function), line: \(#line)")
         
         var request = URLRequest(url:base.appendingPathComponent("get_rules/\(globalDeviceId!)/\(stationCode)"))
-        request.setValue(iOSapiKey, forHTTPHeaderField: "Authorization")
+        request.setValue(Constants.iOSapiKey, forHTTPHeaderField: "Authorization")
         print("Request: \(request)")
         
         return agent.run(request)
@@ -93,7 +93,7 @@ enum MeteoAvisoAPI {
         
         var request = URLRequest(url:base.appendingPathComponent("save_rules"))
         request.httpMethod = "POST"
-        request.setValue(iOSapiKey, forHTTPHeaderField: "Authorization")
+        request.setValue(Constants.iOSapiKey, forHTTPHeaderField: "Authorization")
         request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
         request.httpBody = jsonData
         
