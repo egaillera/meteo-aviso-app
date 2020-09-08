@@ -8,8 +8,15 @@
 
 import Foundation
 
+
+
 // Definition of a notification rule
 struct Rule:CustomStringConvertible,Codable {
+    
+    enum RuleType {
+        case Rain, MaxTemp, MinTemp
+    }
+    
     var dimension:String
     var quantifier:String
     var value:Double
@@ -42,12 +49,17 @@ struct ConfigData:Codable {
         station_name = ""
     }
     
+    // This initializer it's only user for the preview functionality
     init(station_name:String) {
         print("File: \(#file), Function: \(#function), line: \(#line)")
-        //let rule = Rule(["dimension":dimension,"quantifier":quantifier,"value":value,"offset":0])
-        rules = []
-        //rules.append(rule)
+        
+        self.rules = []
         self.station_name = station_name
+        
+        self.rules.append(Rule(["dimension":"rainfall","quantifier":">","value":5.0,"offset":0.0]))
+        self.rules.append(Rule(["dimension":"current_temp","quantifier":">","value":20.0,"offset":0.0]))
+        self.rules.append(Rule(["dimension":"current_temp","quantifier":"<","value":1.0,"offset":0.0]))
+
     }
 }
 

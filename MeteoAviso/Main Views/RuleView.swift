@@ -28,22 +28,39 @@ struct RuleView: View {
                     EditRuleView(stationCode: self.stationCode,rulesList:self.rulesList)
                 }
             }
-            HStack {
-                Text("Precipitación mayor que ").padding()
-                Spacer()
-                Text("\(self.rulesList.getRuleThresholds(stationCode:self.stationCode,dimension: "rainfall",quantifier: ">")) l.").padding()
-            }
-            HStack {
-                Text("Temperatura mayor que ").padding()
-                Spacer()
-                Text("\(self.rulesList.getRuleThresholds(stationCode:self.stationCode,dimension: "current_temp",quantifier: ">")) ºC").padding()
-            }
-            HStack {
-                Text("Temperatura menor que ").padding()
-                Spacer()
-                Text("\(self.rulesList.getRuleThresholds(stationCode:self.stationCode,dimension: "current_temp",quantifier: "<")) ºC").padding()
-            }
+            
+            rules
+            
         }.frame(width:400,height: 200)
+    }
+    
+    private var rules: some View {
+        
+        // Only shows rules if they are not holding a default value
+        Group {
+            if (self.rulesList.getValue(stationCode:self.stationCode,condition: Rule.RuleType.Rain) != Constants.rulesDefaultValue) {
+                HStack {
+                    Text("Precipitación mayor que ").padding()
+                    Spacer()
+                    Text("\(self.rulesList.getValue(stationCode:self.stationCode,condition: Rule.RuleType.Rain)) l.").padding()
+                    }
+                }
+            if (self.rulesList.getValue(stationCode:self.stationCode,condition: Rule.RuleType.MaxTemp) != Constants.rulesDefaultValue) {
+                HStack {
+                    Text("Temperatura mayor que ").padding()
+                    Spacer()
+                    Text("\(self.rulesList.getValue(stationCode:self.stationCode,condition: Rule.RuleType.MaxTemp)) ºC").padding()
+                }
+            }
+            if (self.rulesList.getValue(stationCode:self.stationCode,condition: Rule.RuleType.MinTemp) != Constants.rulesDefaultValue) {
+                HStack {
+                    Text("Temperatura menor que ").padding()
+                    Spacer()
+                    Text("\(self.rulesList.getValue(stationCode:self.stationCode,condition: Rule.RuleType.MinTemp)) ºC").padding()
+                }
+            }
+        
+        }
     }
     
 }

@@ -59,11 +59,11 @@ struct EditRuleView: View {
             Spacer()
         }.onAppear(perform:{ // Set current values of the slider
             self.maxRainTh =
-                self.rulesList.getRuleThresholds(stationCode:self.stationCode,dimension: "rainfall",quantifier: ">")
+                self.rulesList.getValue(stationCode:self.stationCode,condition: Rule.RuleType.Rain)
             self.maxTempTh =
-                self.rulesList.getRuleThresholds(stationCode:self.stationCode,dimension: "current_temp",quantifier: ">")
+                self.rulesList.getValue(stationCode:self.stationCode,condition: Rule.RuleType.MaxTemp)
             self.minTempTh =
-                self.rulesList.getRuleThresholds(stationCode:self.stationCode,dimension: "current_temp",quantifier: "<")
+                self.rulesList.getValue(stationCode:self.stationCode,condition: Rule.RuleType.MinTemp)
         })
     }
     
@@ -100,6 +100,6 @@ struct EditRuleView: View {
 
 struct EditRuleView_Previews: PreviewProvider {
     static var previews: some View {
-        EditRuleView(stationCode: "0852X", rulesList:RulesList(stationCode:"Alicante"),maxRainTh: 0, maxTempTh: 0, minTempTh: 0)
+        EditRuleView(stationCode: "0852X", rulesList:RulesList(stationCode:"Alicante"),maxRainTh: Constants.rulesDefaultValue, maxTempTh: Constants.rulesDefaultValue, minTempTh: Constants.rulesDefaultValue)
     }
 }

@@ -9,6 +9,7 @@
 import Foundation
 import Combine
 
+
 class RulesList: ObservableObject {
     
     // Dictionary to store rules:
@@ -29,7 +30,7 @@ class RulesList: ObservableObject {
     
     init(stationCode:String) {
         rulesDict = [stationCode:ConfigData(station_name:stationCode)]
-        rulesLoaded = true // To simulate a complet object
+        rulesLoaded = true // To simulate a complete object
     }
     
     // Get all the rules from server and save then in self
@@ -147,9 +148,25 @@ class RulesList: ObservableObject {
         
     }
     
-    func getRuleThresholds(stationCode:String, dimension:String, quantifier:String) -> Double {
+    
+    // Returns the value for the type of rule
+    func getValue(stationCode:String, condition:Rule.RuleType) -> Double {
         
         var dimensionValue:Float = Float(Constants.rulesDefaultValue)
+        var dimension:String
+        var quantifier:String
+        
+        switch condition {
+            case .Rain:
+                dimension = "rainfall"
+                quantifier = ">"
+            case .MaxTemp:
+                dimension = "current_temp"
+                quantifier = ">"
+            case .MinTemp:
+                dimension = "current_temp"
+                quantifier = "<"
+            }
         
         for r in rulesDict[stationCode]!.rules {
             if (r.dimension == dimension && r.quantifier == quantifier) {
@@ -158,5 +175,6 @@ class RulesList: ObservableObject {
         }
         
         return Double(dimensionValue)
+        
     }
 }
