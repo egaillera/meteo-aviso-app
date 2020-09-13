@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -24,6 +25,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         
+        print("Starting Google SDK")
+        GADMobileAds.sharedInstance().start(completionHandler: nil)
+
         // Register with APNs
         UIApplication.shared.registerForRemoteNotifications()
         //print("Registered in APN")

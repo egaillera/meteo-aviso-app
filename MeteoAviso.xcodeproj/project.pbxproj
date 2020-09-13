@@ -3,11 +3,16 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		E40543D42506A2B600202146 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40543D32506A2B600202146 /* Constants.swift */; };
+		E4484935250E95D50079EC0E /* GoogleAppMeasurement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4484931250E95D30079EC0E /* GoogleAppMeasurement.framework */; };
+		E4484936250E95D50079EC0E /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4484932250E95D50079EC0E /* GoogleMobileAds.framework */; };
+		E4484937250E95D50079EC0E /* nanopb.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4484933250E95D50079EC0E /* nanopb.xcframework */; };
+		E4484938250E95D50079EC0E /* GoogleUtilities.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4484934250E95D50079EC0E /* GoogleUtilities.xcframework */; };
+		E448493A250E96E90079EC0E /* PromisesObjC.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4484939250E96E90079EC0E /* PromisesObjC.xcframework */; };
 		E458BAA024F5422200BE87AD /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E458BA9F24F5422200BE87AD /* TokenManager.swift */; };
 		E4E8810F24F400C700FB7119 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4E8810E24F400C700FB7119 /* Assets.xcassets */; };
 		E4E8811224F400C700FB7119 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4E8811124F400C700FB7119 /* Preview Assets.xcassets */; };
@@ -37,6 +42,11 @@
 
 /* Begin PBXFileReference section */
 		E40543D32506A2B600202146 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		E4484931250E95D30079EC0E /* GoogleAppMeasurement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleAppMeasurement.framework; sourceTree = "<group>"; };
+		E4484932250E95D50079EC0E /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
+		E4484933250E95D50079EC0E /* nanopb.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = nanopb.xcframework; sourceTree = "<group>"; };
+		E4484934250E95D50079EC0E /* GoogleUtilities.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = GoogleUtilities.xcframework; sourceTree = "<group>"; };
+		E4484939250E96E90079EC0E /* PromisesObjC.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = PromisesObjC.xcframework; sourceTree = "<group>"; };
 		E458BA9F24F5422200BE87AD /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
 		E458BAA124F8E2A300BE87AD /* MeteoAvisoRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MeteoAvisoRelease.entitlements; sourceTree = "<group>"; };
 		E4E8810524F400C500FB7119 /* MeteoAviso.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeteoAviso.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -72,6 +82,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4484937250E95D50079EC0E /* nanopb.xcframework in Frameworks */,
+				E4484936250E95D50079EC0E /* GoogleMobileAds.framework in Frameworks */,
+				E4484935250E95D50079EC0E /* GoogleAppMeasurement.framework in Frameworks */,
+				E4484938250E95D50079EC0E /* GoogleUtilities.xcframework in Frameworks */,
+				E448493A250E96E90079EC0E /* PromisesObjC.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +98,7 @@
 			children = (
 				E4E8810724F400C500FB7119 /* MeteoAviso */,
 				E4E8810624F400C500FB7119 /* Products */,
+				E4E9F380250E9008009B8C58 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -183,6 +199,18 @@
 				E40543D32506A2B600202146 /* Constants.swift */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		E4E9F380250E9008009B8C58 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E4484931250E95D30079EC0E /* GoogleAppMeasurement.framework */,
+				E4484932250E95D50079EC0E /* GoogleMobileAds.framework */,
+				E4484934250E95D50079EC0E /* GoogleUtilities.xcframework */,
+				E4484933250E95D50079EC0E /* nanopb.xcframework */,
+				E4484939250E96E90079EC0E /* PromisesObjC.xcframework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -418,12 +446,18 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"MeteoAviso/Preview Content\"";
 				DEVELOPMENT_TEAM = 68DY29NLF9;
+				ENABLE_BITCODE = YES;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = MeteoAviso/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.egaillera.MeteoAviso;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -439,12 +473,18 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"MeteoAviso/Preview Content\"";
 				DEVELOPMENT_TEAM = 68DY29NLF9;
+				ENABLE_BITCODE = YES;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = MeteoAviso/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.egaillera.MeteoAviso;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
