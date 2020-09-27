@@ -25,7 +25,7 @@ class RulesList: ObservableObject {
     var sub: Cancellable? = nil
     
     init() {
-        print("File: \(#file), Function: \(#function), line: \(#line)")
+        //print("File: \(#file), Function: \(#function), line: \(#line)")
     }
     
     init(stationCode:String) {

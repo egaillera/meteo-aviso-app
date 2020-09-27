@@ -44,7 +44,7 @@ struct ConfigData:Codable {
     
     
     init() {
-        print("File: \(#file), Function: \(#function), line: \(#line)")
+        //print("File: \(#file), Function: \(#function), line: \(#line)")
         rules = []
         station_name = ""
     }

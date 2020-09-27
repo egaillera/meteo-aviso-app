@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Measurement:CustomStringConvertible,Codable {
+struct Measurement:CustomStringConvertible,Codable,Hashable {
     var name:String
     var lat:Float
     var lon:Float
@@ -38,7 +38,7 @@ struct Measurement:CustomStringConvertible,Codable {
     }
     
     init() {
-        self.name = ""
+        self.name = "Estación de prueba"
         self.lat = 0.0
         self.lon = 0.0
         self.max_gust = 0.0

@@ -14,6 +14,8 @@
 		E4484938250E95D50079EC0E /* GoogleUtilities.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4484934250E95D50079EC0E /* GoogleUtilities.xcframework */; };
 		E448493A250E96E90079EC0E /* PromisesObjC.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4484939250E96E90079EC0E /* PromisesObjC.xcframework */; };
 		E458BAA024F5422200BE87AD /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E458BA9F24F5422200BE87AD /* TokenManager.swift */; };
+		E497B1E1252092970067A35D /* StationsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E497B1E0252092970067A35D /* StationsListView.swift */; };
+		E497B1E425209DD20067A35D /* StationRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E497B1E325209DD20067A35D /* StationRowView.swift */; };
 		E4C509A52515238D009B52B6 /* Banner.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C509A42515238D009B52B6 /* Banner.swift */; };
 		E4E8810F24F400C700FB7119 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4E8810E24F400C700FB7119 /* Assets.xcassets */; };
 		E4E8811224F400C700FB7119 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4E8811124F400C700FB7119 /* Preview Assets.xcassets */; };
@@ -50,6 +52,8 @@
 		E4484939250E96E90079EC0E /* PromisesObjC.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = PromisesObjC.xcframework; sourceTree = "<group>"; };
 		E458BA9F24F5422200BE87AD /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
 		E458BAA124F8E2A300BE87AD /* MeteoAvisoRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MeteoAvisoRelease.entitlements; sourceTree = "<group>"; };
+		E497B1E0252092970067A35D /* StationsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationsListView.swift; sourceTree = "<group>"; };
+		E497B1E325209DD20067A35D /* StationRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationRowView.swift; sourceTree = "<group>"; };
 		E4C509A42515238D009B52B6 /* Banner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Banner.swift; sourceTree = "<group>"; };
 		E4E8810524F400C500FB7119 /* MeteoAviso.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeteoAviso.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4E8810E24F400C700FB7119 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -147,6 +151,8 @@
 				E4E8812024F401CE00FB7119 /* EditRuleView.swift */,
 				E4E8812124F401CE00FB7119 /* StationView.swift */,
 				E4E8812224F401CE00FB7119 /* ContentView.swift */,
+				E497B1E0252092970067A35D /* StationsListView.swift */,
+				E497B1E325209DD20067A35D /* StationRowView.swift */,
 			);
 			path = "Main Views";
 			sourceTree = "<group>";
@@ -287,6 +293,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E497B1E425209DD20067A35D /* StationRowView.swift in Sources */,
 				E4E8813C24F401CE00FB7119 /* RuleView.swift in Sources */,
 				E4E8814C24F401CE00FB7119 /* StationAnnotation.swift in Sources */,
 				E4E8814624F401CE00FB7119 /* MesasurementsList.swift in Sources */,
@@ -307,6 +314,7 @@
 				E4E8813F24F401CE00FB7119 /* EditRuleView.swift in Sources */,
 				E4E8813E24F401CE00FB7119 /* RulesListView.swift in Sources */,
 				E4E8815524F401CE00FB7119 /* SceneDelegate.swift in Sources */,
+				E497B1E1252092970067A35D /* StationsListView.swift in Sources */,
 				E458BAA024F5422200BE87AD /* TokenManager.swift in Sources */,
 				E4E8814024F401CE00FB7119 /* StationView.swift in Sources */,
 				E4E8814E24F401CE00FB7119 /* LocationManager.swift in Sources */,

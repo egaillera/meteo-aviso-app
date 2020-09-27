@@ -58,7 +58,7 @@ class MesasurementsList: NSObject, ObservableObject {
                 },
               receiveValue: {
                 print("Received data: \($0.prefix(5)) ...") // Show only first stations
-                self.msArray = $0
+                self.msArray = $0.sorted(by: {$0.name < $1.name})  // Order stations alphabetically
                 self.filled = true // There's data in the structure
                 self.isDataLoading = false
                 self.showed = false // New data not already showed
