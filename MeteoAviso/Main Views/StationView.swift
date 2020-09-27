@@ -32,7 +32,9 @@ struct StationView: View {
         VStack() {
             HStack {
                 Spacer()
-                Button(action: {self.editRule = true}) {
+                Button(action: {
+                        self.editRule = true
+                        self.rulesForStation.getRulesFromServer(stationCode:self.measurementToDisplay.code)}) {
                     Text("Edit")
                 }.sheet(isPresented: $editRule) {
                     EditRuleView(stationCode: self.measurementToDisplay.code,rulesList:self.rulesForStation)
@@ -42,10 +44,7 @@ struct StationView: View {
             Text("Temperatura: \(measurementToDisplay.current_temp) grados")
             Text("Precipitacion : \(measurementToDisplay.rainfall) litros")
             Text("Fecha: \(measurementToDisplay.date_created)")
-        }.onAppear(perform:
-            {self.rulesForStation.getRulesFromServer(stationCode:self.measurementToDisplay.code)})
-        .alert(isPresented: self.$rulesForStation.commError) {
-            Alert(title: Text("Error de comunicaciones con servidor"))}
+        }
     }
 }
 

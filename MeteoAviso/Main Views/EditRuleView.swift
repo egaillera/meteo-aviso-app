@@ -28,7 +28,8 @@ struct EditRuleView: View {
             else {
               Spinner(isAnimating: true, style: .large)
             }
-        }
+        }.alert(isPresented: self.$rulesList.commError) {
+            Alert(title: Text("Error de comunicaciones con servidor"))}
     }
     
     private var station_info: some View {
