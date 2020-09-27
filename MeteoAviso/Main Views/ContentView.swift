@@ -52,8 +52,7 @@ struct ContentView: View {
                     // Force navigation to StationView when some
                     // station has been selected in MapView
                     if self.stationSelected != "" {
-                        NavigationLink(destination:StationView(measurementToDisplay: self.$measurementToDisplay,
-                            stationSelected: self.$stationSelected),
+                        NavigationLink(destination:StationView(measurementToDisplay: self.$measurementToDisplay),
                             isActive: .constant(true)) {
                                 EmptyView()
                         }
@@ -91,7 +90,7 @@ struct ContentView: View {
                     .renderingMode(.original)
             }
             
-            Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
+            NavigationLink(destination:StationsListView()) {
                 Image("SearchButton")
                     .renderingMode(.original)
             }

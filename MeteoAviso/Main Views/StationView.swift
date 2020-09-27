@@ -23,7 +23,6 @@ import SwiftUI
 
 struct StationView: View {
     @Binding var measurementToDisplay: Measurement
-    @Binding var stationSelected: String
     
     @ObservedObject var rulesForStation = RulesList()
     
@@ -53,7 +52,7 @@ struct StationView: View {
 struct StationView_Previews: PreviewProvider {
     
     static var previews: some View {
-        StationView(measurementToDisplay: .constant(Measurement()), stationSelected: .constant("Alicante"))
+        StationView(measurementToDisplay: .constant(Measurement()))
         
     }
 }
