@@ -16,12 +16,10 @@ struct StationsListView: View {
         VStack {
             Text("Estaciones con observaciones").font(.system(size: 24, weight: .heavy, design: .default))
             Text("")
-            ScrollView(showsIndicators: false) {
-                ForEach(self.msList.msArray,id:\.self) { ms in
-                    // Need to use .constant because in StationView we are using
-                    // a binding variable (it's needed to work with the MapView as well)
-                    NavigationLink(destination:StationView(measurementToDisplay:.constant(ms))) {StationRowView(measurement: ms)}
-                }
+            List(self.msList.msArray,id:\.self) { ms in
+                // Need to use .constant because in StationView we are using
+                // a binding variable (it's needed to work with the MapView as well)
+                NavigationLink(destination:StationView(measurementToDisplay:.constant(ms))) {StationRowView(measurement: ms)}
             }
         }
     }
