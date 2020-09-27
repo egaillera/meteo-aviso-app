@@ -18,4 +18,6 @@ struct Constants {
     
     static let iOSapiKey = "1234567890"
     
+    static let bannerID = "ca-app-pub-8083313450645952/3848806985"
+    
 }

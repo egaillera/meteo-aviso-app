@@ -14,6 +14,7 @@
 		E4484938250E95D50079EC0E /* GoogleUtilities.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4484934250E95D50079EC0E /* GoogleUtilities.xcframework */; };
 		E448493A250E96E90079EC0E /* PromisesObjC.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4484939250E96E90079EC0E /* PromisesObjC.xcframework */; };
 		E458BAA024F5422200BE87AD /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E458BA9F24F5422200BE87AD /* TokenManager.swift */; };
+		E4C509A52515238D009B52B6 /* Banner.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C509A42515238D009B52B6 /* Banner.swift */; };
 		E4E8810F24F400C700FB7119 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4E8810E24F400C700FB7119 /* Assets.xcassets */; };
 		E4E8811224F400C700FB7119 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4E8811124F400C700FB7119 /* Preview Assets.xcassets */; };
 		E4E8811524F400C700FB7119 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4E8811324F400C700FB7119 /* LaunchScreen.storyboard */; };
@@ -49,6 +50,7 @@
 		E4484939250E96E90079EC0E /* PromisesObjC.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = PromisesObjC.xcframework; sourceTree = "<group>"; };
 		E458BA9F24F5422200BE87AD /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
 		E458BAA124F8E2A300BE87AD /* MeteoAvisoRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MeteoAvisoRelease.entitlements; sourceTree = "<group>"; };
+		E4C509A42515238D009B52B6 /* Banner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Banner.swift; sourceTree = "<group>"; };
 		E4E8810524F400C500FB7119 /* MeteoAviso.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeteoAviso.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4E8810E24F400C700FB7119 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E4E8811124F400C700FB7119 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 				E4E8813A24F401CE00FB7119 /* AppDelegate.swift */,
 				E4E8813B24F401CE00FB7119 /* SceneDelegate.swift */,
 				E40543D32506A2B600202146 /* Constants.swift */,
+				E4C509A42515238D009B52B6 /* Banner.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -240,7 +243,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1160;
-				LastUpgradeCheck = 1160;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "Enrique Garcia Illera";
 				TargetAttributes = {
 					E4E8810424F400C500FB7119 = {
@@ -289,6 +292,7 @@
 				E4E8814624F401CE00FB7119 /* MesasurementsList.swift in Sources */,
 				E4E8814524F401CE00FB7119 /* Rule.swift in Sources */,
 				E4E8814924F401CE00FB7119 /* MeteoAvisoAPI.swift in Sources */,
+				E4C509A52515238D009B52B6 /* Banner.swift in Sources */,
 				E4E8814424F401CE00FB7119 /* Station.swift in Sources */,
 				E40543D42506A2B600202146 /* Constants.swift in Sources */,
 				E4E8814B24F401CE00FB7119 /* MeasurementAnnotation.swift in Sources */,
@@ -350,6 +354,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -410,6 +415,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;

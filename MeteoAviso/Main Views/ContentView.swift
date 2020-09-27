@@ -60,6 +60,7 @@ struct ContentView: View {
                     }
                     
                     self.map_view
+                    Banner()
                     
                 }//VStack
             }
