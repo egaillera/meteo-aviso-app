@@ -10,13 +10,18 @@ import SwiftUI
 
 struct StationsListView: View {
     
+    @State private var filterBy: String = ""
+    
     @EnvironmentObject var msList: MesasurementsList
     
     var body: some View {
         VStack {
             Text("Estaciones con observaciones").font(.system(size: 24, weight: .heavy, design: .default))
-            Text("")
-            List(self.msList.msArray,id:\.self) { ms in
+            TextField("Buscar una estación",text:$filterBy)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .padding()
+            List(self.msList.msArray.filter {self.filterBy.isEmpty ? true: $0.name.contains(self.filterBy)},
+                 id:\.self) { ms in
                 // Need to use .constant because in StationView we are using
                 // a binding variable (it's needed to work with the MapView as well)
                 NavigationLink(destination:StationView(measurementToDisplay:.constant(ms))) {StationRowView(measurement: ms)}
