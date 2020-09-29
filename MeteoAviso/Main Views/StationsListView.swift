@@ -16,9 +16,15 @@ struct StationsListView: View {
     
     var body: some View {
         VStack {
-            Text("Estaciones con observaciones").font(.system(size: 24, weight: .heavy, design: .default))
-            TextField("Buscar una estación",text:$filterBy)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
+            Text("")
+            Text("Estaciones con observaciones")
+                .font(.system(size: 24, weight: .heavy, design: .default))
+                .onTapGesture(count: 1, perform: { // Hide keyboard if tapped
+                UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+            })
+            TextField("Filtra por nombre de estación",text:$filterBy)
+                .textFieldStyle(StationSearchTextFieldStyle())
+                //.textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding()
             List(self.msList.msArray.filter {self.filterBy.isEmpty ? true: $0.name.contains(self.filterBy)},
                  id:\.self) { ms in
@@ -27,6 +33,16 @@ struct StationsListView: View {
                 NavigationLink(destination:StationView(measurementToDisplay:.constant(ms))) {StationRowView(measurement: ms)}
             }
         }
+    }
+}
+
+public struct StationSearchTextFieldStyle : TextFieldStyle {
+    public func _body(configuration: TextField<Self._Label>) -> some View {
+        configuration
+            .padding(15) // Set the inner Text Field Padding
+            //Give it some Aura style
+            .background(RoundedRectangle(cornerRadius: 30).foregroundColor(Color(red: 220/255, green: 220/255, blue: 220/255)).opacity(0.4))
+            .foregroundColor(.black)
     }
 }
 
