@@ -24,9 +24,8 @@ struct StationsListView: View {
             })
             TextField("Filtra por nombre de estación",text:$filterBy)
                 .textFieldStyle(StationSearchTextFieldStyle())
-                //.textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding()
-            List(self.msList.msArray.filter {self.filterBy.isEmpty ? true: $0.name.contains(self.filterBy)},
+            List(self.msList.msArray.filter {self.filterBy.isEmpty ? true: $0.name.lowercased().contains(self.filterBy.lowercased())},
                  id:\.self) { ms in
                 // Need to use .constant because in StationView we are using
                 // a binding variable (it's needed to work with the MapView as well)
