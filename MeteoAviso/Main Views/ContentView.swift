@@ -27,9 +27,8 @@ struct ContentView: View {
     @State var measurementToDisplay = Measurement()
     
     var body: some View {
-        print("File: \(#file), Function: \(#function), line: \(#line)")
         
-        return NavigationView {
+         NavigationView {
              content
                 .navigationBarTitle("Mapa de estaciones", displayMode: .inline)
                 .background(NavigationConfigurator { nc in
@@ -73,12 +72,6 @@ struct ContentView: View {
     private var map_buttons: some View {
         // Buttons row with actions
         HStack() {
-            /*if self.navigateToRules {
-                NavigationLink(destination:RulesListView(),
-                               isActive: .constant(true)) {
-                    EmptyView()
-                    }
-            }*/
             
             Button(action: {self.msList.getMeasurementsFromServer()}) {
                 Image("RefreshButton")
