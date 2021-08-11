@@ -23,9 +23,7 @@ import SwiftUI
 
 struct StationView: View {
     @Binding var measurementToDisplay: Measurement
-    
     @ObservedObject var rulesForStation = RulesList()
-    
     @State var editRule = false
     
     var body: some View {

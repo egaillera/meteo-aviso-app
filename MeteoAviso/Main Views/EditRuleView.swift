@@ -26,7 +26,8 @@ struct EditRuleView: View {
                 station_info
             }
             else {
-              Spinner(isAnimating: true, style: .large)
+                // Wait until rules are loaded from server
+                Spinner(isAnimating: true, style: .large)
             }
         }.alert(isPresented: self.$rulesList.commError) {
             Alert(title: Text("Error de comunicaciones con servidor"))}
