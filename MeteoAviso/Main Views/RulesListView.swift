@@ -14,6 +14,9 @@ struct RulesListView: View {
     // the child views
     @ObservedObject var rulesList = RulesList()
     
+    // To avoid a suspected Apple bug calling onAppear multiple times
+    @State var firstAppear: Bool = true
+    
     var body: some View {
         print("File: \(#file), Function: \(#function), line: \(#line)")
         //rulesList.getRulesFromServer()
@@ -37,7 +40,11 @@ struct RulesListView: View {
                   }
               }
             }
-            }.onAppear(perform: {self.rulesList.getRulesFromServer()})
+        }.onAppear(perform: {
+                    if !self.firstAppear { return }
+                    self.firstAppear = false
+                    print("Calling getRulesFromServer() from RulesListView.onAppear()")
+                    self.rulesList.getRulesFromServer()})
             .alert(isPresented: self.$rulesList.commError) {
                 Alert(title: Text("Error de comunicaciones con servidor"))
             }
