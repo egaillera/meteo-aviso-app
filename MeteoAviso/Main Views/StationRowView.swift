@@ -14,7 +14,7 @@ struct StationRowView: View {
     
     var body: some View {
         HStack {
-            Text(Station.replaceHtmlCodesInName(measurement.name)).foregroundColor(.black)
+            Text(measurement.name).foregroundColor(.black)
             Spacer()
             Text("\(String(measurement.current_temp)) ºC")
         }.padding()

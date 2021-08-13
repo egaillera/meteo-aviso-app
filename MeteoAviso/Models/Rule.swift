@@ -49,7 +49,7 @@ struct ConfigData:Codable {
         station_name = ""
     }
     
-    // This initializer it's only user for the preview functionality
+    // This initializer it's only used for the preview functionality
     init(station_name:String) {
         print("File: \(#file), Function: \(#function), line: \(#line)")
         
@@ -61,6 +61,7 @@ struct ConfigData:Codable {
         self.rules.append(Rule(["dimension":"current_temp","quantifier":"<","value":1.0,"offset":0.0]))
 
     }
+    
 }
 
 // Struct to get the answer of the save rules operation

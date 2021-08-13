@@ -55,4 +55,11 @@ struct Measurement:CustomStringConvertible,Codable,Hashable {
     var description: String {
         return "Station \(self.name) at \(self.current_temp) degrees with \(self.rainfall) litres of rainfall"
     }
+    
+    // To return a Measurement object with the name of the station corrected
+    mutating func correctStationName() {
+        
+        self.name = Station.replaceHtmlCodesInName(self.name)
+        
+    }
 }

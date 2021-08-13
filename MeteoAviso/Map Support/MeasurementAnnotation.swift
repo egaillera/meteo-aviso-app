@@ -20,7 +20,7 @@ class MeasurementAnnotation: NSObject, MKAnnotation {
     }
     
     var title: String? {
-        return Station.replaceHtmlCodesInName(measurement.name)
+        return measurement.name
     }
     
     var subtitle: String? {

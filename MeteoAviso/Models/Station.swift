@@ -17,14 +17,11 @@ struct Station:CustomStringConvertible,Codable {
     
     init(_ dictionary:[String:Any]) {
         
-        self.name = dictionary["name"] as! String
+        self.name = Station.replaceHtmlCodesInName(dictionary["name"] as! String)
         self.lat = dictionary["lat"] as! Float
         self.lon = dictionary["lon"] as! Float
         self.code = dictionary["code"] as! String
         self.prov = dictionary["prov"] as! Int
-        
-        // Remove html codes
-        self.name = Station.replaceHtmlCodesInName(self.name)
     }
     
     var description: String {

@@ -33,7 +33,7 @@ class RulesList: ObservableObject {
         rulesLoaded = true // To simulate a complete object
     }
     
-    // Get all the rules from server and save then in self
+    // Get all the rules from server and save them in self
     func getRulesFromServer() {
         
         print("File: \(#file), Function: \(#function), line: \(#line)")
@@ -62,6 +62,8 @@ class RulesList: ObservableObject {
                   receiveValue: {
                     print("Received data: \($0.prefix(1)) ...") // Show only first rule
                     self.rulesDict = $0
+                    self.rulesDict.keys.forEach{ self.rulesDict[$0]?.station_name =
+                        Station.replaceHtmlCodesInName(self.rulesDict[$0]!.station_name)} // Remove HTML codes from name
                     self.isDataLoading = false
                     self.rulesLoaded = true
                     print("  All rules loaded!!")
