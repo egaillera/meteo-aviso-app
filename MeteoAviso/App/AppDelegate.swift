@@ -55,7 +55,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
         
+        print("File: \(#file), Function: \(#function), line: \(#line)")
         print(userInfo)
+        print("Received notification about station <\(userInfo["station_code"] as! String)>")
     }
 
     // MARK: UISceneSession Lifecycle
