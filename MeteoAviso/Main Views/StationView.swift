@@ -38,13 +38,41 @@ struct StationView: View {
                     EditRuleView(stationCode: self.measurementToDisplay.code,rulesList:self.rulesForStation)
                 }
             }.padding()
-            Text(measurementToDisplay.name)
-            Text("Temperatura: \(measurementToDisplay.current_temp) grados")
-            Text("Precipitacion : \(measurementToDisplay.rainfall) litros")
-            Text("Fecha: \(measurementToDisplay.date_created)")
+            VStack {
+                Text("\(measurementToDisplay.name)")
+                    .frame(maxWidth:.infinity,alignment: .center)
+                    .font(.largeTitle)
+                Text("\(measurementToDisplay.date_created)")
+                    .frame(maxWidth:.infinity,alignment: .center)
+                    .font(.title)
+                }
+            
+            .background(Color(.red))
+            
+            Text("\(measurementToDisplay.current_temp)º")
+            .font(.system(size: 80, weight: .light, design: .default))
+            .frame(maxWidth:.infinity, minHeight:400,alignment: .center)
+            .background(Color(.yellow))
+            
+            HStack {
+                Text("Precipitacion : \(measurementToDisplay.rainfall) litros")
+                    .padding()
+                    .background(Color(.green))
+                Text("Humedad : \(measurementToDisplay.current_hum) %")
+                    .padding()
+                    .background(Color(.gray))
+                
+                
+            }
+          Spacer()
         }
+        .background(Color(.blue))
+        .ignoresSafeArea(edges:[.bottom])
+        
     }
+    
 }
+
 
 struct StationView_Previews: PreviewProvider {
     
