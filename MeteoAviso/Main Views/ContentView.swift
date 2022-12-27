@@ -26,6 +26,9 @@ struct ContentView: View {
     @State var stationSelected = ""
     @State var measurementToDisplay = Measurement()
     
+    // To know if a notification has arrived
+    @ObservedObject var notificationArrived = NotificationArrived.shared
+    
     var body: some View {
         
          NavigationView {
@@ -48,6 +51,7 @@ struct ContentView: View {
             if (self.msList.isDataLoading == false) {
                 
                   VStack(alignment: .center) {
+                    
                     // Force navigation to StationView when some
                     // station has been selected in MapView
                     if self.stationSelected != "" {
@@ -58,7 +62,7 @@ struct ContentView: View {
                     }
                     
                     self.map_view
-                    Banner()
+                    //Banner()
                     
                 }//VStack
             }

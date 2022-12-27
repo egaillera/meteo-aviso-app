@@ -42,7 +42,7 @@ struct Measurement:CustomStringConvertible,Codable,Hashable {
         self.lat = 0.0
         self.lon = 0.0
         self.max_gust = 0.0
-        self.date_created = ""
+        self.date_created = "01/01/70"
         self.current_pres = 0.0
         self.rainfall = 0.0
         self.current_temp = 0.0

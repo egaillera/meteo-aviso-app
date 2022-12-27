@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         print("Starting Google SDK")
-        GADMobileAds.sharedInstance().start(completionHandler: nil)
+        //GADMobileAds.sharedInstance().start(completionHandler: nil)
 
         // Register with APNs
         UIApplication.shared.registerForRemoteNotifications()
@@ -34,6 +34,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //UNCOMMENT JUST FOR TESTING IN SIMULATOR, TO HAVE A RECORD WITH A USER
         //myTokenManager.sendToken(userEmail:"egaillera@gmail.com",tokenStr:"token_de_prueba")
+        
+        // Check if launched from notification
+        let notificationOption = launchOptions?[.remoteNotification]
+
+        // 1
+        if
+          let notification = notificationOption as? [String: AnyObject],
+          let aps = notification["aps"] as? [String: AnyObject] {
+            print("Launched by notification")
+        }
         
         return true
     }
@@ -53,13 +63,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print(error)
     }
     
-    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
+    // Treat notification if the app is already running
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         
         print("File: \(#file), Function: \(#function), line: \(#line)")
+        
+        guard let aps = userInfo["aps"] as? [String: AnyObject] else {
+            completionHandler(.failed)
+            return
+          }
+        
         print(userInfo)
-        print("Received notification about station <\(userInfo["station_code"] as! String)>")
+        print("Received notification about station with code <\(userInfo["station_code"] as! String)> and name <\(userInfo["station_name"] as! String)> ")
+        NotificationArrived.shared.stationCodeToNavigationTo = (userInfo["station_code"] as! String)
     }
-
+    
+    
+    
     // MARK: UISceneSession Lifecycle
 
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
@@ -75,5 +95,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 
+}
+
+class NotificationArrived: ObservableObject {
+    static let shared = NotificationArrived()
+    @Published var stationCodeToNavigationTo : String?
 }
 
